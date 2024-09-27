@@ -1,0 +1,227 @@
+.custom-form  .heading-container h2{
+  color: var(--primary-text-green);
+  font-family: "SofiaPro-Medium";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -0.48px;
+  margin: 0;
+}
+.custom-form  .heading-container{
+  margin: 0 0 48px 0;
+  display: block;
+  width: 100%;
+}
+.custom-form  .heading-container .helper{
+  color: var(--tint-dark-green-50);
+  font-family: "SofiaPro-Regular";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: -0.21px;
+  margin: 8px 0 0 0;
+}
+.custom-form .fields{
+  display: flex;
+  flex-direction: column;
+  row-gap: 48px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.custom-form .fields .custom-field{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.custom-form .fields .custom-field .measurement{
+  width: 160px;
+  padding: 24px;
+  background-color: #F5F7F7;
+  -webkit-box-shadow:inset 0 0 0 1px var(--tint-stone-50);
+  -moz-box-shadow:inset 0 0 0 1px var(--tint-stone-50);
+  box-shadow:inset 0 0 0 1px var(--tint-stone-50);
+  border-radius: 0 4px 4px 0;
+  font-family: "SofiaPro-Medium";
+  color: var(--tint-dark-green-50);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.24px;
+  margin-left: -1px;
+}
+
+.custom-form .fields .custom-field .input-field {
+  width: 100%;
+  display: block;
+  position: relative;
+}
+.custom-form .fields .custom-field .input-field input{
+  border-radius: 8px 0 0 8px;
+  padding: 34px 24px 14px 24px;
+  -webkit-box-shadow:inset 0 0 0 1px var(--tint-stone-50);
+  -moz-box-shadow:inset 0 0 0 1px var(--tint-stone-50);
+  box-shadow:inset 0 0 0 1px var(--tint-stone-50);
+  color: var(--primary-green-text);
+  font-family: "SofiaPro-Medium";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.24px;
+  border: 0;
+  outline: 0;
+  width: 100%;
+}
+.custom-form .fields .custom-field .input-field textarea{
+  width: 100%;
+  -webkit-box-shadow:inset 0 0 0 1px var(--tint-stone-50);
+  -moz-box-shadow:inset 0 0 0 1px var(--tint-stone-50);
+  box-shadow:inset 0 0 0 1px var(--tint-stone-50);
+  font-family: "SofiaPro-Medium";
+  color: var(--primary-green-text);
+  padding: 24px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.24px;
+  border-radius: 8px;
+  border: 0;
+  height: 192px;
+  outline: 0;
+  resize: none;
+  display: flex;
+}
+
+.input-field ::-webkit-input-placeholder {
+  color: var(--tint-dark-green-50);
+}
+.input-field :-moz-placeholder {
+  color: var(--tint-dark-green-50);
+}
+.input-field ::-moz-placeholder {
+  color: var(--tint-dark-green-50);
+}
+.input-field :-ms-input-placeholder {
+  color: var(--tint-dark-green-50);
+
+}
+
+.custom-form .fields .custom-field .input-field label{
+  font-family: "SofiaPro-Medium";
+  color: var(--tint-dark-green-50);
+  position: absolute;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 44px;
+  top: 14px;
+  left: 24px;
+  background-color: #FFF;
+  transition: all 0.3s;
+  text-transform: capitalize;
+}
+.custom-form .fields .custom-field .input-field input::-webkit-calendar-picker-indicator{
+  display: none;
+}
+.custom-form .fields .custom-field .input-field.active label{
+  transition: all 0.3s;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: -0.21px;
+  top: 14px;
+  cursor: text;
+}
+.custom-form .fields .custom-field .input-field.active input{
+  -webkit-box-shadow:inset 0 0 0 1px var(--primary-green-text);
+  -moz-box-shadow:inset 0 0 0 1px var(--primary-green-text);
+  box-shadow:inset 0 0 0 1px var(--primary-green-text);
+}
+.custom-form .fields .custom-field .input-field.active textarea{
+  -webkit-box-shadow:inset 0 0 0 1px var(--primary-green-text);
+  -moz-box-shadow:inset 0 0 0 1px var(--primary-green-text);
+  box-shadow:inset 0 0 0 1px var(--primary-green-text);
+}
+.custom-form .fields .custom-field .input-field.active + .measurement{
+  -webkit-box-shadow:inset 0 0 0 1px var(--primary-green-text);
+  -moz-box-shadow:inset 0 0 0 1px var(--primary-green-text);
+  box-shadow:inset 0 0 0 1px var(--primary-green-text);
+}
+.custom-form .fields .custom-field .input-field.error input,
+.custom-form .fields .custom-field .input-field.error + .measurement,
+.custom-form .fields .custom-field .input-field.error textarea{
+  -webkit-box-shadow:inset 0 0 0 1px #FF0000;
+  -moz-box-shadow:inset 0 0 0 1px #FF0000;
+  box-shadow:inset 0 0 0 1px #FF0000;
+}
+.custom-form .fields .custom-field .input-field .input-error{
+  opacity: 0;
+  transition: opacity 0.5s;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 4px);
+  color: #F00;
+  font-family: "SofiaPro-Regular";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 140% */
+  letter-spacing: -0.15px;
+}
+.custom-form .fields .custom-field .input-field.error .input-error{
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+.custom-form .options{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  column-gap: 16px;
+  row-gap: 16px;
+}
+.custom-form .options .option{
+  border-radius: 8px;
+  -webkit-box-shadow:inset 0 0 0 1px var(--tint-stone-50);
+  -moz-box-shadow:inset 0 0 0 1px var(--tint-stone-50);
+  box-shadow:inset 0 0 0 1px var(--tint-stone-50);
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 16px;
+  width: 100%;
+  cursor: pointer;
+  font-family: 'SofiaPro-Medium';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.24px;
+}
+.custom-form .options .option:hover,
+.custom-form .options .option.selected{
+  -webkit-box-shadow:inset 0 0 0 2px var(--primary-green-text);
+  -moz-box-shadow:inset 0 0 0 2px var(--primary-green-text);
+  box-shadow:inset 0 0 0 2px var(--primary-green-text);
+}
+@media screen and (min-width: 990px) {
+  .custom-form .options .option{
+    width: calc(50% - 8px);
+    padding: 24px;
+  }
+  .custom-form .heading-container h2 {
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 36px;
+    letter-spacing: -0.42px;
+  }
+}

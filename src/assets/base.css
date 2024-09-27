@@ -1,0 +1,52 @@
+:root {
+  --tint-stone-30: #E8EDEB;
+  --tint-stone-50: #D8E1DF;
+  --tint-dark-green-70: #627365;
+  --tint-dark-green-50: #8E9B91;
+  --primary-green: #235F3C;
+  --primary-green-text: #1E3723;
+  --green80: #4B5F4F;
+  --green50: #8E9B91;
+  --primary-mint: #6BA58C;
+  --mint30: #D3E4DD;
+  --mint70: #97C0AF;
+  --gray500: #667085;
+}
+@font-face {
+  font-family:"SofiaPro-Medium";
+  src:url("https://use.typekit.net/af/19ced7/00000000000000007735f992/30/l?primer=fff1a989570eb474b8c22c57cc7199e63bfc7e911b750165d0199218f0b7e7cc&fvd=n5&v=3") format("woff2"),
+  url("https://use.typekit.net/af/19ced7/00000000000000007735f992/30/d?primer=fff1a989570eb474b8c22c57cc7199e63bfc7e911b750165d0199218f0b7e7cc&fvd=n5&v=3") format("woff"),
+  url("https://use.typekit.net/af/19ced7/00000000000000007735f992/30/a?primer=fff1a989570eb474b8c22c57cc7199e63bfc7e911b750165d0199218f0b7e7cc&fvd=n5&v=3") format("opentype");
+  font-display:auto;
+  font-style:normal;
+  font-weight:500;
+  font-stretch:normal;
+}
+
+@font-face {
+  font-family:"SofiaPro-Regular";
+  src:url("https://use.typekit.net/af/b718ff/00000000000000007735f98d/30/l?primer=fff1a989570eb474b8c22c57cc7199e63bfc7e911b750165d0199218f0b7e7cc&fvd=n4&v=3") format("woff2"),
+  url("https://use.typekit.net/af/b718ff/00000000000000007735f98d/30/d?primer=fff1a989570eb474b8c22c57cc7199e63bfc7e911b750165d0199218f0b7e7cc&fvd=n4&v=3") format("woff"),
+  url("https://use.typekit.net/af/b718ff/00000000000000007735f98d/30/a?primer=fff1a989570eb474b8c22c57cc7199e63bfc7e911b750165d0199218f0b7e7cc&fvd=n4&v=3") format("opentype");
+  font-display:auto;
+  font-style:normal;
+  font-weight:400;
+  font-stretch:normal;
+}
+
+@font-face {
+  font-family:"SofiaPro-SemiBold";
+  src:url("https://use.typekit.net/af/262452/00000000000000007735f99a/30/l?primer=fff1a989570eb474b8c22c57cc7199e63bfc7e911b750165d0199218f0b7e7cc&fvd=n6&v=3") format("woff2"),
+  url("https://use.typekit.net/af/262452/00000000000000007735f99a/30/d?primer=fff1a989570eb474b8c22c57cc7199e63bfc7e911b750165d0199218f0b7e7cc&fvd=n6&v=3") format("woff"),
+  url("https://use.typekit.net/af/262452/00000000000000007735f99a/30/a?primer=fff1a989570eb474b8c22c57cc7199e63bfc7e911b750165d0199218f0b7e7cc&fvd=n6&v=3") format("opentype");
+  font-display:auto;
+  font-style:normal;
+  font-weight:600;
+  font-stretch:normal;
+}
+body{
+  margin: 0 !important;
+  padding: 0;
+  background: #FFF !important;
+  height: auto !important;
+}
