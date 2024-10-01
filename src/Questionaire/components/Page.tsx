@@ -5,12 +5,15 @@ import Steps from "./Steps";
 import CustomForm from "./CustomForm";
 import Contact from "./Contact";
 import RegisterForm from "./RegisterForm";
-export default function Page({page}) {
+export default function Page({page, next, back, currentPage}) {
   switch (page.type) {
     case 'intro':
       return (
         <Intro
           intro_text={page.settings.intro_text}
+          next={next}
+          back={back}
+          currentPage={currentPage}
         />
       )
     case 'single_option':
@@ -22,6 +25,37 @@ export default function Page({page}) {
           helper={page.settings.helper}
           jump={page.jump}
           id={page.id}
+          next={next}
+          back={back}
+          currentPage={currentPage}
+        />
+      )
+    case 'scale':
+      return (
+        <SingleOption
+          type={page.type}
+          options={page.settings.options}
+          question={page.settings.question}
+          helper={page.settings.helper}
+          jump={page.jump}
+          id={page.id}
+          next={next}
+          back={back}
+          currentPage={currentPage}
+        />
+      )
+    case 'single_option_image':
+      return (
+        <SingleOption
+          type={page.type}
+          options={page.settings.options}
+          question={page.settings.question}
+          helper={page.settings.helper}
+          jump={page.jump}
+          id={page.id}
+          next={next}
+          back={back}
+          currentPage={currentPage}
         />
       )
     case 'multiple_option':
@@ -31,6 +65,9 @@ export default function Page({page}) {
           question={page.settings.question}
           helper={page.settings.helper}
           id={page.id}
+          next={next}
+          back={back}
+          currentPage={currentPage}
         />
       )
     case 'custom_form':
@@ -39,6 +76,9 @@ export default function Page({page}) {
           question={page.settings.question}
           helper={page.settings.helper}
           fields={page.settings.fields}
+          next={next}
+          back={back}
+          currentPage={currentPage}
         />
       )
     case 'steps':
@@ -47,6 +87,9 @@ export default function Page({page}) {
           heading={page.settings.heading}
           helper={page.settings.helper}
           steps={page.settings.steps}
+          next={next}
+          back={back}
+          currentPage={currentPage}
         />
       )
     case 'contact':
@@ -74,13 +117,10 @@ export default function Page({page}) {
         <Intro
           intro_text={page.settings.intro_text}
           type={page.type}
+          next={next}
+          back={back}
+          currentPage={currentPage}
         />
       )
   }
-
-  return(
-    <div>
-      <h2>{page.type}</h2>
-    </div>
-  )
 }

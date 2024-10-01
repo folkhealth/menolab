@@ -1,14 +1,23 @@
 import '../styles/intro.css';
-export default function Intro({type, intro_text}) {
+import ActionArea from "./ActionArea.tsx";
+export default function Intro({type, intro_text, next, back, currentPage}) {
   return(
-    <div className="intro-page">
-      {
-        type === 'intro' ? (
-          <h1>{intro_text}</h1>
-        ) : (
-          <h2>{intro_text}</h2>
-        )
-      }
-    </div>
+    <>
+      <div className="intro-page">
+        {
+          type === 'intro' ? (
+            <h1 dangerouslySetInnerHTML={{ __html: intro_text }} />
+          ) : (
+            <h2  dangerouslySetInnerHTML={{ __html: intro_text }} />
+          )
+        }
+      </div>
+      <ActionArea
+        currentPage={currentPage}
+        back={back}
+        next={next}
+      />
+    </>
+
   )
 }

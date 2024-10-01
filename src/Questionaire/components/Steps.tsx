@@ -1,8 +1,12 @@
 import '../styles/steps.css'
+import ActionArea from "./ActionArea.tsx";
 export default function Steps({
   heading,
   helper,
   steps,
+  next,
+  back,
+  currentPage
 }){
   return (
     <div className="steps-container">
@@ -35,6 +39,11 @@ export default function Steps({
         </div>
 
       </div>
+      <ActionArea
+        currentPage={currentPage}
+        back={back}
+        next={next}
+      />
     </div>
   )
 }

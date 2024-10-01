@@ -1,9 +1,26 @@
-export default function SingleOption({
+import { useState } from 'react';
+import '../styles/multipleOptions.css';
+import ActionArea from "./ActionArea.tsx";
+export default function MultipleOptions({
   question,
   helper,
   options,
-  id
+  id,
+  next,
+  back,
+  currentPage
 }){
+  const [answersArray, setAnswersArray] = useState([]);
+  const selectOption = (a) => {
+    setAnswersArray((prevItems) => {
+      if (prevItems.includes(a)) {
+        return prevItems.filter(i => i !== a);
+      } else {
+        return [...prevItems, a];
+      }
+    });
+    console.log(answersArray)
+  }
   return (
     <div className="multiple-option question-container">
       <div className="heading-container">
@@ -11,14 +28,16 @@ export default function SingleOption({
         <p className="helper">{helper}</p>
       </div>
       <div className="options-container main-content-container">
-        {options.map((option, index) => {
+        {options.map((option) => {
+          const answer = option.text.replace('ț', 't').replace('î', 'i').replace('ă', 'a').replace('â', 'a').replace('Î', 'I').replace('ș','s');
           return (
             <div
-              className="option-multiple"
+              className={`option-multiple ${answersArray.includes(answer) ? 'selected' : ''}`}
+              role="button"
+              tabIndex={0}
+              onClick={() => {selectOption(answer)}}
               key={option.text}
               data-question={ id }
-              data-q={ question }
-              data-answer="{{ o.text | replace: 'ț', 't' |  replace: 'î', 'i' | replace: 'ă', 'a' | replace: 'â', 'a' |  replace: 'Î', 'I' | replace: 'ș','s' }}"
             >
               <div className="text-container">
                 <div className="q-text">{option.text}</div>
@@ -29,6 +48,13 @@ export default function SingleOption({
         })
         }
       </div>
+      <ActionArea
+        currentPage={currentPage}
+        back={back}
+        next={next}
+        q={question}
+        a={answersArray}
+      />
     </div>
   )
 }

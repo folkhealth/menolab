@@ -145,19 +145,17 @@ export const mockData = {
     },
     {
       "id": 7,
-      "type": "custom_form",
+      "type": "single_option",
       "settings": {
         "question": "Ai mai încercat să slabești?",
         "secondary_button_text": "Înapoi",
-        "fields": [
+        "options": [
           {
-            "type": "option",
-            "option": "Da",
+            "text": "Da",
             "jump": 8
           },
           {
-            "type": "option",
-            "option": "Nu",
+            "text": "Nu",
             "jump": 10
           }
         ]

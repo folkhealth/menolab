@@ -53,12 +53,42 @@
   line-height: 24px; /* 150% */
   letter-spacing: -0.24px;
   margin-left: -1px;
+  z-index: 1;
 }
 
 .custom-form .fields .custom-field .input-field {
   width: 100%;
   display: block;
   position: relative;
+}
+.custom-form .fields .custom-field .input-field input {
+  transition: all 0.3s ease;
+}
+
+.custom-form .fields .custom-field .input-field label {
+  font-family: "SofiaPro-Medium";
+  color: var(--tint-dark-green-50);
+  position: absolute;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 44px;
+  top: 14px;
+  left: 24px;
+  background-color: #FFF;
+  transition: all 0.3s;
+  text-transform: capitalize;
+  pointer-events: none;
+}
+/*.custom-form .fields .custom-field .input-field input:not(:placeholder-shown) + label,*/
+.custom-form .fields .custom-field .input-field.focused label {
+  top: 14px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.floating-input input:focus {
+  border-bottom: 2px solid blue;
 }
 .custom-form .fields .custom-field .input-field input{
   border-radius: 8px 0 0 8px;
@@ -113,18 +143,7 @@
 }
 
 .custom-form .fields .custom-field .input-field label{
-  font-family: "SofiaPro-Medium";
-  color: var(--tint-dark-green-50);
-  position: absolute;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 44px;
-  top: 14px;
-  left: 24px;
-  background-color: #FFF;
-  transition: all 0.3s;
-  text-transform: capitalize;
+
 }
 .custom-form .fields .custom-field .input-field input::-webkit-calendar-picker-indicator{
   display: none;
