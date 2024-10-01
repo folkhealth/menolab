@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { mockData } from './mockData.tsx';
-import Page from "./components/Page.tsx";
+import Page from "./components/Page.jsx";
 import './Questionaire.css'
-import HeaderArea from "./components/HeaderArea.tsx";
+import HeaderArea from "./components/HeaderArea.jsx";
 export default function Questionaire() {
   const [questionaire, setQuestionaire] = useState(mockData);
-  const [progressPages, setProgressPages] = useState<number[]>([1]);
-  const [currentPage, setCurrentPage] = useState<any>(mockData.info[0]);
+  const [progressPages, setProgressPages] = useState([1]);
+  const [currentPage, setCurrentPage] = useState(mockData.info[0]);
   const [scrollPosition, setScrollPosition] = useState(0);
   const topicPageRef = useRef(null);
   const headerRef = useRef(null);

@@ -1,10 +1,10 @@
-import Intro from "./Intro";
-import SingleOption from "./SingleOption";
-import MultipleOptions from "./MultipleOptions";
-import Steps from "./Steps";
-import CustomForm from "./CustomForm";
-import Contact from "./Contact";
-import RegisterForm from "./RegisterForm";
+import Intro from "./Intro.jsx";
+import SingleOption from "./SingleOption.jsx";
+import MultipleOptions from "./MultipleOptions.jsx";
+import Steps from "./Steps.jsx";
+import CustomForm from "./CustomForm.jsx";
+import Contact from "./Contact.jsx";
+import RegisterForm from "./RegisterForm.jsx";
 export default function Page({page, next, back, currentPage}) {
   switch (page.type) {
     case 'intro':

@@ -1,5 +1,5 @@
 import '../styles/intro.css';
-import ActionArea from "./ActionArea.tsx";
+import ActionArea from "./ActionArea.jsx";
 export default function Intro({type, intro_text, next, back, currentPage}) {
   return(
     <>

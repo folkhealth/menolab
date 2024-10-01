@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../styles/multipleOptions.css';
-import ActionArea from "./ActionArea.tsx";
+import ActionArea from "./ActionArea.jsx";
 export default function MultipleOptions({
   question,
   helper,

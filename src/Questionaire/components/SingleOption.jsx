@@ -1,5 +1,5 @@
 import '../styles/singleOption.css';
-import ActionArea from "./ActionArea.tsx";
+import ActionArea from "./ActionArea.jsx";
 export default function SingleOption({
   type,
   options,

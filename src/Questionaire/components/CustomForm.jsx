@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../styles/customForm.css'
-import ActionArea from "./ActionArea.tsx";
+import ActionArea from "./ActionArea.jsx";
 export default function CustomForm({
   question,
   helper,

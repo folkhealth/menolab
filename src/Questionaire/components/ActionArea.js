@@ -1,0 +1,6 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+export default function ActionArea({ currentPage, next, back, q, a }) {
+    return (_jsxs("div", { className: `action-area ${currentPage.id === 1 ? 'justify-end' : 'justify-between'}`, children: [currentPage.id !== 1 && (_jsxs("button", { className: "button button--secondary", onClick: () => {
+                    back();
+                }, children: [_jsx("svg", { width: "20", height: "20", viewBox: "0 0 20 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: _jsx("path", { d: "M15.8327 10.0001H4.16602M4.16602 10.0001L9.99935 15.8334M4.16602 10.0001L9.99935 4.16675", stroke: "#1E3723", strokeWidth: "1.66667", strokeLinecap: "round", strokeLinejoin: "round" }) }), "\u00CEnapoi"] })), (currentPage.type !== 'single_option' && currentPage.type !== 'single_option_image') && (_jsxs("button", { className: "button button--primary", onClick: () => next(currentPage.jump ? currentPage.jump : currentPage.id + 1, q, a), children: ["Continu\u0103", _jsx("svg", { width: "21", height: "20", viewBox: "0 0 21 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: _jsx("path", { d: "M4.66602 9.99996H16.3327M16.3327 9.99996L10.4993 4.16663M16.3327 9.99996L10.4993 15.8333", stroke: "white", strokeWidth: "1.66667", strokeLinecap: "round", strokeLinejoin: "round" }) })] }))] }));
+}
