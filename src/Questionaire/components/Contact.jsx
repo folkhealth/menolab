@@ -1,9 +1,15 @@
+import { useState } from 'react';
 import '../styles/contact.css'
+import ActionArea from "./ActionArea.jsx";
 export default function Contact({
   heading,
   helper,
   contacts,
+  next,
+  back,
+  currentPage
 }){
+  const [contactMethod, setContactMethod] = useState()
   return (
     <div className="contact-container">
       <div className="heading-container">
@@ -15,7 +21,15 @@ export default function Contact({
       <div className="contact-methods main-content-container">
         {contacts.map((method) => {
           return (
-            <div className="contact" data-option={ method.text } key={method.text}>
+            <div
+              role="button"
+              tabIndex={0}
+              onClick={() => {setContactMethod(method.text)}}
+              onKeyDown={() => {setContactMethod(method.text)}}
+              className={`contact ${contactMethod === method.text ? 'selected' : ''}`}
+              data-option={ method.text }
+              key={method.text}
+            >
               <input type="radio" name="contact_method"
                      value={ method.text.replace('Ș','S').replace('ț','t').replace('ă','a') }
                      className="hs_contact hidden"/>
@@ -31,6 +45,12 @@ export default function Contact({
         })
         }
       </div>
+      <ActionArea
+        currentPage={currentPage}
+        back={back}
+        next={next}
+        isAvailable={contactMethod !== undefined}
+      />
     </div>
   )
 }

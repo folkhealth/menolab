@@ -417,18 +417,16 @@ export const mockData = {
     },
     {
       "id": 18,
-      "type": "custom_form",
+      "type": "single_option",
       "settings": {
         "question": "Ai încercat vreodată tehnici de relaxare, cum ar fi meditația sau exercițiile de respirație?",
         "secondary_button_text": "Înapoi",
-        "fields": [
+        "options": [
           {
-            "type": "option",
-            "option": "Da"
+            "text": "Da"
           },
           {
-            "type": "option",
-            "option": "Nu"
+            "text": "Nu"
           }
         ]
       }
@@ -474,19 +472,17 @@ export const mockData = {
     },
     {
       "id": 20,
-      "type": "custom_form",
+      "type": "single_option",
       "settings": {
         "question": "Există membri ai familiei tale care sunt supraponderali?",
         "secondary_button_text": "Înapoi",
-        "fields": [
+        "options": [
           {
-            "type": "option",
-            "option": "Da",
+            "text": "Da",
             "jump": 21
           },
           {
-            "type": "option",
-            "option": "Nu",
+            "text": "Nu",
             "jump": 22
           }
         ]
@@ -511,19 +507,17 @@ export const mockData = {
     },
     {
       "id": 22,
-      "type": "custom_form",
+      "type": "single_option",
       "settings": {
         "question": "Crezi că alte persoane îți influențează pierderea sau creșterea în greutate?",
         "secondary_button_text": "Înapoi",
-        "fields": [
+        "options": [
           {
-            "type": "option",
-            "option": "Da",
+            "text": "Da",
             "jump": 23
           },
           {
-            "type": "option",
-            "option": "Nu",
+            "text": "Nu",
             "jump": 24
           }
         ]
@@ -566,37 +560,33 @@ export const mockData = {
     },
     {
       "id": 25,
-      "type": "custom_form",
+      "type": "single_option",
       "settings": {
         "question": "Trăiești într-un mediu care susține un stil de viață sănătos?",
         "secondary_button_text": "Înapoi",
-        "fields": [
+        "options": [
           {
-            "type": "option",
-            "option": "Da"
+            "text": "Da"
           },
           {
-            "type": "option",
-            "option": "Nu"
+            "text": "Nu"
           }
         ]
       }
     },
     {
       "id": 26,
-      "type": "custom_form",
+      "type": "single_option",
       "settings": {
         "question": "Ai fost diagnosticat cu vreo afecțiune medicală?",
         "secondary_button_text": "Înapoi",
-        "fields": [
+        "options": [
           {
-            "type": "option",
-            "option": "Da",
+            "text": "Da",
             "jump": 27
           },
           {
-            "type": "option",
-            "option": "Nu",
+            "text": "Nu",
             "jump": 28
           }
         ]
@@ -621,19 +611,17 @@ export const mockData = {
     },
     {
       "id": 28,
-      "type": "custom_form",
+      "type": "single_option",
       "settings": {
         "question": "Folosești în prezent vreun medicament sau supliment?",
         "secondary_button_text": "Înapoi",
-        "fields": [
+        "options": [
           {
-            "type": "option",
-            "option": "Da",
+            "text": "Da",
             "jump": 29
           },
           {
-            "type": "option",
-            "option": "Nu",
+            "text": "Nu",
             "jump": 30
           }
         ]
@@ -727,19 +715,17 @@ export const mockData = {
     },
     {
       "id": 33,
-      "type": "custom_form",
+      "type": "single_option",
       "settings": {
         "question": "Care este sexul tău?",
         "secondary_button_text": "Înapoi",
-        "fields": [
+        "options": [
           {
-            "type": "option",
-            "option": "Bărbat",
+            "text": "Bărbat",
             "jump": 37
           },
           {
-            "type": "option",
-            "option": "Femeie",
+            "text": "Femeie",
             "jump": 34
           }
         ]
@@ -747,54 +733,48 @@ export const mockData = {
     },
     {
       "id": 34,
-      "type": "custom_form",
+      "type": "single_option",
       "settings": {
         "question": "Ai un ciclu menstrual regulat?",
         "secondary_button_text": "Înapoi",
-        "fields": [
+        "options": [
           {
-            "type": "option",
-            "option": "Da"
+            "text": "Da"
           },
           {
-            "type": "option",
-            "option": "Nu"
+            "text": "Nu"
           }
         ]
       }
     },
     {
       "id": 35,
-      "type": "custom_form",
+      "type": "single_option",
       "settings": {
         "question": "Suferi de Sindromul Ovarelor Polichistice?",
         "secondary_button_text": "Înapoi",
-        "fields": [
+        "options": [
           {
-            "type": "option",
-            "option": "Da"
+            "text": "Da"
           },
           {
-            "type": "option",
-            "option": "Nu"
+            "text": "Nu"
           }
         ]
       }
     },
     {
       "id": 36,
-      "type": "custom_form",
+      "type": "single_option",
       "settings": {
         "question": "Folosești pilule contraceptive?",
         "secondary_button_text": "Înapoi",
-        "fields": [
+        "options": [
           {
-            "type": "option",
-            "option": "Da"
+            "text": "Da"
           },
           {
-            "type": "option",
-            "option": "Nu"
+            "text": "Nu"
           }
         ]
       }

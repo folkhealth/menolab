@@ -98,6 +98,9 @@ export default function Page({page, next, back, currentPage}) {
           heading={page.settings.heading}
           helper={page.settings.helper}
           contacts={page.settings.contact}
+          next={next}
+          back={back}
+          currentPage={currentPage}
         />
       )
     case 'register_form':
@@ -110,6 +113,9 @@ export default function Page({page, next, back, currentPage}) {
           email_label={page.settings.email_label}
           text_error_message={page.settings.text_error_message}
           email_error_message={page.settings.email_error_message}
+          next={next}
+          back={back}
+          currentPage={currentPage}
         />
       )
     case 'message':

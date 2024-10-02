@@ -42,7 +42,7 @@ export default function SingleOption({
 
                 {type === 'scale' && (
                   <div className="scale-no">
-                    <span>{index - 1}</span>
+                    <span>{index + 1}</span>
                   </div>
                 )}
                 <div className="text-container">

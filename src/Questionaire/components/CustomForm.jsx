@@ -18,6 +18,15 @@ export default function CustomForm({
       setFocused(false);
     }
   };
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      if(value !== ''){
+        next(currentPage.jump ? currentPage.jump : currentPage.id + 1, question, value)
+      }
+
+    }
+  };
   return (
     <div className="custom-form">
       <div className="heading-container">
@@ -42,6 +51,7 @@ export default function CustomForm({
                         data-name="{{ id }}"
                         data-q={ field.label }
                         data-mandatory={ field.mandatory }
+                        onKeyPress={handleKeyPress}
                       />
                       <label>{field.label}</label>
                       <div className="input-error">{field.error_message}</div>
@@ -50,6 +60,8 @@ export default function CustomForm({
                   <div className="input-field">
                     <textarea
                       id={ field.label?.replace(' ', '-')}
+                      value={value}
+                      onChange={(e) => setValue(e.target.value)}
                       placeholder={ field.label }
                       data-name="{{ id }}"
                       data-q={ question }
@@ -73,6 +85,7 @@ export default function CustomForm({
         currentPage={currentPage}
         back={back}
         next={next}
+        isAvailable={value !== ''}
       />
     </div>
   )

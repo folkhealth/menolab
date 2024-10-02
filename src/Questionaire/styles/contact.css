@@ -72,8 +72,8 @@
     column-gap: 24px;
   }
   .contact-container .contact-methods .contact{
-    width: calc(50% - 12px);
-    max-width: calc(50% - 12px);
+    width: calc(50% - 14px);
+    max-width: calc(50% - 14px);
     padding: 0;
   }
   .contact-container .contact-methods .contact>img{

@@ -43,6 +43,7 @@ export default function Steps({
         currentPage={currentPage}
         back={back}
         next={next}
+        isAvailable
       />
     </div>
   )

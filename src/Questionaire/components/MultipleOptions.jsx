@@ -54,6 +54,7 @@ export default function MultipleOptions({
         next={next}
         q={question}
         a={answersArray}
+        isAvailable={answersArray.length > 0}
       />
     </div>
   )

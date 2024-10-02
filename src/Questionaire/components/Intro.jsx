@@ -16,6 +16,7 @@ export default function Intro({type, intro_text, next, back, currentPage}) {
         currentPage={currentPage}
         back={back}
         next={next}
+        isAvailable
       />
     </>
 
