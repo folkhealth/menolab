@@ -35,7 +35,7 @@
 .steps-container .steps-wrapper{
   overflow: auto;
   padding-bottom: 144px;
-  height: calc(100% - 160px);
+  height: calc(100% - 260px);
 }
 .steps-container .steps{
   -webkit-box-shadow:inset 0 0 0 1px var(--tint-stone-50);

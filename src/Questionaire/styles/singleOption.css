@@ -45,7 +45,7 @@
   row-gap: 16px;
   overflow: auto;
   padding-bottom: 144px;
-  height: calc(100% - 144px);
+  height: calc(100% - 288px);
   scrollbar-width: none;
 }
 .single-option.question-container .options-container .option{

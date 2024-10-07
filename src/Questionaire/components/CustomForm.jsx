@@ -28,57 +28,59 @@ export default function CustomForm({
     }
   };
   return (
-    <div className="custom-form">
-      <div className="heading-container">
-        <h2>{question}</h2>
-        <p className="helper">{helper}</p>
-      </div>
-      <div className="main-content-container">
-        <div className="fields">
-          {
-            fields.map((field) => {
-              return (
-                <div className="custom-field" key={field.label}>
-                  {(field.type == 'numeric' || field.type == 'alphanumeric') ? (
-                    <div className={`input-field floating-input ${focused || value ? "focused" : ""}`} >
-                      <input
-                        type={field.type === 'numeric'? 'number' : 'text'}
-                        id={ field.info?.replace(' ', '-')}
-                        value={value}
-                        onFocus={handleFocus}
-                        onBlur={handleBlur}
-                        onChange={(e) => setValue(e.target.value)}
-                        data-name="{{ id }}"
-                        data-q={ field.label }
-                        data-mandatory={ field.mandatory }
-                        onKeyPress={handleKeyPress}
-                      />
-                      <label>{field.label}</label>
-                      <div className="input-error">{field.error_message}</div>
-                    </div>
+    <>
+      <div className="custom-form">
+        <div className="heading-container">
+          <h2>{question}</h2>
+          <p className="helper">{helper}</p>
+        </div>
+        <div className="main-content-container">
+          <div className="fields">
+            {
+              fields.map((field) => {
+                return (
+                  <div className="custom-field" key={field.label}>
+                    {(field.type == 'numeric' || field.type == 'alphanumeric') ? (
+                      <div className={`input-field floating-input ${focused || value ? "focused" : ""}`}>
+                        <input
+                          type={field.type === 'numeric' ? 'number' : 'text'}
+                          id={field.info?.replace(' ', '-')}
+                          value={value}
+                          onFocus={handleFocus}
+                          onBlur={handleBlur}
+                          onChange={(e) => setValue(e.target.value)}
+                          data-name="{{ id }}"
+                          data-q={field.label}
+                          data-mandatory={field.mandatory}
+                          onKeyPress={handleKeyPress}
+                        />
+                        <label>{field.label}</label>
+                        <div className="input-error">{field.error_message}</div>
+                      </div>
                     ) : (
-                  <div className="input-field">
+                      <div className="input-field">
                     <textarea
-                      id={ field.label?.replace(' ', '-')}
+                      id={field.label?.replace(' ', '-')}
                       value={value}
                       onChange={(e) => setValue(e.target.value)}
-                      placeholder={ field.label }
+                      placeholder={field.label}
                       data-name="{{ id }}"
-                      data-q={ question }
-                      data-mandatory={ field.mandatory }
+                      data-q={question}
+                      data-mandatory={field.mandatory}
                     ></textarea>
-                    <div className="input-error">{field.error_message}</div>
+                        <div className="input-error">{field.error_message}</div>
+                      </div>
+                    )}
+                    {field.type !== 'textarea' && (
+                      <div className="measurement">
+                        {field.measurement}
+                      </div>
+                    )}
                   </div>
-                  )}
-                  { field.type !== 'textarea' && (
-                    <div className="measurement">
-                      {field.measurement}
-                    </div>
-                  )}
-                </div>
-              )
-            })
-          }
+                )
+              })
+            }
+          </div>
         </div>
       </div>
       <ActionArea
@@ -87,6 +89,6 @@ export default function CustomForm({
         next={next}
         isAvailable={value !== ''}
       />
-    </div>
+    </>
   )
 }

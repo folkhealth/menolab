@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import '../styles/multipleOptions.css';
 import ActionArea from "./ActionArea.jsx";
 export default function MultipleOptions({
@@ -11,6 +11,14 @@ export default function MultipleOptions({
   currentPage
 }){
   const [answersArray, setAnswersArray] = useState([]);
+  const containerRef = useRef(null);
+  const [headingContainer, setHeadingContainer] = useState(0);
+  useEffect(() => {
+    // Set the height after the component mounts
+    if (containerRef.current) {
+      setHeadingContainer(containerRef.current.offsetHeight + 144 + 48);
+    }
+  }, []);
   const selectOption = (a) => {
     setAnswersArray((prevItems) => {
       if (prevItems.includes(a)) {
@@ -22,31 +30,35 @@ export default function MultipleOptions({
     console.log(answersArray)
   }
   return (
-    <div className="multiple-option question-container">
-      <div className="heading-container">
-        <h2>{question}</h2>
-        <p className="helper">{helper}</p>
-      </div>
-      <div className="options-container main-content-container">
-        {options.map((option) => {
-          const answer = option.text.replace('ț', 't').replace('î', 'i').replace('ă', 'a').replace('â', 'a').replace('Î', 'I').replace('ș','s');
-          return (
-            <div
-              className={`option-multiple ${answersArray.includes(answer) ? 'selected' : ''}`}
-              role="button"
-              tabIndex={0}
-              onClick={() => {selectOption(answer)}}
-              key={option.text}
-              data-question={ id }
-            >
-              <div className="text-container">
-                <div className="q-text">{option.text}</div>
+    <>
+      <div className="multiple-option question-container">
+        <div className="heading-container"  ref={containerRef}>
+          <h2>{question}</h2>
+          <p className="helper">{helper}</p>
+        </div>
+        <div className="options-container main-content-container"  style={{ height: `calc(100% - ${headingContainer}px)` }}>
+          {options.map((option) => {
+            const answer = option.text.replace('ț', 't').replace('î', 'i').replace('ă', 'a').replace('â', 'a').replace('Î', 'I').replace('ș', 's');
+            return (
+              <div
+                className={`option-multiple ${answersArray.includes(answer) ? 'selected' : ''}`}
+                role="button"
+                tabIndex={0}
+                onClick={() => {
+                  selectOption(answer)
+                }}
+                key={option.text}
+                data-question={id}
+              >
+                <div className="text-container">
+                  <div className="q-text">{option.text}</div>
+                </div>
+                <div className="check">&nbsp;</div>
               </div>
-              <div className="check">&nbsp;</div>
-            </div>
-          )
-        })
-        }
+            )
+          })
+          }
+        </div>
       </div>
       <ActionArea
         currentPage={currentPage}
@@ -56,6 +68,7 @@ export default function MultipleOptions({
         a={answersArray}
         isAvailable={answersArray.length > 0}
       />
-    </div>
+    </>
+
   )
 }

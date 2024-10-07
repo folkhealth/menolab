@@ -1,7 +1,7 @@
 .topic-header{
   padding: 24px 32px;
   background-color: #FFF;
-  position: fixed;
+  position: relative;
   z-index: 10;
   width: calc(100% - 64px);
   max-width: 576px;
@@ -44,10 +44,11 @@
 }
 .page-container{
   position: relative;
+  height: 100%;
 }
 #topic-page-container{
   width: 100vw;
-  height: 100dvh;
+  height: calc(100dvh - 102px);
   overflow: hidden;
   padding-top: 0;
   max-width: 640px;
@@ -64,7 +65,7 @@
 }
 .page{
   position: absolute;
-  top: 102px;
+  top: 0;
   left: 50%;
   width: calc(100% - 64px);
   height: calc(100dvh - 102px);
@@ -98,4 +99,11 @@
   width: calc(100% - 64px);
   max-width: 576px;
   z-index: 2;
+}
+.no-scroll{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
+}
+.no-scroll::-webkit-scrollbar{
+  display: none;
 }

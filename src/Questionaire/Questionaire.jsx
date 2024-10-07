@@ -59,19 +59,19 @@ export default function Questionaire() {
       setScrollPosition(newScrollPosition);
     };
 
-    if (!mq.matches) {
-      window.addEventListener('wheel', handleScroll);
-    } else {
-      window.addEventListener('touchmove', handleTouchMove);
-    }
-
-    return () => {
-      if (!mq.matches) {
-        window.removeEventListener('wheel', handleScroll);
-      } else {
-        window.removeEventListener('touchmove', handleTouchMove);
-      }
-    };
+    // if (!mq.matches) {
+    //   window.addEventListener('wheel', handleScroll);
+    // } else {
+    //   window.addEventListener('touchmove', handleTouchMove);
+    // }
+    //
+    // return () => {
+    //   if (!mq.matches) {
+    //     window.removeEventListener('wheel', handleScroll);
+    //   } else {
+    //     window.removeEventListener('touchmove', handleTouchMove);
+    //   }
+    // };
   }, [scrollPosition, mq.matches, progressPages, previousTouchY, nextTouchY]);
   const next = (pageNo, q, a) => {
     setProgressPages([...progressPages, pageNo])
@@ -87,7 +87,7 @@ export default function Questionaire() {
     console.log("Progress Steps:", progressPages, "Current Page:", currentPage)
   }, [progressPages, currentPage]);
   return (
-    <>
+    <div className={`${currentPage.id === 1 ? '' : ''} no-scroll`} style={{height: `${currentPage.id === 1 ? '100dvh' : 'calc(100dvh + 48px)'}`}}>
       <div className="topic-header" ref={headerRef}>
         <HeaderArea
           currentPage={currentPage}
@@ -115,7 +115,7 @@ export default function Questionaire() {
           }
         </div>
       </div>
-    </>
+    </div>
 
   );
 }
