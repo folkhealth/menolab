@@ -5,6 +5,7 @@ import './Questionaire.css'
 import HeaderArea from "./components/HeaderArea.jsx";
 export default function Questionaire() {
   const [questionaire, setQuestionaire] = useState(mockData);
+  const [q2, setQ2] = useState();
   const [progressPages, setProgressPages] = useState([1]);
   const [currentPage, setCurrentPage] = useState(mockData.info[0]);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -18,7 +19,25 @@ export default function Questionaire() {
     if (topicPageRef.current) {
       originalHeight.current = topicPageRef.current.clientHeight;
     }
+    const fetchQuestionnaire = async () => {
+      const myHeaders = new Headers();
+      myHeaders.append("x-api-key", "UoLl0hqxiJ5HN15Xd6HMqat9WDMK8fi57JtNIGBF");
+      myHeaders.append("Content-Type", "application/json");
+      myHeaders.append("Access-Control-Allow-Origin", "*");
 
+      const requestOptions = {
+        method: "GET",
+        headers: myHeaders,
+        redirect: "follow",
+      };
+
+      fetch("https://vl23sex5f0.execute-api.eu-north-1.amazonaws.com/default/generateQuestionnaire?leadQuestionId=1001", requestOptions)
+        .then((response) => response.text())
+        .then((result) => console.log(result))
+        .catch((error) => console.error(error));
+    };
+
+    fetchQuestionnaire();
     const handleScroll = (e) => {
       let newScrollPosition = scrollPosition;
 
@@ -58,20 +77,6 @@ export default function Questionaire() {
       setPreviousTouchY(currentTouchY);
       setScrollPosition(newScrollPosition);
     };
-
-    // if (!mq.matches) {
-    //   window.addEventListener('wheel', handleScroll);
-    // } else {
-    //   window.addEventListener('touchmove', handleTouchMove);
-    // }
-    //
-    // return () => {
-    //   if (!mq.matches) {
-    //     window.removeEventListener('wheel', handleScroll);
-    //   } else {
-    //     window.removeEventListener('touchmove', handleTouchMove);
-    //   }
-    // };
   }, [scrollPosition, mq.matches, progressPages, previousTouchY, nextTouchY]);
   const next = (pageNo, q, a) => {
     setProgressPages([...progressPages, pageNo])
