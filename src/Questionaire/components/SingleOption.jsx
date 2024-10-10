@@ -30,7 +30,7 @@ export default function SingleOption({
         <div className="options-container main-content-container" style={{ height: `calc(100% - ${headingContainer}px)` }}>
           {
             options.map((option, index) => {
-              const answer = option.text.replace('ț', 't').replace('î', 'i').replace('ă', 'a').replace('â', 'a').replace('Î', 'I').replace('ș', 's')
+              const answer = option.OptionText.replace('ț', 't').replace('î', 'i').replace('ă', 'a').replace('â', 'a').replace('Î', 'I').replace('ș', 's')
               let nextPage = id + 1;
               if (option.jump) {
                 nextPage = option.jump;
@@ -43,7 +43,7 @@ export default function SingleOption({
                   role="button"
                   tabIndex={0}
                   onClick={() => next(nextPage, question, answer)}
-                  key={option.text}
+                  key={option.OptionText}
                   data-question={id}
                 >
                   {option.image_url && (
@@ -56,7 +56,7 @@ export default function SingleOption({
                     </div>
                   )}
                   <div className="text-container">
-                    <div className="q-text">{option.text}</div>
+                    <div className="q-text">{option.OptionText}</div>
                     {option.helper && (
                       <div className="helper">{option.helper}</div>
                     )}

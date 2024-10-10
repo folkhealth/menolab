@@ -6,7 +6,7 @@ import CustomForm from "./CustomForm.jsx";
 import Contact from "./Contact.jsx";
 import RegisterForm from "./RegisterForm.jsx";
 export default function Page({page, next, back, currentPage}) {
-  switch (page.type) {
+  switch (page.QuestionType) {
     case 'intro':
       return (
         <Intro
@@ -16,15 +16,27 @@ export default function Page({page, next, back, currentPage}) {
           currentPage={currentPage}
         />
       )
+    case 'first_name':
+      return (
+        <CustomForm
+          question={page.settings.QuestionText}
+          helper={page.settings.QuestionHelper}
+          type={page.QuestionType}
+          fields={[]}
+          next={next}
+          back={back}
+          currentPage={currentPage}
+        />
+      )
     case 'single_option':
       return (
         <SingleOption
-          type={page.type}
+          type={page.QuestionType}
           options={page.settings.options}
-          question={page.settings.question}
-          helper={page.settings.helper}
+          question={page.settings.QuestionText}
+          helper={page.settings.QuestionHelper}
           jump={page.jump}
-          id={page.id}
+          id={page.position}
           next={next}
           back={back}
           currentPage={currentPage}
@@ -33,12 +45,12 @@ export default function Page({page, next, back, currentPage}) {
     case 'scale':
       return (
         <SingleOption
-          type={page.type}
+          type={page.QuestionType}
           options={page.settings.options}
-          question={page.settings.question}
-          helper={page.settings.helper}
+          question={page.settings.QuestionText}
+          helper={page.settings.QuestionHelper}
           jump={page.jump}
-          id={page.id}
+          id={page.position}
           next={next}
           back={back}
           currentPage={currentPage}
@@ -47,12 +59,12 @@ export default function Page({page, next, back, currentPage}) {
     case 'single_option_image':
       return (
         <SingleOption
-          type={page.type}
+          type={page.QuestionType}
           options={page.settings.options}
-          question={page.settings.question}
-          helper={page.settings.helper}
+          question={page.settings.QuestionText}
+          helper={page.settings.QuestionHelper}
           jump={page.jump}
-          id={page.id}
+          id={page.position}
           next={next}
           back={back}
           currentPage={currentPage}
@@ -62,9 +74,9 @@ export default function Page({page, next, back, currentPage}) {
       return (
         <MultipleOptions
           options={page.settings.options}
-          question={page.settings.question}
-          helper={page.settings.helper}
-          id={page.id}
+          question={page.settings.QuestionText}
+          helper={page.settings.QuestionHelper}
+          id={page.position}
           next={next}
           back={back}
           currentPage={currentPage}
@@ -73,8 +85,8 @@ export default function Page({page, next, back, currentPage}) {
     case 'custom_form':
       return (
         <CustomForm
-          question={page.settings.question}
-          helper={page.settings.helper}
+          question={page.settings.QuestionText}
+          helper={page.settings.QuestionHelper}
           fields={page.settings.fields}
           next={next}
           back={back}
@@ -85,7 +97,7 @@ export default function Page({page, next, back, currentPage}) {
       return (
         <Steps
           heading={page.settings.heading}
-          helper={page.settings.helper}
+          helper={page.settings.QuestionHelper}
           steps={page.settings.steps}
           next={next}
           back={back}
@@ -96,7 +108,7 @@ export default function Page({page, next, back, currentPage}) {
       return (
         <Contact
           heading={page.settings.heading}
-          helper={page.settings.helper}
+          helper={page.settings.QuestionHelper}
           contacts={page.settings.contact}
           next={next}
           back={back}
@@ -107,7 +119,7 @@ export default function Page({page, next, back, currentPage}) {
       return (
         <RegisterForm
           heading={page.settings.heading}
-          helper={page.settings.helper}
+          helper={page.settings.QuestionHelper}
           first_name_label={page.settings.first_name_label}
           last_name_label={page.settings.last_name_label}
           email_label={page.settings.email_label}
@@ -122,7 +134,7 @@ export default function Page({page, next, back, currentPage}) {
       return (
         <Intro
           intro_text={page.settings.intro_text}
-          type={page.type}
+          type={page.QuestionType}
           next={next}
           back={back}
           currentPage={currentPage}

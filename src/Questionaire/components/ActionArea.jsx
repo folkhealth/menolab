@@ -1,8 +1,8 @@
 export default function ActionArea({currentPage, next, back, q, a, isAvailable}) {
   return (
-    <div className={`action-area ${currentPage.id === 1 ? 'justify-end' : 'justify-between'}`}>
+    <div className={`action-area ${currentPage.position === 1 ? 'justify-end' : 'justify-between'}`}>
       {
-        currentPage.id !== 1 && (
+        currentPage.position !== 1 && (
           <button className="button button--secondary" onClick={() => {
             back()
           }}>
@@ -15,11 +15,11 @@ export default function ActionArea({currentPage, next, back, q, a, isAvailable})
         )
       }
       {
-        (currentPage.type !== 'single_option' && currentPage.type !== 'single_option_image' && currentPage.type !== 'scale') && (
+        (currentPage.QuestionType !== 'single_option' && currentPage.QuestionType !== 'single_option_image' && currentPage.QuestionType !== 'scale') && (
           <button
             className="button button--primary"
             disabled={!isAvailable}
-            onClick={() => next(currentPage.jump ? currentPage.jump : currentPage.id + 1, q, a)}
+            onClick={() => next(currentPage.jump ? currentPage.jump : currentPage.position + 1, q, a)}
           >
             Continuă
             <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">

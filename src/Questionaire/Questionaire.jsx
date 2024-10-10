@@ -5,9 +5,9 @@ import './Questionaire.css'
 import HeaderArea from "./components/HeaderArea.jsx";
 export default function Questionaire() {
   const [questionaire, setQuestionaire] = useState(mockData);
-  const [q2, setQ2] = useState();
+  const [q2, setQ2] = useState(null);
   const [progressPages, setProgressPages] = useState([1]);
-  const [currentPage, setCurrentPage] = useState(mockData.info[0]);
+  const [currentPage, setCurrentPage] = useState(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const topicPageRef = useRef(null);
   const headerRef = useRef(null);
@@ -19,94 +19,56 @@ export default function Questionaire() {
     if (topicPageRef.current) {
       originalHeight.current = topicPageRef.current.clientHeight;
     }
-    const fetchQuestionnaire = async () => {
-      const myHeaders = new Headers();
-      myHeaders.append("x-api-key", "UoLl0hqxiJ5HN15Xd6HMqat9WDMK8fi57JtNIGBF");
-      myHeaders.append("Content-Type", "application/json");
-      myHeaders.append("Access-Control-Allow-Origin", "*");
+    const myHeaders = new Headers();
+    myHeaders.append("X-Api-Key", "UoLl0hqxiJ5HN15Xd6HMqat9WDMK8fi57JtNIGBF");
+    myHeaders.append("Content-Type", "application/json");
 
-      const requestOptions = {
-        method: "GET",
-        headers: myHeaders,
-        redirect: "follow",
-      };
-
-      fetch("https://vl23sex5f0.execute-api.eu-north-1.amazonaws.com/default/generateQuestionnaire?leadQuestionId=1001", requestOptions)
-        .then((response) => response.text())
-        .then((result) => console.log(result))
-        .catch((error) => console.error(error));
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
     };
 
-    fetchQuestionnaire();
-    const handleScroll = (e) => {
-      let newScrollPosition = scrollPosition;
+    fetch("/api/default/generateQuestionnaire?leadQuestionId=1001", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        setQ2(result);
+        setCurrentPage(result.info[0])
+      })
+      .catch((error) => console.error(error));
 
-      if (e.deltaY < 0) {
-        newScrollPosition = Math.max(scrollPosition + e.deltaY / 3, -48);
-      } else {
-        newScrollPosition = Math.min(scrollPosition + e.deltaY / 3, 0);
-      }
-
-      if (progressPages[progressPages.length - 1] !== 1) {
-        headerRef.current.style.top = `${newScrollPosition}px`;
-        topicPageRef.current.style.top = `${newScrollPosition}px`;
-        //topicPageRef.current.style.height = `${originalHeight.current - newScrollPosition}px`;
-      }
-      console.log(originalHeight.current)
-      setScrollPosition(newScrollPosition);
-    };
-
-    const handleTouchMove = (e) => {
-      const currentTouchY = e.touches[0].clientY;
-      let newScrollPosition = scrollPosition;
-
-      if (currentTouchY > previousTouchY) {
-        setNextTouchY(nextTouchY + 1);
-        newScrollPosition = Math.min(scrollPosition + nextTouchY, 0);
-      } else {
-        setNextTouchY(nextTouchY + 1);
-        newScrollPosition = Math.max(scrollPosition - nextTouchY, -48);
-      }
-
-      if (progressPages[progressPages.length - 1] !== 1) {
-        headerRef.current.style.top = `-${newScrollPosition}px`;
-        topicPageRef.current.style.top = `${newScrollPosition}px`;
-        //topicPageRef.current.style.height = `${originalHeight.current - newScrollPosition}px`;
-      }
-
-      setPreviousTouchY(currentTouchY);
-      setScrollPosition(newScrollPosition);
-    };
-  }, [scrollPosition, mq.matches, progressPages, previousTouchY, nextTouchY]);
+  }, []);
   const next = (pageNo, q, a) => {
     setProgressPages([...progressPages, pageNo])
-    setCurrentPage(questionaire.info?.find((page) => page.id === pageNo));
+    setCurrentPage(q2.info?.find((page) => page.position === pageNo));
     console.log(q, ':', a)
   }
 
   const back = () => {
-    setCurrentPage(questionaire.info.find(page => page.id === progressPages[progressPages.length - 2]));
-    setProgressPages(prevItems => prevItems.slice(0, -1))
+    setCurrentPage(q2.info.find(page => page.position === progressPages[progressPages.length - 2]));
+    setProgressPages(prevItems => prevItems.slice(0, -1));
   }
   useEffect(() => {
     console.log("Progress Steps:", progressPages, "Current Page:", currentPage)
   }, [progressPages, currentPage]);
+  if( !q2){
+    return (<h1>Loading...</h1>)
+  }
   return (
-    <div className={`${currentPage.id === 1 ? '' : ''} no-scroll`} style={{height: `${currentPage.id === 1 ? '100dvh' : 'calc(100dvh + 48px)'}`}}>
+    <div className={`${currentPage.position === 1 ? 'active' : ''} no-scroll`} style={{height: `${currentPage.position === 1 ? '100dvh' : 'calc(100dvh + 48px)'}`}}>
       <div className="topic-header" ref={headerRef}>
         <HeaderArea
           currentPage={currentPage}
           progressPages={progressPages}
-          qLength={questionaire.info.length}
+          qLength={q2.info.length}
         />
       </div>
       <div className="page-narrow" id="topic-page-container" ref={topicPageRef}>
         <div className="page-container">
           {
-            questionaire.info.map((page) => {
+            q2?.info.map((page) => {
               return (
-                <div key={page.id} className={`page page-width ${currentPage.id === page.id ? 'active' : ''}`}
-                     id={`page${page.id}`}>
+                <div key={page.position} className={`page page-width ${currentPage.position === page.position ? 'active' : ''}`}
+                     id={`page${page.position}`}>
                   <Page
                     page={page}
                     next={next}

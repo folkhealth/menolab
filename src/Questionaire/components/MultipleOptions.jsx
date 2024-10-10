@@ -27,7 +27,6 @@ export default function MultipleOptions({
         return [...prevItems, a];
       }
     });
-    console.log(answersArray)
   }
   return (
     <>
@@ -38,7 +37,7 @@ export default function MultipleOptions({
         </div>
         <div className="options-container main-content-container"  style={{ height: `calc(100% - ${headingContainer}px)` }}>
           {options.map((option) => {
-            const answer = option.text.replace('ț', 't').replace('î', 'i').replace('ă', 'a').replace('â', 'a').replace('Î', 'I').replace('ș', 's');
+            const answer = option.OptionText.replace('ț', 't').replace('î', 'i').replace('ă', 'a').replace('â', 'a').replace('Î', 'I').replace('ș', 's');
             return (
               <div
                 className={`option-multiple ${answersArray.includes(answer) ? 'selected' : ''}`}
@@ -47,11 +46,11 @@ export default function MultipleOptions({
                 onClick={() => {
                   selectOption(answer)
                 }}
-                key={option.text}
+                key={option.OptionText}
                 data-question={id}
               >
                 <div className="text-container">
-                  <div className="q-text">{option.text}</div>
+                  <div className="q-text">{option.OptionText}</div>
                 </div>
                 <div className="check">&nbsp;</div>
               </div>

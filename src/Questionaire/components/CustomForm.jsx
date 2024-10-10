@@ -5,6 +5,7 @@ export default function CustomForm({
   question,
   helper,
   fields,
+  type,
   currentPage,
   next,
   back
@@ -22,11 +23,12 @@ export default function CustomForm({
     if (event.key === 'Enter') {
       event.preventDefault();
       if(value !== ''){
-        next(currentPage.jump ? currentPage.jump : currentPage.id + 1, question, value)
+        next(currentPage.jump ? currentPage.jump : currentPage.position + 1, question, value)
       }
 
     }
   };
+  console.log("Fields", fields)
   return (
     <>
       <div className="custom-form">
@@ -37,48 +39,69 @@ export default function CustomForm({
         <div className="main-content-container">
           <div className="fields">
             {
-              fields.map((field) => {
-                return (
-                  <div className="custom-field" key={field.label}>
-                    {(field.type == 'numeric' || field.type == 'alphanumeric') ? (
-                      <div className={`input-field floating-input ${focused || value ? "focused" : ""}`}>
-                        <input
-                          type={field.type === 'numeric' ? 'number' : 'text'}
-                          id={field.info?.replace(' ', '-')}
-                          value={value}
-                          onFocus={handleFocus}
-                          onBlur={handleBlur}
-                          onChange={(e) => setValue(e.target.value)}
-                          data-name="{{ id }}"
-                          data-q={field.label}
-                          data-mandatory={field.mandatory}
-                          onKeyPress={handleKeyPress}
-                        />
-                        <label>{field.label}</label>
-                        <div className="input-error">{field.error_message}</div>
-                      </div>
-                    ) : (
-                      <div className="input-field">
-                    <textarea
-                      id={field.label?.replace(' ', '-')}
+              type === "first_name" ? (
+                <div className="custom-field">
+                  <div className={`input-field floating-input ${focused || value ? "focused" : ""}`}>
+                    <input
+                      type="text"
                       value={value}
+                      onFocus={handleFocus}
+                      onBlur={handleBlur}
                       onChange={(e) => setValue(e.target.value)}
-                      placeholder={field.label}
                       data-name="{{ id }}"
-                      data-q={question}
-                      data-mandatory={field.mandatory}
-                    ></textarea>
-                        <div className="input-error">{field.error_message}</div>
-                      </div>
-                    )}
-                    {field.type !== 'textarea' && (
-                      <div className="measurement">
-                        {field.measurement}
-                      </div>
-                    )}
+                      onKeyPress={handleKeyPress}
+                    />
+                    <label>First name</label>
                   </div>
-                )
-              })
+                </div>
+              ) : (
+                <>
+                  {
+                    fields?.map((field) => {
+                      return (
+                        <div className="custom-field" key={field?.label}>
+                          {(field?.type == 'numeric' || field?.type == 'alphanumeric') ? (
+                            <div className={`input-field floating-input ${focused || value ? "focused" : ""}`}>
+                              <input
+                                type={field?.type === 'numeric' ? 'number' : 'text'}
+                                id={field?.label?.replace(' ', '-')}
+                                value={value}
+                                onFocus={handleFocus}
+                                onBlur={handleBlur}
+                                onChange={(e) => setValue(e.target.value)}
+                                data-name="{{ id }}"
+                                data-q={field?.label}
+                                data-mandatory={field.mandatory}
+                                onKeyPress={handleKeyPress}
+                              />
+                              <label>{field?.label}</label>
+                              <div className="input-error">{field?.error_message}</div>
+                            </div>
+                          ) : (
+                            <div className="input-field">
+                              <textarea
+                                id={field?.label?.replace(' ', '-')}
+                                value={value}
+                                onChange={(e) => setValue(e.target.value)}
+                                placeholder={field?.label}
+                                data-name="{{ id }}"
+                                data-q={question}
+                                data-mandatory={field?.mandatory}
+                              ></textarea>
+                              <div className="input-error">{field?.error_message}</div>
+                            </div>
+                          )}
+                          {field?.type !== 'textarea' && (
+                            <div className="measurement">
+                              {field?.measurement}
+                            </div>
+                          )}
+                        </div>
+                      )
+                    })
+                  }
+                </>
+              )
             }
           </div>
         </div>
@@ -87,6 +110,8 @@ export default function CustomForm({
         currentPage={currentPage}
         back={back}
         next={next}
+        q={question}
+        a={value}
         isAvailable={value !== ''}
       />
     </>
