@@ -28,7 +28,7 @@ export default function Questionaire() {
       headers: myHeaders,
     };
 
-    fetch("/api/default/generateQuestionnaire?leadQuestionId=1001", requestOptions)
+    fetch("https://vl23sex5f0.execute-api.eu-north-1.amazonaws.com/default/generateQuestionnaire?leadQuestionId=1001", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         setQ2(result);
