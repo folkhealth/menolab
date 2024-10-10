@@ -27,8 +27,7 @@ export default function Questionaire() {
       method: "GET",
       headers: myHeaders,
     };
-
-    fetch("https://vl23sex5f0.execute-api.eu-north-1.amazonaws.com/default/generateQuestionnaire?leadQuestionId=1001", requestOptions)
+    fetch(`${import.meta.env.VITE_API_URL}/default/generateQuestionnaire?leadQuestionId=1001`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         setQ2(result);

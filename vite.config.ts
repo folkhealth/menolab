@@ -9,7 +9,7 @@ export default defineConfig({
       '/api': {
         target: 'https://vl23sex5f0.execute-api.eu-north-1.amazonaws.com',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, 'https://vl23sex5f0.execute-api.eu-north-1.amazonaws.com'),
+        rewrite: (path) => path.replace(/^\/api/, ''),
       }
     }
   }
