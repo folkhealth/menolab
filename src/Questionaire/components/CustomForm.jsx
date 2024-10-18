@@ -14,7 +14,7 @@ export default function CustomForm({
 }){
   const [focused, setFocused] = useState(false);
   const [value, setValue] = useState("");
-
+  const userName = localStorage.getItem("userName");
   const handleFocus = () => setFocused(true);
   const handleBlur = () => {
     if (!value) {
@@ -34,7 +34,7 @@ export default function CustomForm({
     <>
       <div className="custom-form">
         <div className="heading-container">
-          <h2>{question}</h2>
+          <h2>{question.replace("first_name", userName)}</h2>
           <p className="helper">{helper}</p>
         </div>
         <div className="main-content-container">

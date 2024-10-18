@@ -49,7 +49,7 @@ export default function RegisterForm({
       && email.length > 0
       && regex.test(email)
     )
-  }, [firstName, lastName, email])
+  }, [firstName, lastName, email, regex])
   return (
     <div className="register-container">
       <div className="heading-container">

@@ -20,11 +20,12 @@ export default function SingleOption({
       setHeadingContainer(containerRef.current.offsetHeight + 144 + 48);
     }
   }, []);
+  const userName = localStorage.getItem("userName");
   return(
     <>
       <div className="single-option question-container">
         <div className="heading-container" ref={containerRef}>
-          <h2>{question}</h2>
+          <h2>{question.replace("first_name", userName)}</h2>
           <p className="helper">{helper}</p>
         </div>
         <div className="options-container main-content-container" style={{ height: `calc(100% - ${headingContainer}px)` }}>

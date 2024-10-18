@@ -18,7 +18,7 @@ export default function Questionaire() {
       originalHeight.current = topicPageRef.current.clientHeight;
     }
     const myHeaders = new Headers();
-    myHeaders.append("X-Api-Key", "wQrLCwWpO26urdkij0Emj9xs6qE7aZXs4mFxPzzl");
+    myHeaders.append("X-Api-Key", "UoLl0hqxiJ5HN15Xd6HMqat9WDMK8fi57JtNIGBF");
     myHeaders.append("Content-Type", "application/json");
 
     const requestOptions = {
@@ -55,7 +55,7 @@ export default function Questionaire() {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/default/updateUserDataPoint`, {
         method: 'POST', // Specify the method as POST
         headers: {
-          "X-Api-Key": "wQrLCwWpO26urdkij0Emj9xs6qE7aZXs4mFxPzzl",
+          "X-Api-Key": "UoLl0hqxiJ5HN15Xd6HMqat9WDMK8fi57JtNIGBF",
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
