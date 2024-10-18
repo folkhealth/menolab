@@ -26,6 +26,8 @@ export default function Page({page, next, back, currentPage}) {
           next={next}
           back={back}
           currentPage={currentPage}
+          dataPointId={page.DataPointID}
+          dataPointName={page.DataPointName}
         />
       )
     case 'single_option':
@@ -40,6 +42,8 @@ export default function Page({page, next, back, currentPage}) {
           next={next}
           back={back}
           currentPage={currentPage}
+          dataPointId={page.DataPointID}
+          dataPointName={page.DataPointName}
         />
       )
     case 'scale':
@@ -54,6 +58,8 @@ export default function Page({page, next, back, currentPage}) {
           next={next}
           back={back}
           currentPage={currentPage}
+          dataPointId={page.DataPointID}
+          dataPointName={page.DataPointName}
         />
       )
     case 'single_option_image':
@@ -68,6 +74,8 @@ export default function Page({page, next, back, currentPage}) {
           next={next}
           back={back}
           currentPage={currentPage}
+          dataPointId={page.DataPointID}
+          dataPointName={page.DataPointName}
         />
       )
     case 'multiple_option':
@@ -80,6 +88,8 @@ export default function Page({page, next, back, currentPage}) {
           next={next}
           back={back}
           currentPage={currentPage}
+          dataPointId={page.DataPointID}
+          dataPointName={page.DataPointName}
         />
       )
     case 'custom_form':
@@ -91,6 +101,8 @@ export default function Page({page, next, back, currentPage}) {
           next={next}
           back={back}
           currentPage={currentPage}
+          dataPointId={page.DataPointID}
+          dataPointName={page.DataPointName}
         />
       )
     case 'steps':
@@ -102,6 +114,8 @@ export default function Page({page, next, back, currentPage}) {
           next={next}
           back={back}
           currentPage={currentPage}
+          dataPointId={page.DataPointID}
+          dataPointName={page.DataPointName}
         />
       )
     case 'contact':
@@ -113,6 +127,8 @@ export default function Page({page, next, back, currentPage}) {
           next={next}
           back={back}
           currentPage={currentPage}
+          dataPointId={page.DataPointID}
+          dataPointName={page.DataPointName}
         />
       )
     case 'register_form':
@@ -128,6 +144,8 @@ export default function Page({page, next, back, currentPage}) {
           next={next}
           back={back}
           currentPage={currentPage}
+          dataPointId={page.DataPointID}
+          dataPointName={page.DataPointName}
         />
       )
     case 'message':
@@ -138,6 +156,8 @@ export default function Page({page, next, back, currentPage}) {
           next={next}
           back={back}
           currentPage={currentPage}
+          dataPointId={page.DataPointID}
+          dataPointName={page.DataPointName}
         />
       )
   }

@@ -8,7 +8,9 @@ export default function CustomForm({
   type,
   currentPage,
   next,
-  back
+  back,
+  dataPointId,
+  dataPointName
 }){
   const [focused, setFocused] = useState(false);
   const [value, setValue] = useState("");
@@ -23,12 +25,11 @@ export default function CustomForm({
     if (event.key === 'Enter') {
       event.preventDefault();
       if(value !== ''){
-        next(currentPage.jump ? currentPage.jump : currentPage.position + 1, question, value)
+        next(currentPage.jump ? currentPage.jump : currentPage.position + 1, dataPointId, dataPointName, value, type)
       }
 
     }
   };
-  console.log("Fields", fields)
   return (
     <>
       <div className="custom-form">
@@ -60,7 +61,7 @@ export default function CustomForm({
                     fields?.map((field) => {
                       return (
                         <div className="custom-field" key={field?.label}>
-                          {(field?.type == 'numeric' || field?.type == 'alphanumeric') ? (
+                          {(field?.type === 'numeric' || field?.type === 'alphanumeric') ? (
                             <div className={`input-field floating-input ${focused || value ? "focused" : ""}`}>
                               <input
                                 type={field?.type === 'numeric' ? 'number' : 'text'}
@@ -110,9 +111,11 @@ export default function CustomForm({
         currentPage={currentPage}
         back={back}
         next={next}
-        q={question}
+        dataPointId={dataPointId}
+        dataPointName={dataPointName}
         a={value}
         isAvailable={value !== ''}
+        type={type}
       />
     </>
   )

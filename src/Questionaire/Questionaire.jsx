@@ -1,55 +1,86 @@
 import { useState, useEffect, useRef } from 'react';
-import { mockData } from './mockData.tsx';
 import Page from "./components/Page.jsx";
 import './Questionaire.css'
 import HeaderArea from "./components/HeaderArea.jsx";
 export default function Questionaire() {
-  const [questionaire, setQuestionaire] = useState(mockData);
-  const [q2, setQ2] = useState(null);
+  const [questionnaire, setQuestionnaire] = useState(null);
+  const [userName, setUserName] = useState(localStorage.getItem('userName'));
   const [progressPages, setProgressPages] = useState([1]);
   const [currentPage, setCurrentPage] = useState(null);
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [currentUserId, setCurrentUserId] = useState(localStorage.getItem('userId'));
   const topicPageRef = useRef(null);
   const headerRef = useRef(null);
   const originalHeight = useRef(0);
-  const [previousTouchY, setPreviousTouchY] = useState(0);
-  const [nextTouchY, setNextTouchY] = useState(0);
-  const mq = window.matchMedia("(hover:none)");
+
   useEffect(() => {
+    const userParam = '&userId=' + currentUserId;
     if (topicPageRef.current) {
       originalHeight.current = topicPageRef.current.clientHeight;
     }
     const myHeaders = new Headers();
-    myHeaders.append("X-Api-Key", "UoLl0hqxiJ5HN15Xd6HMqat9WDMK8fi57JtNIGBF");
+    myHeaders.append("X-Api-Key", "wQrLCwWpO26urdkij0Emj9xs6qE7aZXs4mFxPzzl");
     myHeaders.append("Content-Type", "application/json");
 
     const requestOptions = {
       method: "GET",
       headers: myHeaders,
     };
-    fetch(`${import.meta.env.VITE_API_URL}/default/generateQuestionnaire?leadQuestionId=1001`, requestOptions)
+    fetch(`${import.meta.env.VITE_API_URL}/default/generateQuestionnaire?leadQuestionId=1001${currentUserId ? userParam : ''}`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        setQ2(result);
+        setQuestionnaire(result);
         setCurrentPage(result.info[0])
+        if (result.userId) {
+          localStorage.setItem('userId', result.userId);
+          setCurrentUserId(result.userId)
+        }
       })
       .catch((error) => console.error(error));
 
   }, []);
-  const next = (pageNo, q, a) => {
+  const next = async (pageNo, dataPointId, dataPointName, a, type) => {
+    if (type === "first_name") {
+      setUserName(a)
+      localStorage.setItem('userName', a)
+    }
     setProgressPages([...progressPages, pageNo])
-    setCurrentPage(q2.info?.find((page) => page.position === pageNo));
-    console.log(q, ':', a)
+    setCurrentPage(questionnaire.info?.find((page) => page.position === pageNo));
+    const data = {
+      "userId": parseInt(currentUserId, 10),
+      "dataPointId": dataPointId,
+      "dataPointName": dataPointName,
+      "answer": a
+    }
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/default/updateUserDataPoint`, {
+        method: 'POST', // Specify the method as POST
+        headers: {
+          "X-Api-Key": "wQrLCwWpO26urdkij0Emj9xs6qE7aZXs4mFxPzzl",
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+
+      const result = await response.json();
+      return result;
+    } catch (error) {
+      console.error('Error:', error);
+      throw error; // Rethrow error to be handled outside
+    }
   }
 
   const back = () => {
-    setCurrentPage(q2.info.find(page => page.position === progressPages[progressPages.length - 2]));
+    setCurrentPage(questionnaire.info.find(page => page.position === progressPages[progressPages.length - 2]));
     setProgressPages(prevItems => prevItems.slice(0, -1));
   }
-  useEffect(() => {
-    console.log("Progress Steps:", progressPages, "Current Page:", currentPage)
-  }, [progressPages, currentPage]);
-  if( !q2){
+  // useEffect(() => {
+  //   console.log("Progress Steps:", progressPages, "Current Page:", currentPage)
+  // }, [progressPages, currentPage]);
+  if( !questionnaire){
     return (<h1>Loading...</h1>)
   }
   return (
@@ -58,13 +89,13 @@ export default function Questionaire() {
         <HeaderArea
           currentPage={currentPage}
           progressPages={progressPages}
-          qLength={q2.info.length}
+          qLength={questionnaire.info.length}
         />
       </div>
       <div className="page-narrow" id="topic-page-container" ref={topicPageRef}>
         <div className="page-container">
           {
-            q2?.info.map((page) => {
+            questionnaire?.info.map((page) => {
               return (
                 <div key={page.position} className={`page page-width ${currentPage.position === page.position ? 'active' : ''}`}
                      id={`page${page.position}`}>

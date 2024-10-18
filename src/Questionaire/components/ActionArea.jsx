@@ -1,4 +1,4 @@
-export default function ActionArea({currentPage, next, back, q, a, isAvailable}) {
+export default function ActionArea({currentPage, next, back, dataPointId, dataPointName, a, isAvailable, type}) {
   return (
     <div className={`action-area ${currentPage.position === 1 ? 'justify-end' : 'justify-between'}`}>
       {
@@ -19,7 +19,7 @@ export default function ActionArea({currentPage, next, back, q, a, isAvailable})
           <button
             className="button button--primary"
             disabled={!isAvailable}
-            onClick={() => next(currentPage.jump ? currentPage.jump : currentPage.position + 1, q, a)}
+            onClick={() => next(currentPage.jump ? currentPage.jump : currentPage.position + 1, dataPointId, dataPointName, a, type)}
           >
             Continuă
             <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
