@@ -33,7 +33,7 @@ export default function MultipleOptions({
     <>
       <div className="multiple-option question-container">
         <div className="heading-container"  ref={containerRef}>
-          <h2>{question.replace("first_name", username)}</h2>
+          <h2>{question.replace("first_name", userName)}</h2>
           <p className="helper">{helper}</p>
         </div>
         <div className="options-container main-content-container"  style={{ height: `calc(100% - ${headingContainer}px)` }}>

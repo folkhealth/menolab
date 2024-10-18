@@ -13,7 +13,6 @@ export default function RegisterForm({
   back,
   currentPage,
 }){
-  const regex = /^[a-zA-Z0-9"][a-zA-Z0-9"%!+_.-]{0,63}@[a-zA-Z0-9][a-zA-Z0-9.-]+?\.[a-zA-Z]{2,15}$/;
   const [focusedFirstName, setFocusedFirstName] = useState(false);
   const [focusedLastName, setFocusedLastName] = useState(false);
   const [focusedEmail, setFocusedEmail] = useState(false);
@@ -43,13 +42,14 @@ export default function RegisterForm({
     }
   };
   useEffect(() => {
+    const regex = /^[a-zA-Z0-9"][a-zA-Z0-9"%!+_.-]{0,63}@[a-zA-Z0-9][a-zA-Z0-9.-]+?\.[a-zA-Z]{2,15}$/;
     setIsAvailable(
       firstName.length > 0
       && lastName.length > 0
       && email.length > 0
       && regex.test(email)
     )
-  }, [firstName, lastName, email, regex])
+  }, [firstName, lastName, email])
   return (
     <div className="register-container">
       <div className="heading-container">
