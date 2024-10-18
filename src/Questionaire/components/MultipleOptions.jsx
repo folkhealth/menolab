@@ -2,13 +2,16 @@ import { useState, useEffect, useRef } from 'react';
 import '../styles/multipleOptions.css';
 import ActionArea from "./ActionArea.jsx";
 export default function MultipleOptions({
+  type,
   question,
   helper,
   options,
   id,
   next,
   back,
-  currentPage
+  currentPage,
+  dataPointId,
+  dataPointName,
 }){
   const [answersArray, setAnswersArray] = useState([]);
   const containerRef = useRef(null);
@@ -64,9 +67,11 @@ export default function MultipleOptions({
         currentPage={currentPage}
         back={back}
         next={next}
-        q={question}
+        dataPointId={dataPointId}
+        dataPointName={dataPointName}
         a={answersArray}
         isAvailable={answersArray.length > 0}
+        type={type}
       />
     </>
 

@@ -81,6 +81,7 @@ export default function Page({page, next, back, currentPage}) {
     case 'multiple_option':
       return (
         <MultipleOptions
+          type={page.QuestionType}
           options={page.settings.options}
           question={page.settings.QuestionText}
           helper={page.settings.QuestionHelper}

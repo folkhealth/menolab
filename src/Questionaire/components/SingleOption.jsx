@@ -10,7 +10,9 @@ export default function SingleOption({
   id,
   next,
   back,
-  currentPage
+  currentPage,
+  dataPointId,
+  dataPointName,
 }) {
   const containerRef = useRef(null);
   const [headingContainer, setHeadingContainer] = useState(0);
@@ -43,7 +45,7 @@ export default function SingleOption({
                   className={`option ${option.image_url ? 'with-image' : ''}`}
                   role="button"
                   tabIndex={0}
-                  onClick={() => next(nextPage, question, answer)}
+                  onClick={() => next(nextPage, dataPointId, dataPointName, answer, type)}
                   key={option.OptionText}
                   data-question={id}
                 >

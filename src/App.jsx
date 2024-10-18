@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Dashboard from "./Dashboard/Dashboard"
 import Questionaire from "./Questionaire/Questionaire.jsx"
-
 import './assets/base.css'
 function ProtectedRoute({ element: Component }) {
   const  isAuthenticated  = true;

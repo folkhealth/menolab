@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+// import { API } from '@aws-amplify/api';
 import Page from "./components/Page.jsx";
 import './Questionaire.css'
 import HeaderArea from "./components/HeaderArea.jsx";
@@ -18,7 +19,7 @@ export default function Questionaire() {
       originalHeight.current = topicPageRef.current.clientHeight;
     }
     const myHeaders = new Headers();
-    myHeaders.append("X-Api-Key", "UoLl0hqxiJ5HN15Xd6HMqat9WDMK8fi57JtNIGBF");
+    myHeaders.append("X-Api-Key", `${import.meta.env.VITE_API_KEY}`);
     myHeaders.append("Content-Type", "application/json");
 
     const requestOptions = {
@@ -36,7 +37,7 @@ export default function Questionaire() {
         }
       })
       .catch((error) => console.error(error));
-
+    // eslint-disable-next-line
   }, []);
   const next = async (pageNo, dataPointId, dataPointName, a, type) => {
     if (type === "first_name") {
