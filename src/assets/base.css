@@ -49,6 +49,7 @@ body{
   padding: 0;
   background: #FFF !important;
   height: auto !important;
+  -webkit-font-smoothing: antialiased;
 }
 .button{
   display: inline-flex;
