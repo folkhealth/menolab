@@ -82,7 +82,7 @@ export default function Questionaire() {
   //   console.log("Progress Steps:", progressPages, "Current Page:", currentPage)
   // }, [progressPages, currentPage]);
   if( !questionnaire){
-    return (<h1>Loading...</h1>)
+    return (<h1>Loading....</h1>)
   }
   return (
     <div className={`${currentPage.position === 1 ? 'active' : ''} no-scroll`} style={{height: `${currentPage.position === 1 ? '100dvh' : 'calc(100dvh + 48px)'}`}}>
