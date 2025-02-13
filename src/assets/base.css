@@ -63,7 +63,7 @@ body{
   appearance: none;
   letter-spacing: -.24px;
   background-color: #FFF;
-  line-height: 48px;
+  line-height: 46px;
   border: 1px solid var(--main-blue);
   border-radius: 48px;
   gap: 6px;
@@ -87,13 +87,12 @@ body{
 }
 .button--secondary{
   background-color: #FFF;
-  border: 1px solid var(--secondary-blue-20);
+  border: 1px solid var(--main-blue);
   color: var(--main-blue);
   transition: background-color 0.3s ease;
 }
 .button--secondary:hover{
   background-color: var(--secondary-blue-20);
-  border: 1px solid var(--secondary-blue-20);
   transition: background-color 0.3s ease;
 }
 .justify-end{

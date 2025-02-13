@@ -42,9 +42,10 @@ export default function CustomForm({
             {
               type === "first_name" ? (
                 <div className="custom-field">
-                  <div className={`input-field floating-input ${focused || value ? "focused" : ""}`}>
+                  <div className={`input-field ${focused || value ? "focused" : ""}`}>
                     <input
                       type="text"
+                      className="full-radius"
                       value={value}
                       onFocus={handleFocus}
                       onBlur={handleBlur}
