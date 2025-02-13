@@ -34,7 +34,7 @@ export default function CustomForm({
     <>
       <div className="custom-form">
         <div className="heading-container">
-          <h2>{question.replace("first_name", userName)}</h2>
+          <h2>{question.replace("{first_name}", userName)}</h2>
           <p className="helper">{helper}</p>
         </div>
         <div className="main-content-container">

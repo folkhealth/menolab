@@ -1,5 +1,5 @@
 .contact-container .heading-container h2{
-  color: var(--primary-text-green);
+  color: var(--main-blue);
   font-family: "SofiaPro-Medium";
   font-size: 24px;
   font-style: normal;
@@ -14,7 +14,7 @@
   width: 100%;
 }
 .contact-container .heading-container .helper{
-  color: var(--tint-dark-green-50);
+  color: var(--main-grey);
   font-family: "SofiaPro-Regular";
   font-size: 14px;
   font-style: normal;
@@ -30,19 +30,19 @@
   row-gap: 16px;
 }
 .contact-container .contact-methods .contact{
-  border: 1px solid var(--tint-stone-50);
+  border: 1px solid var(--secondary-gray);
   padding: 16px;
   border-radius: 16px;
   cursor: pointer;
 }
 .contact-container .contact-methods .contact.selected{
-  border: 1px solid var(--primary-green-text);
+  border: 1px solid var(--main-blue);
 }
 .contact-container .contact-methods .contact>img{
   display: none;
 }
 .contact-container .contact-methods .contact .contact-text{
-  color: var(--primary-green-text);
+  color: var(--main-blue);
   font-family: "SofiaPro-Medium";
   font-size: 16px;
   font-style: normal;
@@ -52,7 +52,7 @@
   margin: 0 0 8px 0;
 }
 .contact-container .contact-methods .contact .contact-description{
-  color: var(--tint-dark-green-50);
+  color: var(--main-grey);
   font-family: 'SofiaPro-Regular';
   font-size: 14px;
   font-style: normal;

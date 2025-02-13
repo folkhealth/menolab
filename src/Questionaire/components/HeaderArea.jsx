@@ -2,7 +2,7 @@ export default function HeaderArea({currentPage, progressPages, qLength}) {
   return(
     <>
       <a href="/">
-        <img src="https://cdn.shopify.com/s/files/1/0761/6112/2639/files/folk_logo.svg?v=1689765174" alt="Folk"
+        <img src="https://menoqueens.ro/cdn/shop/files/menoqueens_logo.svg?v=1733922052&width=600" alt="Menoqueens"
              className="logo"/>
       </a>
       {

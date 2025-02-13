@@ -1,16 +1,11 @@
 :root {
-  --tint-stone-30: #E8EDEB;
-  --tint-stone-50: #D8E1DF;
-  --tint-dark-green-70: #627365;
-  --tint-dark-green-50: #8E9B91;
-  --primary-green: #235F3C;
-  --primary-green-text: #1E3723;
-  --green80: #4B5F4F;
-  --green50: #8E9B91;
-  --primary-mint: #6BA58C;
-  --mint30: #D3E4DD;
-  --mint70: #97C0AF;
-  --gray500: #667085;
+  --main-blue: #3D497A;
+  --main-blue-hover: #2C355A;
+  --main-grey: #949494;
+  --secondary-gray: #EAECF0;
+  --secondary-blue-80: #646D95;
+  --secondary-blue-20: #D8DBE4;
+  --secondary-blue: #f5f6f8;
 }
 @font-face {
   font-family:"SofiaPro-Medium";
@@ -62,28 +57,44 @@ body{
   text-decoration: none;
   font-family: 'SofiaPro-Medium';
   font-weight: 500;
-  color: var(--primary-green-text);
+  color: var(--main-blue);
   transition: box-shadow 0.3s ease;
   -webkit-appearance: none;
   appearance: none;
   letter-spacing: -.24px;
   background-color: #FFF;
   line-height: 48px;
-  border: 1px solid var(--primary-green-text);
+  border: 1px solid var(--main-blue);
   border-radius: 48px;
   gap: 6px;
 }
 .button:hover{
-  border: 1px solid var(--primary-green-text);
+  border: 1px solid var(--main-blue);
   outline: 0;
   box-shadow: 0 0 0;
 }
 .button--primary{
-  background-color: var(--primary-green-text);
+  background-color: var(--main-blue);
   color: #FFF;
+  transition: background-color 0.3s ease;
+}
+.button--primary:hover{
+  background-color: var(--main-blue-hover);
+  transition: background-color 0.3s ease;
 }
 .button--primary[disabled]{
   opacity: 0.6;
+}
+.button--secondary{
+  background-color: #FFF;
+  border: 1px solid var(--secondary-blue-20);
+  color: var(--main-blue);
+  transition: background-color 0.3s ease;
+}
+.button--secondary:hover{
+  background-color: var(--secondary-blue-20);
+  border: 1px solid var(--secondary-blue-20);
+  transition: background-color 0.3s ease;
 }
 .justify-end{
   justify-content: flex-end;

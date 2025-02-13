@@ -5,7 +5,9 @@ import './Questionaire.css'
 import HeaderArea from "./components/HeaderArea.jsx";
 export default function Questionaire() {
   const [questionnaire, setQuestionnaire] = useState(null);
+  const [language, setLanguage] = useState('EN');
   const [userName, setUserName] = useState(localStorage.getItem('userName'));
+  const [submissionId, setSubmissionId] = useState();
   const [progressPages, setProgressPages] = useState([1]);
   const [currentPage, setCurrentPage] = useState(null);
   const [currentUserId, setCurrentUserId] = useState(localStorage.getItem('userId'));
@@ -26,11 +28,12 @@ export default function Questionaire() {
       method: "GET",
       headers: myHeaders,
     };
-    fetch(`${import.meta.env.VITE_API_URL}/default/generateQuestionnaire?leadQuestionId=1001${currentUserId ? userParam : ''}`, requestOptions)
+    fetch(`${import.meta.env.VITE_API_URL}/default/getMenoScoreQuestionnaire`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        setQuestionnaire(result);
-        setCurrentPage(result.info[0])
+        setSubmissionId(result.SubmissionID)
+        setQuestionnaire(result.questionnaire);
+        setCurrentPage(result.questionnaire.info[0])
         if (result.userId) {
           localStorage.setItem('userId', result.userId);
           setCurrentUserId(result.userId)
@@ -47,13 +50,13 @@ export default function Questionaire() {
     setProgressPages([...progressPages, pageNo])
     setCurrentPage(questionnaire.info?.find((page) => page.position === pageNo));
     const data = {
-      "userId": parseInt(currentUserId, 10),
-      "dataPointId": dataPointId,
-      "dataPointName": dataPointName,
-      "answer": a
+      "SubmissionID": submissionId,
+      "language": language,
+      "DataPointName": dataPointName,
+      "Response": a
     }
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/default/updateUserDataPoint`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/default/updateMenoScoreResponse`, {
         method: 'POST', // Specify the method as POST
         headers: {
           "X-Api-Key": "UoLl0hqxiJ5HN15Xd6HMqat9WDMK8fi57JtNIGBF",
@@ -82,7 +85,7 @@ export default function Questionaire() {
   //   console.log("Progress Steps:", progressPages, "Current Page:", currentPage)
   // }, [progressPages, currentPage]);
   if( !questionnaire){
-    return (<h1>Loading....</h1>)
+    return (<h1>Loading...</h1>)
   }
   return (
     <div className={`${currentPage.position === 1 ? 'active' : ''} no-scroll`} style={{height: `${currentPage.position === 1 ? '100dvh' : 'calc(100dvh + 48px)'}`}}>

@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     border-radius: 16px;
-    border: 1px solid var(--tint-stone-50);
+    border: 1px solid var(--secondary-gray);
     display: flex;
     padding: 24px;
     row-gap: 24px;
@@ -26,7 +26,7 @@
 }
 .scores .score-card-main .score-card-main-info .score-title{
     font-family: "SofiaPro-Regular";
-    color: var(--primary-green-text);
+    color: var(--main-blue);
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -61,7 +61,7 @@
 }
 .scores .score-card-main .score-card-main-info .score-card-main-info-accuracy .score-card-main-info-accuracy-title-value{
     font-family: "SofiaPro-SemiBold";
-    color: var(--primary-green-text);
+    color: var(--main-blue);
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
@@ -91,7 +91,7 @@
 }
 .scores .score-card-main .score-card-main-assesment span{
     font-family: "SofiaPro-SemiBold";
-    color: var(--primary-green-text);
+    color: var(--main-blue);
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -102,7 +102,7 @@
 .scores .score-card{
     padding: 12px 24px;
     border-radius: 8px;
-    border: 1px solid var(--tint-stone-50);
+    border: 1px solid var(--secondary-gray);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -111,7 +111,7 @@
 }
 .scores .score-card .score-title{
     font-family: "SofiaPro-SemiBold";
-    color: var(--primary-green-text);
+    color: var(--main-blue);
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -121,7 +121,7 @@
 }
 .scores .score-card .score-description{
     font-family: "SofiaPro-Regular";
-    color: var(--tint-dark-green-50);
+    color: var(--main-grey);
     font-size: 14px;
     font-style: normal;
     font-weight: 400;

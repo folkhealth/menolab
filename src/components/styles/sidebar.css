@@ -58,7 +58,7 @@
   margin-bottom: 16px;
 }
 .sidebar .dashboardMenu .menuLink{
-  color: var(--tint-dark-green-50);
+  color: var(--main-grey);
   font-family: "SofiaPro-Medium";
   font-size: 16px;
   font-style: normal;
@@ -68,10 +68,10 @@
   transition: all 0.3s ease-in-out;
 }
 .sidebar .dashboardMenu .menuLink:hover{
-  color: var(--primary-green-text);
+  color: var(--main-blue);
   transition: all 0.3s ease-in-out;
 }
 .sidebar .dashboardMenu .menuLink.active{
-  color: var(--primary-green-text);
+  color: var(--main-blue);
   transition: all 0.3s ease-in-out;
 }
