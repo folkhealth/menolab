@@ -4,8 +4,28 @@ import Breadcrumbs from "../components/Breadcrumbs.jsx";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import Scores from "../components/Scores.jsx";
+import {useEffect, useState} from "react";
 
 export default function LeadQuestionAnswer() {
+  const [scoreJson, setScoreJson] = useState([]);
+  useEffect(() => {
+    const myHeaders = new Headers();
+    myHeaders.append("X-Api-Key", `${import.meta.env.VITE_API_KEY}`);
+    myHeaders.append("Content-Type", "application/json");
+
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+    };
+    fetch(`${import.meta.env.VITE_API_URL}/default/generateMenoScore?submissionId=3`, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        setScoreJson(result)
+
+      })
+      .catch((error) => console.error(error));
+    // eslint-disable-next-line
+  }, []);
   return (
     <>
       <div className="lead-question-answer-wrapper">

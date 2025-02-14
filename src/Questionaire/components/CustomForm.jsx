@@ -56,7 +56,23 @@ export default function CustomForm({
                     <label>First name</label>
                   </div>
                 </div>
-              ) : (
+              ) : type === "email" ? (
+                <div className="custom-field">
+                  <div className={`input-field ${focused || value ? "focused" : ""}`}>
+                    <input
+                      type="email"
+                      className="full-radius"
+                      value={value}
+                      onFocus={handleFocus}
+                      onBlur={handleBlur}
+                      onChange={(e) => setValue(e.target.value)}
+                      data-name="{{ id }}"
+                      onKeyPress={handleKeyPress}
+                    />
+                    <label>Email</label>
+                  </div>
+                </div>
+                ) : (
                 <>
                   {
                     fields?.map((field) => {

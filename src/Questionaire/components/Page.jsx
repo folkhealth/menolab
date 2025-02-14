@@ -132,6 +132,19 @@ export default function Page({page, next, back, currentPage}) {
           dataPointName={page.DataPointName}
         />
       )
+    case 'email':
+      return (
+        <CustomForm
+          question={page.settings.QuestionText}
+          helper={page.settings.QuestionHelper}
+          fields={page.settings.fields}
+          next={next}
+          back={back}
+          currentPage={currentPage}
+          dataPointId={page.DataPointID}
+          dataPointName={page.DataPointName}
+        />
+      )
     case 'register_form':
       return (
         <RegisterForm
