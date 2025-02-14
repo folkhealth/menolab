@@ -30,6 +30,13 @@ export default function CustomForm({
 
     }
   };
+  const isButtonAvailable = () => {
+    if(type === 'email'){
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      return emailRegex.test(value)
+    }
+    return value !== ''
+  }
   return (
     <>
       <div className="custom-form">
@@ -56,7 +63,7 @@ export default function CustomForm({
                     <label>First name</label>
                   </div>
                 </div>
-              ) : type === "email" ? (
+              ) : (type === "email" ? (
                 <div className="custom-field">
                   <div className={`input-field ${focused || value ? "focused" : ""}`}>
                     <input
@@ -66,7 +73,7 @@ export default function CustomForm({
                       onFocus={handleFocus}
                       onBlur={handleBlur}
                       onChange={(e) => setValue(e.target.value)}
-                      data-name="{{ id }}"
+                      data-email="{{ id }}"
                       onKeyPress={handleKeyPress}
                     />
                     <label>Email</label>
@@ -119,7 +126,7 @@ export default function CustomForm({
                     })
                   }
                 </>
-              )
+              ))
             }
           </div>
         </div>
@@ -131,7 +138,7 @@ export default function CustomForm({
         dataPointId={dataPointId}
         dataPointName={dataPointName}
         a={value}
-        isAvailable={value !== ''}
+        isAvailable={isButtonAvailable()}
         type={type}
       />
     </>

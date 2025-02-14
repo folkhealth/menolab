@@ -138,6 +138,7 @@ export default function Page({page, next, back, currentPage}) {
           question={page.settings.QuestionText}
           helper={page.settings.QuestionHelper}
           fields={page.settings.fields}
+          type={page.QuestionType}
           next={next}
           back={back}
           currentPage={currentPage}
