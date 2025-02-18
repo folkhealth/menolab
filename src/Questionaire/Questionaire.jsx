@@ -4,8 +4,12 @@ import Page from "./components/Page.jsx";
 import './Questionaire.css'
 import HeaderArea from "./components/HeaderArea.jsx";
 export default function Questionaire() {
+  function getLanguageFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('Language');
+  }
   const [questionnaire, setQuestionnaire] = useState(null);
-  const [language, setLanguage] = useState('EN');
+  const [language, setLanguage] = useState(getLanguageFromURL() ?? 'EN');
   const [userName, setUserName] = useState(localStorage.getItem('userName'));
   const [submissionId, setSubmissionId] = useState();
   const [progressPages, setProgressPages] = useState([1]);
@@ -16,7 +20,6 @@ export default function Questionaire() {
   const originalHeight = useRef(0);
 
   useEffect(() => {
-    const userParam = '&userId=' + currentUserId;
     if (topicPageRef.current) {
       originalHeight.current = topicPageRef.current.clientHeight;
     }
@@ -28,7 +31,7 @@ export default function Questionaire() {
       method: "GET",
       headers: myHeaders,
     };
-    fetch(`${import.meta.env.VITE_API_URL}/default/getMenoScoreQuestionnaire`, requestOptions)
+    fetch(`${import.meta.env.VITE_API_URL}/default/getMenoScoreQuestionnaire?language=${language}`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         setSubmissionId(result.SubmissionID)
