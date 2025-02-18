@@ -6,7 +6,7 @@ import HeaderArea from "./components/HeaderArea.jsx";
 export default function Questionaire() {
   function getLanguageFromURL() {
     const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('Language');
+    return urlParams.get('language');
   }
   const [questionnaire, setQuestionnaire] = useState(null);
   const [language, setLanguage] = useState(getLanguageFromURL() ?? 'EN');
