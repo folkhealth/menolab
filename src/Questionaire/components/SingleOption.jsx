@@ -45,7 +45,7 @@ export default function SingleOption({
                   className={`option ${option.image_url ? 'with-image' : ''}`}
                   role="button"
                   tabIndex={0}
-                  onClick={() => next(nextPage, dataPointId, dataPointName, type === 'scale' ? index.toString() : answer, type)}
+                  onClick={() => next(nextPage, dataPointId, dataPointName, type === 'scale' ? option.OptionValue.toString() : answer, type)}
                   key={option.OptionText}
                   data-question={id}
                 >
@@ -55,7 +55,7 @@ export default function SingleOption({
 
                   {type === 'scale' && (
                     <div className="scale-no">
-                      <span>{index}</span>
+                      <span>{option.OptionValue}</span>
                     </div>
                   )}
                   <div className="text-container">
