@@ -98,7 +98,7 @@ export default function Questionaire() {
           {
             questionnaire?.info.map((page) => {
               return (
-                <div key={page.position} className={`page page-width ${currentPage.position === page.position ? 'active' : ''}`}
+                <div key={page.position} className={`page page-width ${currentPage.position === page.position ? 'active' : 'd-none'}`}
                      id={`page${page.position}`}>
                   <Page
                     page={page}

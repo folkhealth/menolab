@@ -76,11 +76,12 @@
   margin-top: 16px;
   z-index: 1;
   padding: 0 32px;
+}
+.page.d-none{
   display: none;
 }
-
 .page.inactive{
-  left: -100%;
+  left: -500%;
   opacity: 0;
   transition: left 0s linear, opacity 200ms linear;
   z-index: 1;
