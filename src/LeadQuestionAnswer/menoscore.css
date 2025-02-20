@@ -1,0 +1,140 @@
+.meno-score-container{
+  width: 100%;
+}
+.meno-stage{
+  border: 1px solid var(--tint-stone-50);
+  border-radius: 16px;
+  padding: 32px;
+  width: 100%;
+  height: auto;
+}
+.meno-stage-main-content{
+  margin: 0 0 48px 0;
+  display: flex;
+  column-gap: 64px;
+}
+.meno-stage-main-content .meno-stage-scale{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: auto;
+  padding-left: 16px;
+  position: relative;
+}
+.meno-stage-main-content .meno-stage-scale .arrow{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: bottom 2s linear;
+}
+.meno-stage-main-content .meno-stage-scale .top-arrow{
+  position: relative;
+  left: -8px;
+}
+.meno-stage-main-content .meno-stage-scale .item{
+  color: var(--main-grey);
+  font-family: "SofiaPro-Regular";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.42px;
+  position: relative;
+  padding-left: 12px;
+}
+.meno-stage-main-content .meno-stage-scale .item.active{
+  color: var(--main-blue);
+}
+.meno-stage-main-content .meno-stage-scale .item:before{
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  background-color: var(--secondary-blue-20);
+  transition: background-color 0.2s linear;
+}
+.meno-stage-main-content .meno-stage-scale .item.active:before{
+  background-color: var(--main-blue);
+  transition: background-color 0.2s linear;
+}
+.meno-stage-main-content .meno-stage-scale .item.item1.active:before{
+  transition-delay: 0s;
+}
+.meno-stage-main-content .meno-stage-scale .item.item2.active:before{
+  transition-delay: 750ms;
+}
+.meno-stage-main-content .meno-stage-scale .item.item3.active:before{
+  transition-delay: 1500ms;
+}
+.meno-stage-main-content .meno-stage-scale .item.item4.active:before{
+  transition-delay: 1800ms;
+}
+.meno-stage-main-content .meno-stage-text{
+  flex: 1;
+}
+.meno-stage-main-content .meno-stage-scale .line-small{
+  width: 4px;
+  height: 24px;
+  background-color: var(--secondary-blue-20);
+  position: relative;
+  border-radius: 24px;
+  left: -4px;
+}
+.meno-stage-main-content .meno-stage-scale .line-big{
+  width: 4px;
+  height: 48px;
+  background-color: var(--secondary-blue-20);
+  position: relative;
+  border-radius: 24px;
+  left: -4px;
+}
+.meno-stage-main-content .meno-stage-scale .line-small span,
+.meno-stage-main-content .meno-stage-scale .line-big span{
+  height: 0;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  background-color: var(--secondary-blue-80);
+  transition: height 0.5s linear;
+  border-radius: 24px;
+}
+.meno-stage-main-content .meno-stage-scale .line-big span.active{
+  transition: height 0.5s linear;
+  height: 100%
+}
+.meno-stage-main-content .meno-stage-scale .line-small span.active{
+  transition: height 0.25s linear;
+  height: 100%
+}
+.meno-stage-main-content .meno-stage-text .meno-stage-title{
+  color: var(--main-blue);
+  font-family: "SofiaPro-Medium";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -0.72px;
+  margin: 0 0 24px;
+}
+.meno-stage-main-content .meno-stage-text .meno-stage-description{
+  color: var(--main-blue);
+  font-family: "SofiaPro-Regular";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
+}
+.meno-stage-explanation{
+  color: var(--main-grey);
+  font-family: "SofiaPro-Regular";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.18px;
+  margin: 0;
+}

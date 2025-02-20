@@ -10,11 +10,13 @@ export default function CustomForm({
   next,
   back,
   dataPointId,
-  dataPointName
+  dataPointName,
+  userName,
 }){
   const [focused, setFocused] = useState(false);
   const [value, setValue] = useState("");
-  const userName = localStorage.getItem("userName");
+  const [fullValue, setFullValue] = useState(null);
+  const user = localStorage.getItem("userName") ?? userName;
   const handleFocus = () => setFocused(true);
   const handleBlur = () => {
     if (!value) {
@@ -41,7 +43,7 @@ export default function CustomForm({
     <>
       <div className="custom-form">
         <div className="heading-container">
-          <h2>{question.replace("{first_name}", userName)}</h2>
+          <h2>{question.replace("{first_name}", user)}</h2>
           <p className="helper">{helper}</p>
         </div>
         <div className="main-content-container">
@@ -56,8 +58,9 @@ export default function CustomForm({
                       value={value}
                       onFocus={handleFocus}
                       onBlur={handleBlur}
-                      onChange={(e) => setValue(e.target.value)}
+                      onChange={(e) => {setValue(e.target.value);setFullValue(e.target.value)}}
                       data-name="{{ id }}"
+                      autoFocus={true}
                       onKeyPress={handleKeyPress}
                     />
                     <label>First name</label>
@@ -72,8 +75,9 @@ export default function CustomForm({
                       value={value}
                       onFocus={handleFocus}
                       onBlur={handleBlur}
-                      onChange={(e) => setValue(e.target.value)}
+                      onChange={(e) => {setValue(e.target.value); setFullValue(e.target.value)}}
                       data-email="{{ id }}"
+                      autoFocus={true}
                       onKeyPress={handleKeyPress}
                     />
                     <label>Email</label>
@@ -93,11 +97,15 @@ export default function CustomForm({
                                 value={value}
                                 onFocus={handleFocus}
                                 onBlur={handleBlur}
-                                onChange={(e) => setValue(e.target.value)}
+                                onChange={(e) => {
+                                  setValue(e.target.value)
+                                  setFullValue(field?.measurement ? `${e.target.value}${field?.measurement}` : e.target.value)
+                                }}
                                 data-name="{{ id }}"
                                 data-q={field?.label}
                                 data-mandatory={field.mandatory}
                                 onKeyPress={handleKeyPress}
+                                autoFocus={true}
                               />
                               <label>{field?.label}</label>
                               <div className="input-error">{field?.error_message}</div>
@@ -107,11 +115,15 @@ export default function CustomForm({
                               <textarea
                                 id={field?.label?.replace(' ', '-')}
                                 value={value}
-                                onChange={(e) => setValue(e.target.value)}
+                                onChange={(e) => {
+                                  setValue(e.target.value)
+                                  setFullValue(e.target.value)
+                                }}
                                 placeholder={field?.label}
                                 data-name="{{ id }}"
                                 data-q={question}
                                 data-mandatory={field?.mandatory}
+                                autoFocus={true}
                               ></textarea>
                               <div className="input-error">{field?.error_message}</div>
                             </div>

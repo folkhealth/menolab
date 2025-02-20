@@ -5,12 +5,12 @@ import Steps from "./Steps.jsx";
 import CustomForm from "./CustomForm.jsx";
 import Contact from "./Contact.jsx";
 import RegisterForm from "./RegisterForm.jsx";
-export default function Page({page, next, back, currentPage}) {
+export default function Page({page, next, back, currentPage, userName}) {
   switch (page.QuestionType) {
     case 'intro':
       return (
         <Intro
-          intro_text={page.settings.intro_text}
+          intro_text={page.settings.RichText}
           next={next}
           back={back}
           currentPage={currentPage}
@@ -22,6 +22,7 @@ export default function Page({page, next, back, currentPage}) {
           question={page.settings.QuestionText}
           helper={page.settings.QuestionHelper}
           type={page.QuestionType}
+          userName={userName}
           fields={[]}
           next={next}
           back={back}

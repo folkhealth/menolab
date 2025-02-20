@@ -9,17 +9,17 @@ export default function Questionaire() {
     return urlParams.get('language');
   }
   const [questionnaire, setQuestionnaire] = useState(null);
-  const [language, setLanguage] = useState(getLanguageFromURL() ?? 'EN');
+  const [language] = useState(getLanguageFromURL() ?? 'EN');
   const [userName, setUserName] = useState(localStorage.getItem('userName'));
   const [submissionId, setSubmissionId] = useState();
   const [progressPages, setProgressPages] = useState([1]);
   const [currentPage, setCurrentPage] = useState(null);
-  const [currentUserId, setCurrentUserId] = useState(localStorage.getItem('userId'));
   const topicPageRef = useRef(null);
   const headerRef = useRef(null);
   const originalHeight = useRef(0);
 
   useEffect(() => {
+    localStorage.setItem("language", getLanguageFromURL()?.toLowerCase().replace('2', '') ?? 'en');
     if (topicPageRef.current) {
       originalHeight.current = topicPageRef.current.clientHeight;
     }
@@ -37,10 +37,7 @@ export default function Questionaire() {
         setSubmissionId(result.SubmissionID)
         setQuestionnaire(result.questionnaire);
         setCurrentPage(result.questionnaire.info[0])
-        if (result.userId) {
-          localStorage.setItem('userId', result.userId);
-          setCurrentUserId(result.userId)
-        }
+        localStorage.setItem('SubmissionID', result.SubmissionID);
       })
       .catch((error) => console.error(error));
     // eslint-disable-next-line
@@ -84,9 +81,6 @@ export default function Questionaire() {
     setCurrentPage(questionnaire.info.find(page => page.position === progressPages[progressPages.length - 2]));
     setProgressPages(prevItems => prevItems.slice(0, -1));
   }
-  // useEffect(() => {
-  //   console.log("Progress Steps:", progressPages, "Current Page:", currentPage)
-  // }, [progressPages, currentPage]);
   if( !questionnaire){
     return (<h1>Loading...</h1>)
   }
@@ -111,6 +105,7 @@ export default function Questionaire() {
                     next={next}
                     back={back}
                     currentPage={currentPage}
+                    userName={userName}
                   />
                 </div>
 
