@@ -106,6 +106,7 @@ export default function Questionaire() {
                     back={back}
                     currentPage={currentPage}
                     userName={userName}
+                    isActive
                   />
                 </div>
 

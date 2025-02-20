@@ -23,6 +23,33 @@ export default function SingleOption({
     }
   }, []);
   const userName = localStorage.getItem("userName");
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (type === "scale" && currentPage.position === id) {
+        const pressedKey = event.key;
+        const selectedOption = options.find(
+          (option) => option.OptionValue.toString() === pressedKey
+        );
+
+        if (selectedOption) {
+          let nextPage = selectedOption.jump || jump || id + 1;
+          next(
+            nextPage,
+            dataPointId,
+            dataPointName,
+            selectedOption.OptionValue.toString(),
+            type
+          );
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [type, options, jump, id, next, dataPointId, dataPointName]);
+
   return(
     <>
       <div className="single-option question-container">
@@ -32,7 +59,7 @@ export default function SingleOption({
         </div>
         <div className="options-container main-content-container" style={{ height: `calc(100% - ${headingContainer}px)` }}>
           {
-            options.map((option, index) => {
+            options.map((option) => {
               const answer = option.OptionText.replace('ț', 't').replace('î', 'i').replace('ă', 'a').replace('â', 'a').replace('Î', 'I').replace('ș', 's')
               let nextPage = id + 1;
               if (option.jump) {

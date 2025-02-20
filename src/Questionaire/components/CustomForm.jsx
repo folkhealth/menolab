@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import '../styles/customForm.css'
 import ActionArea from "./ActionArea.jsx";
 export default function CustomForm({
@@ -9,24 +9,32 @@ export default function CustomForm({
   currentPage,
   next,
   back,
+  id,
   dataPointId,
   dataPointName,
   userName,
 }){
   const [focused, setFocused] = useState(false);
   const [value, setValue] = useState("");
+  const [fullValue, setFullValue] = useState("");
   const user = localStorage.getItem("userName") ?? userName;
+  const inputRef = useRef(null); // Reference for first input field
   const handleFocus = () => setFocused(true);
   const handleBlur = () => {
     if (!value) {
       setFocused(false);
     }
   };
+  useEffect(() => {
+    if (currentPage.position === id && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [currentPage.position, id]);
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
       if(value !== ''){
-        next(currentPage.jump ? currentPage.jump : currentPage.position + 1, dataPointId, dataPointName, value, type)
+        next(currentPage.jump ? currentPage.jump : currentPage.position + 1, dataPointId, dataPointName, fullValue, type)
       }
 
     }
@@ -52,12 +60,13 @@ export default function CustomForm({
                 <div className="custom-field">
                   <div className={`input-field ${focused || value ? "focused" : ""}`}>
                     <input
+                      ref={inputRef}
                       type="text"
                       className="full-radius"
                       value={value}
                       onFocus={handleFocus}
                       onBlur={handleBlur}
-                      onChange={(e) => setValue(e.target.value)}
+                      onChange={(e) => {setValue(e.target.value); setFullValue(e.target.value)}}
                       data-name="{{ id }}"
                       autoFocus={true}
                       onKeyDown={handleKeyPress}
@@ -69,12 +78,13 @@ export default function CustomForm({
                 <div className="custom-field">
                   <div className={`input-field ${focused || value ? "focused" : ""}`}>
                     <input
+                      ref={inputRef}
                       type="email"
                       className="full-radius"
                       value={value}
                       onFocus={handleFocus}
                       onBlur={handleBlur}
-                      onChange={(e) => setValue(e.target.value)}
+                      onChange={(e) => {setValue(e.target.value); setFullValue(e.target.value)}}
                       data-email="{{ id }}"
                       autoFocus={true}
                       onKeyDown={handleKeyPress}
@@ -85,18 +95,22 @@ export default function CustomForm({
                 ) : (
                 <>
                   {
-                    fields?.map((field) => {
+                    fields?.map((field, index) => {
                       return (
                         <div className="custom-field" key={field?.label}>
                           {(field?.type === 'numeric' || field?.type === 'alphanumeric') ? (
                             <div className={`input-field floating-input ${focused || value ? "focused" : ""}`}>
                               <input
+                                ref={index === 0 ? inputRef : null}
                                 type={field?.type === 'numeric' ? 'number' : 'text'}
                                 id={field?.label?.replace(' ', '-')}
                                 value={value}
                                 onFocus={handleFocus}
                                 onBlur={handleBlur}
-                                onChange={(e) => setValue(e.target.value)}
+                                onChange={(e) => {
+                                  setValue(e.target.value);
+                                  setFullValue(field?.measurement && field?.measurement !== 'Year' ? `${e.target.value}${field?.measurement}` : e.target.value)
+                                }}
                                 data-name="{{ id }}"
                                 data-q={field?.label}
                                 data-mandatory={field.mandatory}
@@ -111,7 +125,7 @@ export default function CustomForm({
                               <textarea
                                 id={field?.label?.replace(' ', '-')}
                                 value={value}
-                                onChange={(e) => setValue(e.target.value)}
+                                onChange={(e) => {setValue(e.target.value); setFullValue(e.target.value)}}
                                 placeholder={field?.label}
                                 data-name="{{ id }}"
                                 data-q={question}
@@ -142,7 +156,7 @@ export default function CustomForm({
         next={next}
         dataPointId={dataPointId}
         dataPointName={dataPointName}
-        a={value}
+        a={fullValue}
         isAvailable={isButtonAvailable()}
         type={type}
       />

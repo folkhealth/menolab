@@ -26,6 +26,7 @@ export default function Page({page, next, back, currentPage, userName}) {
           fields={[]}
           next={next}
           back={back}
+          id={page.position}
           currentPage={currentPage}
           dataPointId={page.DataPointID}
           dataPointName={page.DataPointName}
@@ -103,6 +104,7 @@ export default function Page({page, next, back, currentPage, userName}) {
           next={next}
           back={back}
           currentPage={currentPage}
+          id={page.position}
           dataPointId={page.DataPointID}
           dataPointName={page.DataPointName}
         />
@@ -142,6 +144,7 @@ export default function Page({page, next, back, currentPage, userName}) {
           type={page.QuestionType}
           next={next}
           back={back}
+          id={page.position}
           currentPage={currentPage}
           dataPointId={page.DataPointID}
           dataPointName={page.DataPointName}
