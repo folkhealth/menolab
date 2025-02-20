@@ -25,7 +25,7 @@ export default function SingleOption({
   const userName = localStorage.getItem("userName");
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (type === "scale" && currentPage.position === id) {
+      if (type === "scale" && currentPage?.position === id) {
         const pressedKey = event.key;
         const selectedOption = options.find(
           (option) => option.OptionValue.toString() === pressedKey

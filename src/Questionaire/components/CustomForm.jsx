@@ -26,10 +26,10 @@ export default function CustomForm({
     }
   };
   useEffect(() => {
-    if (currentPage.position === id && inputRef.current) {
+    if (currentPage?.position === id && inputRef.current) {
       inputRef.current.focus();
     }
-  }, [currentPage.position, id]);
+  }, [currentPage?.position, id]);
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
@@ -109,7 +109,7 @@ export default function CustomForm({
                                 onBlur={handleBlur}
                                 onChange={(e) => {
                                   setValue(e.target.value);
-                                  setFullValue(field?.measurement && field?.measurement !== 'Year' ? `${e.target.value}${field?.measurement}` : e.target.value)
+                                  setFullValue(field?.measurement && field?.measurement !== 'Year' && field?.measurement !== 'An' ? `${e.target.value}${field?.measurement}` : e.target.value)
                                 }}
                                 data-name="{{ id }}"
                                 data-q={field?.label}
