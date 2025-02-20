@@ -15,7 +15,6 @@ export default function CustomForm({
 }){
   const [focused, setFocused] = useState(false);
   const [value, setValue] = useState("");
-  const [fullValue, setFullValue] = useState(null);
   const user = localStorage.getItem("userName") ?? userName;
   const handleFocus = () => setFocused(true);
   const handleBlur = () => {
@@ -58,10 +57,10 @@ export default function CustomForm({
                       value={value}
                       onFocus={handleFocus}
                       onBlur={handleBlur}
-                      onChange={(e) => {setValue(e.target.value);setFullValue(e.target.value)}}
+                      onChange={(e) => setValue(e.target.value)}
                       data-name="{{ id }}"
                       autoFocus={true}
-                      onKeyPress={handleKeyPress}
+                      onKeyDown={handleKeyPress}
                     />
                     <label>First name</label>
                   </div>
@@ -75,10 +74,10 @@ export default function CustomForm({
                       value={value}
                       onFocus={handleFocus}
                       onBlur={handleBlur}
-                      onChange={(e) => {setValue(e.target.value); setFullValue(e.target.value)}}
+                      onChange={(e) => setValue(e.target.value)}
                       data-email="{{ id }}"
                       autoFocus={true}
-                      onKeyPress={handleKeyPress}
+                      onKeyDown={handleKeyPress}
                     />
                     <label>Email</label>
                   </div>
@@ -97,14 +96,11 @@ export default function CustomForm({
                                 value={value}
                                 onFocus={handleFocus}
                                 onBlur={handleBlur}
-                                onChange={(e) => {
-                                  setValue(e.target.value)
-                                  setFullValue(field?.measurement ? `${e.target.value}${field?.measurement}` : e.target.value)
-                                }}
+                                onChange={(e) => setValue(e.target.value)}
                                 data-name="{{ id }}"
                                 data-q={field?.label}
                                 data-mandatory={field.mandatory}
-                                onKeyPress={handleKeyPress}
+                                onKeyDown={handleKeyPress}
                                 autoFocus={true}
                               />
                               <label>{field?.label}</label>
@@ -115,10 +111,7 @@ export default function CustomForm({
                               <textarea
                                 id={field?.label?.replace(' ', '-')}
                                 value={value}
-                                onChange={(e) => {
-                                  setValue(e.target.value)
-                                  setFullValue(e.target.value)
-                                }}
+                                onChange={(e) => setValue(e.target.value)}
                                 placeholder={field?.label}
                                 data-name="{{ id }}"
                                 data-q={question}

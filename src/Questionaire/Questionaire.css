@@ -43,8 +43,10 @@
   max-width: 576px;
 }
 .page-container{
-  position: relative;
+  position: absolute;
   height: 100%;
+  width: 100%;
+  left: 0;
 }
 #topic-page-container{
   width: 100vw;
@@ -66,7 +68,7 @@
 .page{
   position: absolute;
   top: 0;
-  left: 50%;
+  left: 100%;
   width: calc(100% - 64px);
   height: calc(100dvh - 102px);
   opacity: 0;
@@ -74,6 +76,7 @@
   margin-top: 16px;
   z-index: 1;
   padding: 0 32px;
+  display: none;
 }
 
 .page.inactive{
@@ -87,6 +90,7 @@
   opacity: 1;
   transition: left 200ms linear, opacity 300ms linear;
   z-index: 2;
+  display: block;
 }
 .action-area{
   display: flex;

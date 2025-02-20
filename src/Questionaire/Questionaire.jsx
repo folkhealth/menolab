@@ -19,7 +19,7 @@ export default function Questionaire() {
   const originalHeight = useRef(0);
 
   useEffect(() => {
-    localStorage.setItem("language", getLanguageFromURL()?.toLowerCase().replace('2', '') ?? 'en');
+    localStorage.setItem("language", getLanguageFromURL()?.toLowerCase() ?? 'en');
     if (topicPageRef.current) {
       originalHeight.current = topicPageRef.current.clientHeight;
     }

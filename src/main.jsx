@@ -16,7 +16,7 @@ const messages = {
 Amplify.configure(outputs);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <IntlProvider locale={localStorage.getItem('language') ?? 'en'} messages={messages[localStorage.getItem('language') ?? 'en']}>
+  <IntlProvider locale={localStorage.getItem('language')?.toLowerCase().replace('2','') ?? 'en'} messages={messages[localStorage.getItem('language')?.toLowerCase().replace('2','') ?? 'en']}>
     <React.StrictMode>
       <App />
     </React.StrictMode>
