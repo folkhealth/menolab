@@ -13,6 +13,7 @@ export const mockData = {
     "stageDeterminationExplanation": "Your perimenopause stage is determined based on your age and reported symptoms such as anxiety and sleep problems. This stage is characterized by irregular cycles and increasing symptoms. Tracking your menstrual cycle and managing symptoms effectively is crucial to confirming your perimenopause stage and preparing for menopause itself."
   },
   "keySymptoms": {
+    "symptomstitle": "Symptoms",
     "mostImpactful": [
       {
         "name": "Anxiety",
