@@ -49,31 +49,33 @@ export default function Questionaire() {
     }
     setProgressPages([...progressPages, pageNo])
     setCurrentPage(questionnaire.info?.find((page) => page.position === pageNo));
-    const data = {
-      "SubmissionID": submissionId,
-      "language": language,
-      "DataPointName": dataPointName,
-      "Response": a
-    }
-    try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/default/updateMenoScoreResponse`, {
-        method: 'POST', // Specify the method as POST
-        headers: {
-          "X-Api-Key": "UoLl0hqxiJ5HN15Xd6HMqat9WDMK8fi57JtNIGBF",
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
+    if(type !== "intro") {
+      const data = {
+        "SubmissionID": submissionId,
+        "language": language,
+        "DataPointName": dataPointName,
+        "Response": a
       }
+      try {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/default/updateMenoScoreResponse`, {
+          method: 'POST', // Specify the method as POST
+          headers: {
+            "X-Api-Key": "UoLl0hqxiJ5HN15Xd6HMqat9WDMK8fi57JtNIGBF",
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
 
-      const result = await response.json();
-      return result;
-    } catch (error) {
-      console.error('Error:', error);
-      throw error; // Rethrow error to be handled outside
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status}`);
+        }
+
+        const result = await response.json();
+        return result;
+      } catch (error) {
+        console.error('Error:', error);
+        throw error; // Rethrow error to be handled outside
+      }
     }
   }
 

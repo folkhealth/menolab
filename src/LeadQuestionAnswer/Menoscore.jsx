@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import ScoreCircle from "./ScoreCircle.jsx";
 import "./menoscore.css";
 import 'swiper/css';
 import { FormattedMessage, createIntl } from "react-intl";
@@ -33,7 +34,7 @@ export default function Menoscore({scoreJson}) {
   }
   return (
     <div className="meno-score-container">
-      <div className="meno-stage">
+      <div className="meno-stage" id={scoreJson.menopauseStage.stagetitle}>
         <div className="meno-stage-main-content">
           <div className="meno-stage-scale">
             <div className="arrow" style={{bottom: arrowPosition, transitionDuration: `${(index+1)*500}ms`}}>
@@ -84,6 +85,69 @@ export default function Menoscore({scoreJson}) {
         <div className="meno-stage-explanation">
           {scoreJson.menopauseStage.stageDeterminationExplanation}
         </div>
+      </div>
+      <div className="meno-score" id={scoreJson.menoScore.scoretitle}>
+        <div className="meno-stage-main-content">
+          <ScoreCircle
+            score={scoreJson.menoScore.score}
+            size={128}
+            strokeWidth={8}
+          />
+          <div className="meno-stage-text">
+            <div className="meno-stage-title">
+              {scoreJson.menoScore.scorename}
+            </div>
+            <div className="meno-stage-description"
+                 dangerouslySetInnerHTML={{__html: scoreJson.menoScore.description}}/>
+          </div>
+        </div>
+        <div className="meno-stage-explanation">
+          {scoreJson.menoScore.scoreExplanation}
+        </div>
+      </div>
+      <div className="simptoms-recommendations" id="symptoms">
+        <div className="intro">
+          <h2><FormattedMessage id="symptomsTitle" /></h2>
+          <div className="intro-text">
+            <FormattedMessage id="symptomsDescription" />
+          </div>
+        </div>
+        <div>
+          <button
+            className="button button--primary"
+            onClick={() => {document.getElementById('high_impact').scrollIntoView({ behavior: "smooth" })}}
+          >
+            <FormattedMessage id="high_impact"/>
+          </button>
+          <button
+            className="button button--secondary"
+            onClick={() => {document.getElementById('low_impact').scrollIntoView({ behavior: "smooth" })}}
+          >
+            <FormattedMessage id="low_impact"/>
+          </button>
+        </div>
+        {
+          scoreJson.keySymptoms.mostImpactful.map(s => (
+            <div className="symptom high" id="high_impact" key={s.name}>
+              <div className="name">{s.name}</div>
+              <div className="description">{s.description}</div>
+              <a href={s.articleUrl}>
+                {s.linkText}
+              </a>
+            </div>
+          ))
+        }
+        {
+          scoreJson.keySymptoms.moderateImpact.map(s => (
+            <div className="symptom moderate" id="low_impact" key={s.name}>
+              <div className="name">{s.name}</div>
+              <div className="description">{s.description}</div>
+              <a href={s.articleUrl}>
+                {s.linkText}
+              </a>
+            </div>
+          ))
+        }
       </div>
     </div>
   );

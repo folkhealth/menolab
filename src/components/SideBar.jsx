@@ -29,16 +29,22 @@ export default function SideBar({scoreSummary}) {
       </div>
       <div className="dashboardMenu">
         {scoreSummary.stageTitle && (
-          <button className="menuLink">{scoreSummary.stageTitle}</button>
+          <button className="menuLink" onClick={() => document.getElementById(scoreSummary.stageTitle).scrollIntoView({ behavior: "smooth" })}>
+            {scoreSummary.stageTitle}
+          </button>
         )}
-        {scoreSummary.stageTitle && (
-          <button className="menuLink">{scoreSummary.stageTitle}</button>
+        {scoreSummary.scoreTitle && (
+          <button className="menuLink" onClick={() => document.getElementById(scoreSummary.scoreTitle).scrollIntoView({ behavior: "smooth" })}>
+            {scoreSummary.scoreTitle}
+          </button>
         )}
         {scoreSummary.symptomsTitle && (
-          <button className="menuLink active">{scoreSummary.symptomsTitle}</button>
+          <button className="menuLink active" onClick={() => document.getElementById('symptoms').scrollIntoView({ behavior: "smooth" })}>{scoreSummary.symptomsTitle}</button>
         )}
         {scoreSummary.recommendationsTitle && (
-          <button className="menuLink">{scoreSummary.recommendationsTitle}</button>
+          <button className="menuLink" onClick={() => document.getElementById('recommendations').scrollIntoView({ behavior: "smooth" })}>
+            {scoreSummary.recommendationsTitle}
+          </button>
         )}
       </div>
     </div>

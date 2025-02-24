@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import '../styles/customForm.css'
 import ActionArea from "./ActionArea.jsx";
+import {FormattedMessage} from "react-intl";
 export default function CustomForm({
   question,
   helper,
@@ -71,7 +72,7 @@ export default function CustomForm({
                       autoFocus={true}
                       onKeyDown={handleKeyPress}
                     />
-                    <label>First name</label>
+                    <label><FormattedMessage id="first_name" /></label>
                   </div>
                 </div>
               ) : (type === "email" ? (

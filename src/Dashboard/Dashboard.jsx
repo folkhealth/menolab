@@ -36,7 +36,7 @@ export default function Dashboard() {
     //     setScoreJson(fullJson)
     //   })
     //   .catch((error) => console.error(error));
-    // eslint-disable-next-line
+   // eslint-disable-next-line
   }, []);
   return (
     <div className="dashboard">

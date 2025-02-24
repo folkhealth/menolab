@@ -2,46 +2,66 @@ export const mockData = {
   "menoScore": {
     "scoretitle": "Menopause Score",
     "scorename": "Challenging Menopause",
-    "score": 42,
-    "description": "Test, your Menopause Score indicates a challenging menopause transition. With symptoms like irritability, declining skin quality, and memory issues, you might find that these aspect of menopause are significantly affecting your daily life. Paying attention to these symptoms and addressing them effectively can greatly enhance your overall quality of life and well-being.",
-    "scoreExplanation": "Your Menopause Score reflects the severity and impact of your menopause symptoms on your daily life. Each symptom is assessed on its severity, with some having a more profound effect on your daily functioning than others. A higher score suggests fewer disruptions from menopause, whereas a lower score indicates a greater overall impact. This score can help monitor symptom progression and pinpoint areas that may benefit from targeted interventions."
+    "score": 41,
+    "description": "Jan, your Menopause Score suggests a particularly challenging menopause experience. Symptoms such as anxiety, tiredness, and brain fog may be significant factors impacting your daily life and well-being. Addressing these areas can greatly enhance your overall health and daily function. Remember that these symptoms are common, and proactive management can lead to substantial improvements in your quality of life.<br>",
+    "scoreExplanation": "Your Menopause Score is designed to reflect how menopause symptoms are affecting your overall well-being. Each symptom is assessed based on its severity and influence on daily activities. A higher score indicates a lesser impact while a lower score suggests that the symptoms are more disruptive. This score is helpful for tracking symptom changes over time and recognizing key areas where symptom management can be focused."
   },
   "menopauseStage": {
     "stagetitle": "Menopause Stage",
     "stage": "Perimenopause",
-    "description": "Your current profile aligns with perimenopause. This phase often involves fluctuation in hormone levels which can lead to symptoms such as irritability, changes in skin quality, and memory issues. Addressing these symptoms early in the perimenopausal stage can help ease the transition to menopause and improve your coping mechanisms over time.",
-    "stageDeterminationExplanation": "The determination of your menopause stage is based on your age, reported symptoms, and changes in menstrual patterns. For instance, perimenopause is typically marked by irregular menstrual cycles accompanied by symptoms such as irritability and memory changes. Tracking these signs and consulting with a healthcare provider can assist in confirming the specific stage you're experiencing."
+    "description": "Your profile suggests that you are in the perimenopause stage. This is a transitional period marked by changes in hormone levels leading to irregular menstrual cycles and a variety of symptoms such as mood changes, anxiety, and sleep disturbances. Starting symptom management during this stage can help ease the transition and maintain your quality of life.",
+    "stageDeterminationExplanation": "Your perimenopause stage is determined based on your age and reported symptoms such as anxiety and sleep problems. This stage is characterized by irregular cycles and increasing symptoms. Tracking your menstrual cycle and managing symptoms effectively is crucial to confirming your perimenopause stage and preparing for menopause itself."
   },
-  "keySymptoms": [
-    {
-      "name": "Bladder Problems",
-      "severity": 4,
-      "description": "Experiencing bladder problems during menopause can be attributed to changing hormone levels. This can lead to a variety of symptoms including increased urgency, frequency, and possible incontinence. Addressing bladder health and implementing supportive lifestyle modifications can assist in managing these symptoms effectively.",
-      "articleUrl": "https://menoqueens.ro/blogs/semne-simptome-menopauza/balonare-menopauza",
-      "linkText": "Read more about this symptom"
-    },
-    {
-      "name": "Declining Skin Quality",
-      "severity": 4,
-      "description": "Menopause can affect skin quality by reducing elasticity and moisture, often resulting in a feeling of dryness or a noticeable change in texture. Maintaining skin health can be achieved by proper hydration, using nourishing skincare products, and possibly adopting hormone replacement therapies under professional guidance.",
-      "articleUrl": "https://menoqueens.ro/blogs/semne-simptome-menopauza/piele-uscata-aspra-menopauza",
-      "linkText": "Read more about this symptom"
-    },
-    {
-      "name": "Irritability",
-      "severity": 5,
-      "description": "Irritability is a common symptom during the menopause transition, often caused by hormonal fluctuations. It can affect relationships and daily interactions, but identifying triggers and employing stress management strategies can help in mitigating its effects. Consulting a healthcare provider can also explore treatment options like HRT or counseling.",
-      "articleUrl": "https://menoqueens.ro/blogs/semne-simptome-menopauza/modificari-de-dispozitie-menopauza",
-      "linkText": "Read more about this symptom"
-    },
-    {
-      "name": "Memory Issues",
-      "severity": 5,
-      "description": "Memory issues, or brain fog, can be distressing during menopause. It often manifests as forgetfulness or difficulty concentrating, which can impact work and daily activities. It is beneficial to engage in cognitive exercises and lifestyle adjustments to improve mental function, while also discussing symptoms with a healthcare provider for comprehensive strategies.",
-      "articleUrl": "https://menoqueens.ro/blogs/semne-simptome-menopauza/dificultati-de-concentrare-menopauza",
-      "linkText": "Read more about this symptom"
-    }
-  ],
-  "anxietyRecommendation": "",
-  "depressionRecommendation": ""
+  "keySymptoms": {
+    "mostImpactful": [
+      {
+        "name": "Anxiety",
+        "severity": 4,
+        "description": "We noticed from your questionnaire that you’re experiencing anxiety. Please don’t think you need to go through this alone. It’s important to get the proper help that you need and deserve, so we’d advise you to speak to your doctor. If your anxiety is really getting on top of you, if you’re feeling suicidal or are thinking about harming yourself, please phone your local Crisis number on 0800 801 200.",
+        "articleUrl": "https://menoqueens.ro/blogs/semne-simptome-menopauza/anxietate-menopauza",
+        "linkText": "Read more about this symptom",
+        "isMentalHealth": true
+      },
+      {
+        "name": "Tiredness & Fatigue",
+        "severity": 3,
+        "description": "Your feelings of tiredness and fatigue could be due to several factors, including hormonal changes typical during perimenopause. Ensuring good sleep hygiene and perhaps speaking with a healthcare provider about chronic fatigue could help manage these symptoms.",
+        "articleUrl": "https://menoqueens.ro/blogs/semne-simptome-menopauza/oboseala-menopauza",
+        "linkText": "Read more about this symptom",
+        "isMentalHealth": false
+      },
+      {
+        "name": "Brain Fog",
+        "severity": 3,
+        "description": "Struggling with concentration or experiencing brain fog is a common complaint during menopause transitions. These cognitive changes might be frustrating but can often be managed with cognitive exercises and lifestyle modifications. Consider consulting a cognitive specialist if the issues persist.",
+        "articleUrl": "https://menoqueens.ro/blogs/semne-simptome-menopauza/dificultati-de-concentrare-menopauza",
+        "linkText": "Read more about this symptom",
+        "isMentalHealth": false
+      },
+      {
+        "name": "Memory Issues",
+        "severity": 3,
+        "description": "Memory issues during perimenopause can be unsettling, often linked to fluctuations in hormone levels. Developing a routine and engaging in brain-stimulating activities might mitigate these symptoms. Consulting with a healthcare provider can provide tailored strategies for improvement.",
+        "articleUrl": "https://menoqueens.ro/blogs/semne-simptome-menopauza/dificultati-de-concentrare-menopauza",
+        "linkText": "Read more about this symptom",
+        "isMentalHealth": false
+      }
+    ],
+    "moderateImpact": [
+      {
+        "name": "Decreased Physical Strength/Stamina",
+        "severity": 2,
+        "description": "Maintaining physical strength and stamina is often more challenging during perimenopause. Regular physical activity, including strength training, can help counteract these changes and improve your energy and vitality levels.",
+        "articleUrl": "https://menoqueens.ro/blogs/semne-simptome-menopauza/oboseala-menopauza",
+        "linkText": "Read more about this symptom"
+      },
+      {
+        "name": "Headaches",
+        "severity": 3,
+        "description": "Headaches can become more frequent or severe during menopause. Lifestyle adjustments such as regular physical exercise, adequate hydration, and stress management techniques can often help manage headaches.",
+        "articleUrl": "https://menoqueens.ro/blogs/semne-simptome-menopauza/dureri-cap-menopauza",
+        "linkText": "Read more about this symptom"
+      }
+    ]
+  }
 }

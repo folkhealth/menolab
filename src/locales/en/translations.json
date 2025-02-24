@@ -2,5 +2,10 @@
   "premenopause": "Premenopause",
   "perimenopase": "Perimenopause",
   "menopause": "Menopause",
-  "postmenopause": "Postmenopause"
+  "postmenopause": "Postmenopause",
+  "symptomsTitle": "Your symptoms explained",
+  "symptomsDescription": "Here’s a breakdown of your symptoms based on their impact. Follow the links for free, evidence-based information on each symptom, including its details, how common it is, and available treatment options.",
+  "high_impact": "High impact",
+  "low_impact": "Low impact",
+  "first_name": "First Name"
 }

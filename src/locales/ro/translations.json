@@ -2,5 +2,10 @@
   "premenopause": "Pre Menopauzǎ",
   "perimenopase": "Perimenopauzǎ",
   "menopause": "Menopauzǎ",
-  "postmenopause": "Postmenopauzǎ"
+  "postmenopause": "Postmenopauzǎ",
+  "symptomsTitle": "Simptomele tale explicate",
+  "symptomsDescription": "Iată o analiză a simptomelor tale în funcție de impactul lor. Urmează linkurile pentru informații gratuite, bazate pe dovezi, despre fiecare simptom, inclusiv detalii, cât de frecvent este și opțiunile de tratament disponibile.",
+  "high_impact": "Impact Ridicat",
+  "low_impact": "Impact Scăzut",
+  "first_name": "Prenume"
 }
