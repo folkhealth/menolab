@@ -33,7 +33,7 @@
 }
 .meno-stage-main-content .meno-stage-scale .top-arrow{
   position: relative;
-  left: -8px;
+  left: -5px;
 }
 .meno-stage-main-content .meno-stage-scale .item{
   color: var(--main-grey);
@@ -52,7 +52,7 @@
 .meno-stage-main-content .meno-stage-scale .item:before{
   content: '';
   position: absolute;
-  left: -8px;
+  left: -5px;
   top: 4px;
   width: 12px;
   height: 12px;
@@ -85,7 +85,7 @@
   background-color: var(--secondary-blue-20);
   position: relative;
   border-radius: 24px;
-  left: -4px;
+  left: -1px;
 }
 .meno-stage-main-content .meno-stage-scale .line-big{
   width: 4px;
@@ -93,7 +93,7 @@
   background-color: var(--secondary-blue-20);
   position: relative;
   border-radius: 24px;
-  left: -4px;
+  left: -1px;
 }
 .meno-stage-main-content .meno-stage-scale .line-small span,
 .meno-stage-main-content .meno-stage-scale .line-big span{
@@ -163,6 +163,7 @@
   margin-top: 32px;
 }
 #symptoms .intro{
+  margin-bottom: 32px;
 }
 #symptoms .intro h2{
   color: var(--main-blue);
@@ -183,27 +184,64 @@
   line-height: 28px; /* 155.556% */
   letter-spacing: -0.54px;
 }
+#symptoms  .action-buttons{
+  display: flex;
+  gap: 8px;
+  background-color: #FFF;
+  padding: 32px 0;
+  position: sticky;
+  left: 0;
+  top: 0px;
+}
+#symptoms  .action-buttons .button{
+  font-family: "SofiaPro-Medium";
+  padding: 8px 24px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.24px;
+}
+#symptoms  .action-buttons .button.button--secondary{
+  border: 1px solid var(--main-blue);
+  color: var(--main-blue);
+}
 .simptoms-recommendations{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  row-gap: 32px;
 }
 .simptoms-recommendations .symptom{
   border-bottom: 1px solid var(--tint-stone-50);
   padding: 0 0 32px 0;
   max-width: 100%;
   height: auto;
+  margin-bottom: 32px;
+}
+.simptoms-recommendations .symptom.symptom0{
+  margin-top: 16px;
+}
+.simptoms-recommendations .symptom.alert{
+
+}
+.simptoms-recommendations .symptom.alert .name,
+.simptoms-recommendations .symptom.alert .description,
+.simptoms-recommendations .symptom.alert a{
+  color: var(--main-pink);
 }
 .simptoms-recommendations .symptom .name{
   color: var(--main-blue);
   font-family: "SofiaPro-SemiBold";
-  font-size: 18px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 700;
-  line-height: 28px; /* 155.556% */
-  letter-spacing: -0.54px;
-  margin: 0 0 8px 0;
+  line-height: 30px;
+  letter-spacing: -0.3px;
+  margin: 0 0 16px 0;
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
 }
 .simptoms-recommendations .symptom .description{
   color: var(--main-blue);

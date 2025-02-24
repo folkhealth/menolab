@@ -107,31 +107,53 @@ export default function Menoscore({scoreJson}) {
       </div>
       <div className="simptoms-recommendations" id="symptoms">
         <div className="intro">
-          <h2><FormattedMessage id="symptomsTitle" /></h2>
+          <h2><FormattedMessage id="symptomsTitle"/></h2>
           <div className="intro-text">
-            <FormattedMessage id="symptomsDescription" />
+            <FormattedMessage id="symptomsDescription"/>
           </div>
         </div>
-        <div>
-          <button
-            className="button button--primary"
-            onClick={() => {document.getElementById('high_impact').scrollIntoView({ behavior: "smooth" })}}
-          >
-            <FormattedMessage id="high_impact"/>
-          </button>
-          <button
-            className="button button--secondary"
-            onClick={() => {document.getElementById('low_impact').scrollIntoView({ behavior: "smooth" })}}
-          >
-            <FormattedMessage id="low_impact"/>
-          </button>
-        </div>
+        {(scoreJson.keySymptoms.mostImpactful.length > 0 && scoreJson.keySymptoms.moderateImpact.length > 0) && (
+          <div className="action-buttons">
+            <button
+              className="button button--primary"
+              onClick={() => {
+                document.getElementById('high_impact').scrollIntoView({behavior: "smooth"})
+              }}
+            >
+              <FormattedMessage id="high_impact"/>
+            </button>
+            <button
+              className="button button--secondary"
+              onClick={() => {
+                document.getElementById('low_impact').scrollIntoView({behavior: "smooth"})
+              }}
+            >
+              <FormattedMessage id="low_impact"/>
+            </button>
+          </div>
+        )}
         {
-          scoreJson.keySymptoms.mostImpactful.map(s => (
-            <div className="symptom high" id="high_impact" key={s.name}>
-              <div className="name">{s.name}</div>
+          scoreJson.keySymptoms.mostImpactful.map((s, index) => (
+            <div className={`symptom high symptom${index} ${s.isMentalHealth ? 'alert' : ''}`} id="high_impact"
+                 key={s.name}>
+              <div className="name">
+                {s.isMentalHealth ? (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M11.9998 9.00023V13.0002M11.9998 17.0002H12.0098M10.6151 3.89195L2.39019 18.0986C1.93398 18.8866 1.70588 19.2806 1.73959 19.6039C1.769 19.886 1.91677 20.1423 2.14613 20.309C2.40908 20.5002 2.86435 20.5002 3.77487 20.5002H20.2246C21.1352 20.5002 21.5904 20.5002 21.8534 20.309C22.0827 20.1423 22.2305 19.886 22.2599 19.6039C22.2936 19.2806 22.0655 18.8866 21.6093 18.0986L13.3844 3.89195C12.9299 3.10679 12.7026 2.71421 12.4061 2.58235C12.1474 2.46734 11.8521 2.46734 11.5935 2.58235C11.2969 2.71421 11.0696 3.10679 10.6151 3.89195Z"
+                      stroke="#FF4589" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+
+                ) : (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 12H18L15 21L9 3L6 12H2" stroke="#3D497A" strokeWidth="2" strokeLinecap="round"
+                          strokeLinejoin="round"/>
+                  </svg>
+                )}
+                {s.name}
+              </div>
               <div className="description">{s.description}</div>
-              <a href={s.articleUrl}>
+              <a href={s.articleUrl} target="_blank">
                 {s.linkText}
               </a>
             </div>
@@ -142,7 +164,7 @@ export default function Menoscore({scoreJson}) {
             <div className="symptom moderate" id="low_impact" key={s.name}>
               <div className="name">{s.name}</div>
               <div className="description">{s.description}</div>
-              <a href={s.articleUrl}>
+              <a href={s.articleUrl} target="_blank">
                 {s.linkText}
               </a>
             </div>
