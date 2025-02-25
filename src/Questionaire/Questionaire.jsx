@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 // import { API } from '@aws-amplify/api';
 import Page from "./components/Page.jsx";
 import './Questionaire.css'
@@ -17,7 +18,7 @@ export default function Questionaire() {
   const topicPageRef = useRef(null);
   const headerRef = useRef(null);
   const originalHeight = useRef(0);
-
+  const navigate = useNavigate();
   useEffect(() => {
     localStorage.setItem("language", getLanguageFromURL()?.toLowerCase() ?? 'ro');
     if (topicPageRef.current) {
@@ -47,8 +48,11 @@ export default function Questionaire() {
       setUserName(a)
       localStorage.setItem('userName', a)
     }
-    setProgressPages([...progressPages, pageNo])
-    setCurrentPage(questionnaire.info?.find((page) => page.position === pageNo));
+    if(type !== "email"){
+      setProgressPages([...progressPages, pageNo])
+      setCurrentPage(questionnaire.info?.find((page) => page.position === pageNo));
+    }
+    console.log(type)
     if(type !== "intro") {
       const data = {
         "SubmissionID": submissionId,
@@ -71,6 +75,9 @@ export default function Questionaire() {
         }
 
         const result = await response.json();
+        if(type === "email") {
+          navigate('/dashboard')
+        }
         return result;
       } catch (error) {
         console.error('Error:', error);

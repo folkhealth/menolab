@@ -14,6 +14,7 @@ export default function Page({page, next, back, currentPage, userName}) {
           next={next}
           back={back}
           currentPage={currentPage}
+          type={page.QuestionType}
         />
       )
     case 'first_name':
