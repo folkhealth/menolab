@@ -5,7 +5,8 @@ import {useEffect, useState} from "react";
 import {mockData} from "../LeadQuestionAnswer/mockData.jsx";
 export default function Dashboard() {
   const [scoreJson, setScoreJson] = useState(null);
-  const [scoreSummary, setScoreSummary] = useState({})
+  const [scoreSummary, setScoreSummary] = useState({});
+  const language = localStorage.getItem('language')
   useEffect(() => {
     const myHeaders = new Headers();
     myHeaders.append("X-Api-Key", `${import.meta.env.VITE_API_KEY}`);
@@ -22,7 +23,7 @@ export default function Dashboard() {
     //   symptomsTitle: mockData.keySymptoms?.length > 0 ? fullJson.keySymptoms.symptomstitle : null,
     //   recommendationsTitle: (mockData.anxietyRecommendation || mockData.depressionRecommendation) ? "Recommendations" : null
     // })
-    fetch(`${import.meta.env.VITE_API_URL}/default/generateMenoScore?submissionId=${localStorage.getItem('SubmissionID')}`, requestOptions)
+    fetch(`${import.meta.env.VITE_API_URL}/default/generateMenoScore?submissionId=${localStorage.getItem('SubmissionID')}&language=${language}`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         const fullJson = JSON.parse(result.content)

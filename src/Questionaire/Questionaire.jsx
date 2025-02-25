@@ -9,7 +9,7 @@ export default function Questionaire() {
     return urlParams.get('language');
   }
   const [questionnaire, setQuestionnaire] = useState(null);
-  const [language] = useState(getLanguageFromURL() ?? 'EN');
+  const [language] = useState(getLanguageFromURL() ?? 'RO');
   const [userName, setUserName] = useState(localStorage.getItem('userName'));
   const [submissionId, setSubmissionId] = useState();
   const [progressPages, setProgressPages] = useState([1]);
@@ -19,7 +19,7 @@ export default function Questionaire() {
   const originalHeight = useRef(0);
 
   useEffect(() => {
-    localStorage.setItem("language", getLanguageFromURL()?.toLowerCase() ?? 'en');
+    localStorage.setItem("language", getLanguageFromURL()?.toLowerCase() ?? 'ro');
     if (topicPageRef.current) {
       originalHeight.current = topicPageRef.current.clientHeight;
     }
