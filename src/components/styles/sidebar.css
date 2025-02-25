@@ -80,3 +80,23 @@
   color: var(--main-blue);
   transition: all 0.3s ease-in-out;
 }
+
+@media screen and (max-width: 1199px){
+  .sidebar{
+    min-width: 240px;
+    width: 240px;
+    left: 24px;
+    top: 24px;
+  }
+  .sidebar .logo{
+    padding: 0 24px;
+  }
+  .sidebar .dashboardMenu{
+    padding: 0 24px;
+  }
+}
+@media screen and (max-width: 989px){
+  .sidebar{
+    display: none;
+  }
+}

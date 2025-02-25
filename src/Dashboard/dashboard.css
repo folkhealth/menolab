@@ -16,3 +16,22 @@
   position: relative;
   max-width: 800px;
 }
+@media screen and (max-width: 1199px){
+  .dashboard{
+    padding: 24px;
+    width: calc(100% - 48px);
+  }
+}
+@media screen and (max-width: 989px){
+  #root{
+    width: 100%;
+  }
+  .pageContent{
+    max-width: 100%
+  }
+}
+@media screen and (max-width: 749px){
+  .pageContent{
+    max-width: 100%
+  }
+}

@@ -16,26 +16,27 @@ export default function Dashboard() {
       method: "GET",
       headers: myHeaders,
     };
-    // setScoreJson(mockData)
-    // setScoreSummary({
-    //   scoreTitle: mockData.menoScore?.scoretitle || null,
-    //   stageTitle: mockData.menopauseStage?.stagetitle || null,
-    //   symptomsTitle: mockData.keySymptoms?.length > 0 ? fullJson.keySymptoms.symptomstitle : null,
-    //   recommendationsTitle: (mockData.anxietyRecommendation || mockData.depressionRecommendation) ? "Recommendations" : null
-    // })
-    fetch(`${import.meta.env.VITE_API_URL}/default/generateMenoScore?submissionId=${localStorage.getItem('SubmissionID')}&language=${language}`, requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        const fullJson = JSON.parse(result.content)
-        setScoreSummary({
-          scoreTitle: fullJson.menoScore?.scoretitle || null,
-          stageTitle: fullJson.menopauseStage?.stagetitle || null,
-          symptomsTitle: fullJson.keySymptoms?.length > 0 ? fullJson.keySymptoms.symptomstitle : null,
-          recommendationsTitle: (fullJson.anxietyRecommendation || fullJson.depressionRecommendation) ? "Recommendations" : null
-        })
-        setScoreJson(fullJson)
-      })
-      .catch((error) => console.error(error));
+    setScoreJson(mockData)
+    setScoreSummary({
+      scoreTitle: mockData.menoScore?.scoretitle || null,
+      stageTitle: mockData.menopauseStage?.stagetitle || null,
+      symptomsTitle: mockData.keySymptoms?.length > 0 ? mockData.keySymptoms.symptomstitle : null,
+      recommendationsTitle: (mockData.anxietyRecommendation || mockData.depressionRecommendation) ? "Recommendations" : null
+    })
+    // fetch(`${import.meta.env.VITE_API_URL}/default/generateMenoScore?submissionId=${localStorage.getItem('SubmissionID')}&language=${language}`, requestOptions)
+    //   .then((response) => response.json())
+    //   .then((result) => {
+    //     const fullJson = JSON.parse(result.content)
+    //     console.log(fullJson)
+    //     setScoreSummary({
+    //       scoreTitle: fullJson.menoScore?.scoretitle || null,
+    //       stageTitle: fullJson.menopauseStage?.stagetitle || null,
+    //       symptomsTitle: fullJson.keySymptoms?.length > 0 ? fullJson.keySymptoms.symptomstitle : null,
+    //       recommendationsTitle: (fullJson.anxietyRecommendation || fullJson.depressionRecommendation) ? "Recommendations" : null
+    //     })
+    //     setScoreJson(fullJson)
+    //   })
+    //   .catch((error) => console.error(error));
    // eslint-disable-next-line
   }, []);
   return (

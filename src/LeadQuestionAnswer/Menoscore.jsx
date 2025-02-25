@@ -3,6 +3,7 @@ import ScoreCircle from "./ScoreCircle.jsx";
 import "./menoscore.css";
 import 'swiper/css';
 import { FormattedMessage, createIntl } from "react-intl";
+import virginiaImage from '../assets/virginia-lazar.png';
 import EnglishMessages from "../locales/en/translations.json"
 import RomanianMessages from "../locales/ro/translations.json";
 
@@ -37,7 +38,7 @@ export default function Menoscore({scoreJson}) {
       <div className="meno-stage" id={scoreJson.menopauseStage.stagetitle}>
         <div className="meno-stage-main-content">
           <div className="meno-stage-scale">
-            <div className="arrow" style={{bottom: arrowPosition, transitionDuration: `${(index+1)*500}ms`}}>
+            <div className="arrow" style={{bottom: arrowPosition, transitionDuration: `${(index + 1) * 500}ms`}}>
               <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M6.5 3.13364C7.16667 3.51854 7.16667 4.48079 6.5 4.86569L1.5 7.75244C0.833332 8.13734 9.86826e-08 7.65621 8.95028e-08 6.88641L2.06545e-08 1.11291C1.14747e-08 0.343109 0.833333 -0.138015 1.5 0.246885L6.5 3.13364Z"
@@ -60,7 +61,8 @@ export default function Menoscore({scoreJson}) {
             <div className={`item item3 ${index > 1 ? 'active' : ''}`}>
               <FormattedMessage id="menopause"/>
             </div>
-            <div className="line-big"><span className={index > 1 ? 'active' : ''} style={{transitionDelay: "1000ms"}}></span></div>
+            <div className="line-big"><span className={index > 1 ? 'active' : ''}
+                                            style={{transitionDelay: "1000ms"}}></span></div>
             <div className={`item item2 ${index > 0 ? 'active' : ''}`}>
               <FormattedMessage id="perimenopase"/>
             </div>
@@ -170,6 +172,39 @@ export default function Menoscore({scoreJson}) {
             </div>
           ))
         }
+      </div>
+      <div className="box" id="whats_next">
+        <div className="content">
+          <div className="title" dangerouslySetInnerHTML={{__html: getTranslatedMessage("whats_next_content_title", {})}} />
+          <div className="description" dangerouslySetInnerHTML={{__html: getTranslatedMessage("whats_next_content_description", {})}} />
+          <div className="actions">
+            <button className="button button--primary"><FormattedMessage id="get_started"/></button>
+            <button className="button button--secondary"><FormattedMessage id="learn_more"/></button>
+          </div>
+        </div>
+        <div className="info-box">
+          <div className="stats">70%</div>
+          <div className="stats-desc"><FormattedMessage id="whats_next_info_content" /></div>
+        </div>
+      </div>
+      <div className="box" id="book_call">
+        <div className="content">
+          <div className="title"
+               dangerouslySetInnerHTML={{__html: getTranslatedMessage("book_call_content_title", {})}}/>
+          <div className="description"
+               dangerouslySetInnerHTML={{__html: getTranslatedMessage("book_call_content_description", {})}}/>
+          <div className="actions">
+            <a href="https://www.drvirginialazar.life/appointment" target="_blank" className="button button--primary"><FormattedMessage id="book_call"/></a>
+          </div>
+        </div>
+        <div className="info-box-dr">
+          <img src={virginiaImage} />
+          <div className="dr-info">
+            <div className="dr-name">Dr. Virginia Lazar</div>
+            <div className="dr-desc"><FormattedMessage id="book_call_dr_info"/></div>
+          </div>
+
+        </div>
       </div>
     </div>
   );
