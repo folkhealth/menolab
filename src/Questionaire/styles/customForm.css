@@ -61,6 +61,15 @@
   display: block;
   position: relative;
 }
+.custom-form .fields .custom-field .input-field input[type="number"]::-webkit-inner-spin-button,
+.custom-form .fields .custom-field .input-field input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.custom-form .fields .custom-field .input-field input{
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+}
 .custom-form .fields .custom-field .input-field input {
   transition: all 0.3s ease;
 }

@@ -105,6 +105,7 @@ export default function CustomForm({
                                 ref={index === 0 ? inputRef : null}
                                 type={field?.type === 'numeric' ? 'number' : 'text'}
                                 id={field?.label?.replace(' ', '-')}
+                                min={0}
                                 value={value}
                                 onFocus={handleFocus}
                                 onBlur={handleBlur}

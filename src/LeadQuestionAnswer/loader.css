@@ -42,11 +42,11 @@
 .loader .loader-content .steps .step{
   color: var(--secondary-blue-80);
   font-family: "SofiaPro-Medium";
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px; /* 142.857% */
-  letter-spacing: -0.42px;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.48px;
   display: flex;
 }
 .loader .loader-content .steps .step.checked{
