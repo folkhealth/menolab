@@ -28,7 +28,7 @@ export default function Dashboard() {
     //   })
     // }, 300000)
 
-    fetch(`${import.meta.env.VITE_API_URL}/default/generateMenoScore?submissionId=${localStorage.getItem('SubmissionID')}&language=${language}`, requestOptions)
+    fetch(`${import.meta.env.VITE_API_URL}/default/generateMenoScore?submissionId=${localStorage.getItem('SubmissionID')}&language=${language.toUpperCase()}`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         const fullJson = JSON.parse(result.content)

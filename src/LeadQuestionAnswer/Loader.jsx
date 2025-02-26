@@ -15,7 +15,7 @@ export default function Menoscore() {
     if (currentStep < 5) {
       const timer = setTimeout(() => {
         setCurrentStep((prevStep) => prevStep + 1);
-      }, 5000);
+      }, 3000);
       return () => clearTimeout(timer);
     }
   }, [currentStep]);

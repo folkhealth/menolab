@@ -52,7 +52,6 @@ export default function Questionaire() {
       setProgressPages([...progressPages, pageNo])
       setCurrentPage(questionnaire.info?.find((page) => page.position === pageNo));
     }
-    console.log(type)
     if(type !== "intro") {
       const data = {
         "SubmissionID": submissionId,

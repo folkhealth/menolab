@@ -19,6 +19,7 @@ export default function Menoscore({scoreJson}) {
     setTimeout(() => {
       const stages = [getTranslatedMessage("premenopause", {}), getTranslatedMessage("perimenopase", {}),  getTranslatedMessage("menopause", {}), getTranslatedMessage("postmenopause", {})];
       const indexOfStage = stages.indexOf(scoreJson.menopauseStage.stage);
+      console.log(stages, scoreJson.menopauseStage.stage, indexOfStage)
       setIndex(indexOfStage)
       setArrowPosition(27 + indexOfStage * 68)
     }, 500)
