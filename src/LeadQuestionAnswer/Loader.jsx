@@ -12,10 +12,10 @@ export default function Menoscore() {
   const [currentStep, setCurrentStep] = useState(0);
 
   useEffect(() => {
-    if (currentStep < 5) {
+    if (currentStep < 3) {
       const timer = setTimeout(() => {
         setCurrentStep((prevStep) => prevStep + 1);
-      }, 3000);
+      }, 3400);
       return () => clearTimeout(timer);
     }
   }, [currentStep]);
@@ -41,13 +41,13 @@ export default function Menoscore() {
         <div className="title"><FormattedMessage id="loading_title"/></div>
         <div className="description" dangerouslySetInnerHTML={{__html: getTranslatedMessage("loading_description", {})}} />
         <div className="steps">
-          {[...Array(6)].map((_, index) => (
+          {[...Array(4)].map((_, index) => (
             <div
               key={index}
               className={`step ${index < currentStep ? "checked" : ""} ${index === currentStep ? "loading" : ""}`}
               style={{display: index <= currentStep ? "flex" : "none"}}
             >
-              <FormattedMessage id={`loading_step_${index + 1}`}/>
+              <FormattedMessage id={`loading_step_${index + 1}`}/>&nbsp;
               {index === currentStep && (
                 <>
                   <span>.</span>

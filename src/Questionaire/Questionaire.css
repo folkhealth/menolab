@@ -80,6 +80,7 @@
 .page.d-none{
   display: none;
 }
+.intro
 .page.inactive{
   left: -500%;
   opacity: 0;
@@ -104,6 +105,31 @@
   width: calc(100% - 64px);
   max-width: 576px;
   z-index: 2;
+  column-gap: 24px;
+}
+.action-area .disclaimer{
+  color: var(--main-grey);
+  font-family: "SofiaPro-Regular";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 133.333% */
+  letter-spacing: -0.18px;
+}
+.action-area .disclaimer a{
+  color: var(--main-grey);
+  font-family: "SofiaPro-Regular";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: -0.18px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
 }
 .no-scroll{
   -ms-overflow-style: none;  /* IE and Edge */

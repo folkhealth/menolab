@@ -201,6 +201,7 @@
   font-weight: 500;
   line-height: 24px; /* 150% */
   letter-spacing: -0.24px;
+  outline: 0;
 }
 #symptoms  .action-buttons .button.button--secondary{
   border: 1px solid var(--main-blue);

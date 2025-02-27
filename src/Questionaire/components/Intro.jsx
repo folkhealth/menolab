@@ -1,6 +1,6 @@
 import '../styles/intro.css';
 import ActionArea from "./ActionArea.jsx";
-export default function Intro({type, intro_text, next, back, currentPage}) {
+export default function Intro({type, intro_text, next, back, currentPage, language}) {
   return(
     <>
       <div className="intro-page">
@@ -18,6 +18,7 @@ export default function Intro({type, intro_text, next, back, currentPage}) {
         next={next}
         isAvailable
         type={type}
+        language={language}
       />
     </>
 

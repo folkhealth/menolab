@@ -5,7 +5,7 @@ import Steps from "./Steps.jsx";
 import CustomForm from "./CustomForm.jsx";
 import Contact from "./Contact.jsx";
 import RegisterForm from "./RegisterForm.jsx";
-export default function Page({page, next, back, currentPage, userName}) {
+export default function Page({page, next, back, currentPage, userName, language}) {
   switch (page.QuestionType) {
     case 'intro':
       return (
@@ -15,6 +15,7 @@ export default function Page({page, next, back, currentPage, userName}) {
           back={back}
           currentPage={currentPage}
           type={page.QuestionType}
+          language={language}
         />
       )
     case 'first_name':

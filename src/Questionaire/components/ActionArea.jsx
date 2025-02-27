@@ -1,6 +1,28 @@
-export default function ActionArea({currentPage, next, back, dataPointId, dataPointName, a, isAvailable, type}) {
+import { createIntl } from "react-intl";
+import EnglishMessages from "../../locales/en/translations.json"
+import RomanianMessages from "../../locales/ro/translations.json";
+
+const messages = {
+  en: EnglishMessages,
+  ro: RomanianMessages,
+};
+export default function ActionArea({currentPage, next, back, dataPointId, dataPointName, a, isAvailable, type, language}) {
+  function getTranslatedMessage(id, values = {}) {
+    const intl = createIntl(
+      {
+        locale: language.toLowerCase(),
+        messages: messages[language.toLowerCase()],
+      },
+    );
+    return intl.formatMessage({ id }, values);
+  }
   return (
     <div className={`action-area ${currentPage.position === 1 ? 'justify-end' : 'justify-between'}`}>
+      {
+        type === 'intro' && (
+          <div className="disclaimer" dangerouslySetInnerHTML={{__html: getTranslatedMessage("terms_agreement", {})}} />
+        )
+      }
       {
         currentPage.position !== 1 && (
           <button className="button button--secondary" onClick={() => {
@@ -34,6 +56,7 @@ export default function ActionArea({currentPage, next, back, dataPointId, dataPo
           </button>
         )
       }
+
     </div>
   )
 }

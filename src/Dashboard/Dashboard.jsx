@@ -13,7 +13,7 @@ export default function Dashboard() {
     const myHeaders = new Headers();
     myHeaders.append("X-Api-Key", `${import.meta.env.VITE_API_KEY}`);
     myHeaders.append("Content-Type", "application/json");
-    setTimeout(() => {setDisplay(true)}, 25000)
+    setTimeout(() => {setDisplay(true)}, 13600)
     const requestOptions = {
       method: "GET",
       headers: myHeaders,
@@ -28,7 +28,7 @@ export default function Dashboard() {
     //   })
     // }, 300000)
 
-    fetch(`${import.meta.env.VITE_API_URL}/default/generateMenoScore?submissionId=${localStorage.getItem('SubmissionID')}&language=${language.toUpperCase()}`, requestOptions)
+    fetch(`${import.meta.env.VITE_API_URL}/default/generateMenoScore?submissionId=${localStorage.getItem('SubmissionID') ?? 56}&language=${language.toUpperCase()}`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         const fullJson = JSON.parse(result.content)

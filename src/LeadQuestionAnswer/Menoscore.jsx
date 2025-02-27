@@ -85,9 +85,9 @@ export default function Menoscore({scoreJson}) {
                  dangerouslySetInnerHTML={{__html: scoreJson.menopauseStage.description}}/>
           </div>
         </div>
-        <div className="meno-stage-explanation">
-          {scoreJson.menopauseStage.stageDeterminationExplanation}
-        </div>
+        <div className="meno-stage-explanation"
+             dangerouslySetInnerHTML={{__html: getTranslatedMessage("menopause_stage_determination", {})}}
+        />
       </div>
       <div className="meno-score" id={scoreJson.menoScore.scoretitle}>
         <div className="meno-stage-main-content">
@@ -104,9 +104,8 @@ export default function Menoscore({scoreJson}) {
                  dangerouslySetInnerHTML={{__html: scoreJson.menoScore.description}}/>
           </div>
         </div>
-        <div className="meno-stage-explanation">
-          {scoreJson.menoScore.scoreExplanation}
-        </div>
+          <div className="meno-stage-explanation"
+               dangerouslySetInnerHTML={{__html: getTranslatedMessage("score_explanation", {})}}/>
       </div>
       <div className="simptoms-recommendations" id="symptoms">
         <div className="intro">
@@ -155,9 +154,10 @@ export default function Menoscore({scoreJson}) {
                 )}
                 {s.name}
               </div>
-              <div className="description">{s.description}</div>
-              <a href={s.articleUrl} target="_blank">
-                {s.linkText}
+              <div className="description"
+                   dangerouslySetInnerHTML={{__html: getTranslatedMessage(`${s.dataPointName.replaceAll(" ", "")}_description`, {})}}/>
+              <a href={getTranslatedMessage(`${s.dataPointName.replaceAll(" ", "")}_link`, {})} target="_blank">
+                <FormattedMessage id="symptom_link_text"/>
               </a>
             </div>
           ))
@@ -166,9 +166,9 @@ export default function Menoscore({scoreJson}) {
           scoreJson.keySymptoms.moderateImpact.map(s => (
             <div className="symptom moderate" id="low_impact" key={s.name}>
               <div className="name">{s.name}</div>
-              <div className="description">{s.description}</div>
-              <a href={s.articleUrl} target="_blank">
-                {s.linkText}
+              <div className="description" dangerouslySetInnerHTML={{__html: getTranslatedMessage(`${s.dataPointName.replaceAll(" ", "")}_description`, {})}}/>
+              <a href={getTranslatedMessage(`${s.dataPointName.replaceAll(" ", "")}_link`, {})} target="_blank">
+                <FormattedMessage id="symptom_link_text" />
               </a>
             </div>
           ))

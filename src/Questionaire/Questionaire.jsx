@@ -115,6 +115,7 @@ export default function Questionaire() {
                     currentPage={currentPage}
                     userName={userName}
                     isActive
+                    language={language}
                   />
                 </div>
 
