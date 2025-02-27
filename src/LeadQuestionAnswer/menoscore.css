@@ -16,6 +16,7 @@
   margin: 0 0 48px 0;
   display: flex;
   column-gap: 64px;
+  align-items: flex-start;
 }
 .meno-stage-main-content .meno-stage-scale{
   display: flex;
@@ -314,6 +315,8 @@
   display: flex;
   column-gap: 8px;
   margin-top: 24px;
+  flex-wrap: wrap;
+  row-gap: 16px;
 }
 .meno-score-container .box .info-box{
   padding: 24px;
