@@ -10,8 +10,8 @@ export default function ActionArea({currentPage, next, back, dataPointId, dataPo
   function getTranslatedMessage(id, values = {}) {
     const intl = createIntl(
       {
-        locale: language.toLowerCase(),
-        messages: messages[language.toLowerCase()],
+        locale: language?.toLowerCase() ?? localStorage.getItem("language"),
+        messages: messages[language?.toLowerCase() ?? localStorage.getItem("language")],
       },
     );
     return intl.formatMessage({ id }, values);

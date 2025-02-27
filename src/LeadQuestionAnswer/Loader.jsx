@@ -32,7 +32,7 @@ export default function Menoscore() {
   return (
     <div className="loader">
       <div className="topic-header">
-        <a href="/">
+        <a href="https://score.menoqueens.ro/dashboard">
           <img src="https://menoqueens.ro/cdn/shop/files/menoqueens_logo.svg?v=1733922052&width=600" alt="Menoqueens"
                className="logo"/>
         </a>

@@ -6,9 +6,9 @@ export default function Intro({type, intro_text, next, back, currentPage, langua
       <div className="intro-page">
         {
           type === 'intro' ? (
-            <h1 dangerouslySetInnerHTML={{ __html: intro_text }} />
+            <div dangerouslySetInnerHTML={{ __html: intro_text }} />
           ) : (
-            <h2  dangerouslySetInnerHTML={{ __html: intro_text }} />
+            <div  dangerouslySetInnerHTML={{ __html: intro_text }} />
           )
         }
       </div>

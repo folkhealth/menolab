@@ -35,6 +35,9 @@
   position: relative;
   left: -5px;
 }
+.meno-stage-main-content .meno-stage-scale .arrow.d-none{
+  display: none;
+}
 .meno-stage-main-content .meno-stage-scale .item{
   color: var(--main-grey);
   font-family: "SofiaPro-Regular";
@@ -162,6 +165,9 @@
 #symptoms{
   margin-top: 32px;
 }
+#symptoms.d-none{
+  display: none;
+}
 #symptoms .intro{
   margin-bottom: 32px;
 }
@@ -207,6 +213,10 @@
   border: 1px solid var(--main-blue);
   color: var(--main-blue);
 }
+#symptoms  .action-buttons .button.button--secondary:hover{
+  background-color: #FFF;
+  color: var(--main-blue);
+}
 .simptoms-recommendations{
   display: flex;
   flex-direction: column;
@@ -218,6 +228,9 @@
   max-width: 100%;
   height: auto;
   margin-bottom: 32px;
+}
+.simptoms-recommendations .symptom.d-none{
+  display: none;
 }
 .simptoms-recommendations .symptom.symptom0{
   margin-top: 16px;
@@ -369,11 +382,40 @@
   line-height: 20px; /* 142.857% */
   letter-spacing: -0.42px;
 }
+.meno-stage-scale-mobile{
+  display: none;
+}
+.results .topic-header{
+  display: none;
+}
+.results{
+  width: 100%;
+}
+@media screen and (max-width: 989px){
+  .results .topic-header{
+    padding: 0 0 24px 0;
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    top: 0;
+    transform: translateX(0);
+    display: flex;
+    justify-content: center;
+  }
+}
 @media screen and (max-width: 749px){
   .meno-score-container .box{
     padding: 24px;
     flex-direction: column;
     row-gap: 32px;
+  }
+  .meno-score,
+  .meno-stage{
+    padding: 24px;
+  }
+  .meno-stage{
+    background-color: var(--secondary-blue);
+    border: 0;
   }
   .meno-stage-main-content{
     flex-direction: column;
@@ -382,6 +424,78 @@
   .meno-stage-main-content .meno-stage-scale{
     margin-left: 50%;
     transform: translateX(-50%);
+    display: none;
   }
-  .meno-score-container .box{}
+  .meno-score-container .box .info-box-dr{
+    display: none;
+  }
+  .meno-score-container .box .title{
+    margin: 0 0 16px 0;
+  }
+  .meno-score-container .box .description{
+    color: var(--main-blue);
+  }
+  .simptoms-recommendations .symptom:last-child{
+    margin-bottom: 16px;
+  }
+  #symptoms{
+    margin-top: 16px;
+  }
+  #symptoms .intro{
+    margin-bottom: 16px;
+  }
+  #symptoms .intro .intro-text{
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.16px;
+  }
+  #symptoms .action-buttons{
+    padding: 24px 0;
+  }
+  .meno-stage-main-content{
+    margin: 0 0 32px 0;
+  }
+  .meno-stage-main-content>svg{
+    margin: 0 auto;
+  }
+  .meno-stage-main-content .meno-stage-text .meno-stage-title{
+    margin: 0 0 16px 0;
+  }
+  .meno-stage-scale-mobile{
+    background-color: var(--main-blue);
+    padding: 24px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .meno-stage-scale-mobile .bubble{
+    padding: 8px 24px;
+    background-color: #FFF;
+    border-radius: 8px;
+    position: relative;
+    color: var(--main-blue);
+    font-family: "SofiaPro-Medium";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.24px;
+    margin-top: 12px;
+  }
+  .meno-stage-scale-mobile .bubble:before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 7px solid transparent;
+    border-bottom: 8px solid #FFF;
+
+  }
 }

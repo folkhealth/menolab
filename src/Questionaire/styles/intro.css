@@ -8,6 +8,11 @@
   align-content: flex-start;
   flex-wrap: wrap;
 }
+.intro-page div{
+  height: calc(100% - 144px);
+  padding-bottom: 144px;
+  overflow: auto;
+}
 .intro-page h1,
 .intro-page h2{
   color: var(--main-blue);
@@ -17,10 +22,17 @@
   font-weight: 500;
   line-height: 32px; /* 133.333% */
   letter-spacing: -0.48px;
-  margin: 0;
-  overflow: auto;
-  padding-bottom: 144px;
-  height: calc(100% - 144px);
+  margin: 0 0 32px 0;
+}
+.intro-page p{
+  color: var(--main-blue);
+  font-family: "SofiaPro-Medium";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -0.72px;
+  margin: 0 0 32px 0;
 }
 .intro-page h1::-webkit-scrollbar,
 .intro-page h2::-webkit-scrollbar{
