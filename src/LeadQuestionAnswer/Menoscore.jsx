@@ -36,7 +36,20 @@ export default function Menoscore({scoreJson}) {
       setArrowPosition(27 + indexOfStage * 68)
     }, 500)
   }, [])
-
+  const adjustMargin = () => {
+    const bookCallSection = document.getElementById("book_call");
+    if (bookCallSection) {
+      const windowHeight = window.innerHeight;
+      const sectionHeight = bookCallSection.offsetHeight;
+      const marginBottom = windowHeight - sectionHeight - 64;
+      bookCallSection.style.marginBottom = `${marginBottom}px`;
+    }
+  };
+  useEffect(() => {
+    adjustMargin();
+    window.addEventListener("resize", adjustMargin);
+    return () => window.removeEventListener("resize", adjustMargin);
+  }, []);
   return (
     <div className="results">
       <div className="topic-header">
