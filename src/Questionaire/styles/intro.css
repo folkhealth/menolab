@@ -1,5 +1,5 @@
 .intro-page{
-  margin-top: 48px;
+  margin-top: 32px;
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -9,8 +9,8 @@
   flex-wrap: wrap;
 }
 .intro-page div{
-  height: calc(100% - 144px);
-  padding-bottom: 144px;
+  height: calc(100% - 208px);
+  padding-bottom: 208px;
   overflow: auto;
 }
 .intro-page h1,
@@ -27,16 +27,19 @@
 .intro-page p{
   color: var(--main-blue);
   font-family: "SofiaPro-Medium";
-  font-size: 24px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 500;
-  line-height: 32px;
-  letter-spacing: -0.72px;
+  line-height: 30px;
+  letter-spacing: -0.6px;
   margin: 0 0 32px 0;
 }
 .intro-page h1::-webkit-scrollbar,
 .intro-page h2::-webkit-scrollbar{
   display: none;
+}
+.intro .action-area.with-disclaimer{
+
 }
 .intro.action-area .button{
   width: 100%;
@@ -68,7 +71,7 @@
 
 @media screen and (min-width: 990px){
   .intro-page{
-    margin-top: 128px;
+    margin-top: 112px;
   }
   .intro-page h1,
   .intro-page h2{
@@ -78,6 +81,13 @@
     font-weight: 500;
     line-height: 36px;
     letter-spacing: -0.42px;
+  }
+  .intro-page p{
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: -0.72px;
   }
   .intro.action-area{
     display: flex;

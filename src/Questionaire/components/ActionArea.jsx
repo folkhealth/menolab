@@ -17,7 +17,7 @@ export default function ActionArea({currentPage, next, back, dataPointId, dataPo
     return intl.formatMessage({ id }, values);
   }
   return (
-    <div className={`action-area ${currentPage.position === 1 ? 'justify-end' : 'justify-between'}`}>
+    <div className={`action-area ${type === 'intro' ? 'width-disclaimer' : ''} ${currentPage.position === 1 ? 'justify-end' : 'justify-between'}`}>
       {
         type === 'intro' && (
           <div className="disclaimer" dangerouslySetInnerHTML={{__html: getTranslatedMessage("terms_agreement", {})}} />

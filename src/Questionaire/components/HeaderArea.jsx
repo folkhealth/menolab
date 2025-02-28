@@ -6,7 +6,7 @@ export default function HeaderArea({currentPage, progressPages, qLength}) {
              className="logo"/>
       </a>
       {
-        currentPage.id !== 1 && (
+        currentPage.position !== 1 && (
           <div className="progress-bar-container" id="progress-bar-container">
             <div className="progress-bar">
               <span id="progress" style={{ width: (progressPages.length * 100 / qLength) + '%'}}></span>
