@@ -18,15 +18,6 @@ export default function Dashboard() {
       method: "GET",
       headers: myHeaders,
     };
-    // setTimeout(() => {
-    //   setScoreJson(mockData)
-    //   setScoreSummary({
-    //     scoreTitle: mockData.menoScore?.scoretitle || null,
-    //     stageTitle: mockData.menopauseStage?.stagetitle || null,
-    //     symptomsTitle: mockData.keySymptoms?.length > 0 ? mockData.keySymptoms.symptomstitle : null,
-    //     recommendationsTitle: (mockData.anxietyRecommendation || mockData.depressionRecommendation) ? "Recommendations" : null
-    //   })
-    // }, 300000)
 
     fetch(`${import.meta.env.VITE_API_URL}/default/generateMenoScore?submissionId=${localStorage.getItem('SubmissionID') ?? 56}&language=${language.toUpperCase()}`, requestOptions)
       .then((response) => response.json())
