@@ -19,7 +19,7 @@ export default function SingleOption({
   useEffect(() => {
     // Set the height after the component mounts
     if (containerRef.current) {
-      setHeadingContainer(containerRef.current.offsetHeight + 144 + 48);
+      setHeadingContainer(containerRef.current.offsetHeight + 144 + 48 + 144);
     }
   }, []);
   const userName = localStorage.getItem("userName");

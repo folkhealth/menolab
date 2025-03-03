@@ -89,6 +89,7 @@ export default function CustomForm({
                       data-email="{{ id }}"
                       autoFocus={true}
                       onKeyDown={handleKeyPress}
+                      enterkeyhint="Continue"
                     />
                     <label>Email</label>
                   </div>
@@ -118,6 +119,7 @@ export default function CustomForm({
                                 data-mandatory={field.mandatory}
                                 onKeyDown={handleKeyPress}
                                 autoFocus={true}
+                                enterkeyhint="Continue"
                               />
                               <label>{field?.label}</label>
                               <div className="input-error">{field?.error_message}</div>
@@ -133,6 +135,7 @@ export default function CustomForm({
                                 data-q={question}
                                 data-mandatory={field?.mandatory}
                                 autoFocus={true}
+                                enterkeyhint="Continue"
                               ></textarea>
                               <div className="input-error">{field?.error_message}</div>
                             </div>
