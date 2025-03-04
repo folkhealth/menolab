@@ -18,10 +18,10 @@ export default function SingleOption({
   const [headingContainer, setHeadingContainer] = useState(0);
   useEffect(() => {
     // Set the height after the component mounts
-    if (containerRef.current) {
-      setHeadingContainer(containerRef.current.offsetHeight + 144 + 48 + 144);
+    if (containerRef.current && currentPage.position == id) {
+      setHeadingContainer(containerRef.current.offsetHeight + 144 + 48);
     }
-  }, []);
+  }, [currentPage.position]);
   const userName = localStorage.getItem("userName");
   useEffect(() => {
     const handleKeyDown = (event) => {

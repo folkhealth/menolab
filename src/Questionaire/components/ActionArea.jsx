@@ -1,4 +1,4 @@
-import { createIntl } from "react-intl";
+import {FormattedMessage} from "react-intl";
 import EnglishMessages from "../../locales/en/translations.json"
 import RomanianMessages from "../../locales/ro/translations.json";
 
@@ -7,20 +7,22 @@ const messages = {
   ro: RomanianMessages,
 };
 export default function ActionArea({currentPage, next, back, dataPointId, dataPointName, a, isAvailable, type, language}) {
-  function getTranslatedMessage(id, values = {}) {
-    const intl = createIntl(
-      {
-        locale: language?.toLowerCase() ?? localStorage.getItem("language"),
-        messages: messages[language?.toLowerCase() ?? localStorage.getItem("language")],
-      },
-    );
-    return intl.formatMessage({ id }, values);
-  }
   return (
     <div className={`action-area ${type === 'intro' ? 'width-disclaimer' : ''} ${currentPage.position === 1 ? 'justify-end' : 'justify-between'}`}>
       {
         type === 'intro' && (
-          <div className="disclaimer" dangerouslySetInnerHTML={{__html: getTranslatedMessage("terms_agreement", {})}} />
+          <div className="disclaimer">
+            <FormattedMessage
+              id="terms_agreement"
+              values={{
+                privacyPolicy: (
+                  <a href="https://menoqueens.ro/policies/privacy-policy" target="_blank">
+                    <FormattedMessage id="privacy_policy" />
+                  </a>
+                ),
+              }}
+            />
+          </div>
         )
       }
       {
