@@ -16,7 +16,7 @@ export default function Menoscore({scoreJson}) {
   const [arrowPosition, setArrowPosition] = useState(0);
   const [index, setIndex] = useState(-1);
   const [currentTab, setCurrentTab] = useState("high");
-  const language = localStorage.getItem('language');
+  const language = localStorage.getItem('language').toLowerCase();
   function getTranslatedMessage(id, values = {}) {
     const intl = createIntl(
       {
