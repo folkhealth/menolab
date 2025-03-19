@@ -19,15 +19,15 @@ export default function Menoscore() {
       return () => clearTimeout(timer);
     }
   }, [currentStep]);
-  function getTranslatedMessage(id, values = {}) {
-    const intl = createIntl(
-      {
-        locale: localStorage.getItem("language") ?? 'ro',
-        messages: messages[localStorage.getItem("language") ?? 'ro'],
-      },
-    );
-    return intl.formatMessage({ id }, values);
-  }
+  // function getTranslatedMessage(id, values = {}) {
+  //   const intl = createIntl(
+  //     {
+  //       locale: localStorage.getItem("language").toLowerCase() ?? 'ro',
+  //       messages: messages[localStorage.getItem("language").toLowerCase() ?? 'ro'],
+  //     },
+  //   );
+  //   return intl.formatMessage({ id }, values);
+  // }
 
   return (
     <div className="loader">
@@ -39,7 +39,11 @@ export default function Menoscore() {
       </div>
       <div className="loader-content">
         <div className="title"><FormattedMessage id="loading_title"/></div>
-        <div className="description" dangerouslySetInnerHTML={{__html: getTranslatedMessage("loading_description", {})}} />
+        <div className="description">
+          <FormattedMessage id="loading_description_1"/><br />
+          <FormattedMessage id="loading_description_2"/><br />
+          <FormattedMessage id="loading_description_3"/>
+        </div>
         <div className="steps">
           {[...Array(4)].map((_, index) => (
             <div
