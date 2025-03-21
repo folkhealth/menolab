@@ -34,7 +34,7 @@ export default function CustomForm({
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
-      if(value !== ''){
+      if(isButtonAvailable()){
         next(currentPage.jump ? currentPage.jump : currentPage.position + 1, dataPointId, dataPointName, fullValue, type)
       }
 
