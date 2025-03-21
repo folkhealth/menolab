@@ -42,7 +42,7 @@ export default function RegisterForm({
     }
   };
   useEffect(() => {
-    const regex = /^[\w\.\-+]+@([\w\-]+\.)+[a-zA-Z]{2,}$/;
+    const regex = /^[a-zA-Z0-9"][a-zA-Z0-9"%!+_.-]{0,63}@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*\.[a-zA-Z]{2,15}$/;
     setIsAvailable(
       firstName.length > 0
       && lastName.length > 0
