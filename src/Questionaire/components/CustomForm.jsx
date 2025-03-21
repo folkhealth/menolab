@@ -42,7 +42,7 @@ export default function CustomForm({
   };
   const isButtonAvailable = () => {
     if(type === 'email'){
-      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      const emailRegex = /^[a-zA-Z0-9"][a-zA-Z0-9"%!+_.-]{0,63}@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*\.[a-zA-Z]{2,15}$/;
       return emailRegex.test(value)
     }
     return value !== ''
