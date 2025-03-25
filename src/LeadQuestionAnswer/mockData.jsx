@@ -19,7 +19,7 @@ export const mockData = {
         "name": "Anxiety",
         "severity": 4,
         "description": "We noticed from your questionnaire that you’re experiencing anxiety. Please don’t think you need to go through this alone. It’s important to get the proper help that you need and deserve, so we’d advise you to speak to your doctor. If your anxiety is really getting on top of you, if you’re feeling suicidal or are thinking about harming yourself, please phone your local Crisis number on 0800 801 200.",
-        "articleUrl": "https://menoqueens.ro/blogs/semne-simptome-menopauza/anxietate-menopauza",
+        "articleUrl": "https://evrbloom.ro/blogs/semne-simptome-menopauza/anxietate-menopauza",
         "linkText": "Read more about this symptom",
         "isMentalHealth": true
       },
@@ -27,7 +27,7 @@ export const mockData = {
         "name": "Tiredness & Fatigue",
         "severity": 3,
         "description": "Your feelings of tiredness and fatigue could be due to several factors, including hormonal changes typical during perimenopause. Ensuring good sleep hygiene and perhaps speaking with a healthcare provider about chronic fatigue could help manage these symptoms.",
-        "articleUrl": "https://menoqueens.ro/blogs/semne-simptome-menopauza/oboseala-menopauza",
+        "articleUrl": "https://evrbloom.ro/blogs/semne-simptome-menopauza/oboseala-menopauza",
         "linkText": "Read more about this symptom",
         "isMentalHealth": false
       },
@@ -35,7 +35,7 @@ export const mockData = {
         "name": "Brain Fog",
         "severity": 3,
         "description": "Struggling with concentration or experiencing brain fog is a common complaint during menopause transitions. These cognitive changes might be frustrating but can often be managed with cognitive exercises and lifestyle modifications. Consider consulting a cognitive specialist if the issues persist.",
-        "articleUrl": "https://menoqueens.ro/blogs/semne-simptome-menopauza/dificultati-de-concentrare-menopauza",
+        "articleUrl": "https://evrbloom.ro/blogs/semne-simptome-menopauza/dificultati-de-concentrare-menopauza",
         "linkText": "Read more about this symptom",
         "isMentalHealth": false
       },
@@ -43,7 +43,7 @@ export const mockData = {
         "name": "Memory Issues",
         "severity": 3,
         "description": "Memory issues during perimenopause can be unsettling, often linked to fluctuations in hormone levels. Developing a routine and engaging in brain-stimulating activities might mitigate these symptoms. Consulting with a healthcare provider can provide tailored strategies for improvement.",
-        "articleUrl": "https://menoqueens.ro/blogs/semne-simptome-menopauza/dificultati-de-concentrare-menopauza",
+        "articleUrl": "https://evrbloom.ro/blogs/semne-simptome-menopauza/dificultati-de-concentrare-menopauza",
         "linkText": "Read more about this symptom",
         "isMentalHealth": false
       }
@@ -53,14 +53,14 @@ export const mockData = {
         "name": "Decreased Physical Strength/Stamina",
         "severity": 2,
         "description": "Maintaining physical strength and stamina is often more challenging during perimenopause. Regular physical activity, including strength training, can help counteract these changes and improve your energy and vitality levels.",
-        "articleUrl": "https://menoqueens.ro/blogs/semne-simptome-menopauza/oboseala-menopauza",
+        "articleUrl": "https://evrbloom.ro/blogs/semne-simptome-menopauza/oboseala-menopauza",
         "linkText": "Read more about this symptom"
       },
       {
         "name": "Headaches",
         "severity": 3,
         "description": "Headaches can become more frequent or severe during menopause. Lifestyle adjustments such as regular physical exercise, adequate hydration, and stress management techniques can often help manage headaches.",
-        "articleUrl": "https://menoqueens.ro/blogs/semne-simptome-menopauza/dureri-cap-menopauza",
+        "articleUrl": "https://evrbloom.ro/blogs/semne-simptome-menopauza/dureri-cap-menopauza",
         "linkText": "Read more about this symptom"
       }
     ]

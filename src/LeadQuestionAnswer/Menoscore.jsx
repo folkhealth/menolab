@@ -53,8 +53,8 @@ export default function Menoscore({scoreJson}) {
   return (
     <div className="results">
       <div className="topic-header">
-        <a href="https://score.menoqueens.ro/dashboard">
-          <img src="https://menoqueens.ro/cdn/shop/files/menoqueens_logo.svg?v=1733922052&width=600" alt="Menoqueens"
+        <a href="https://score.evrbloom.ro/dashboard">
+          <img src="https://evrbloom.ro/cdn/shop/files/menoqueens_logo.svg?v=1733922052&width=600" alt="EvrBloom"
                className="logo"/>
         </a>
       </div>
@@ -220,11 +220,11 @@ export default function Menoscore({scoreJson}) {
             <div className="description"
                  dangerouslySetInnerHTML={{__html: getTranslatedMessage("whats_next_content_description", {})}}/>
             <div className="actions">
-              <a href="https://menoqueens.ro/pages/program-menopauza" target="_blank"
+              <a href="https://evrbloom.ro/pages/program-menopauza" target="_blank"
                  className="button button--primary">
                 <FormattedMessage id="get_started"/>
               </a>
-              <a href="https://menoqueens.ro/pages/program-menopauza" target="_blank"
+              <a href="https://evrbloom.ro/pages/program-menopauza" target="_blank"
                  className="button button--secondary">
                 <FormattedMessage id="learn_more"/>
               </a>

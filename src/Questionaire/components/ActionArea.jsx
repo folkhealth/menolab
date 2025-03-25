@@ -16,7 +16,7 @@ export default function ActionArea({currentPage, next, back, dataPointId, dataPo
               id="terms_agreement"
               values={{
                 privacyPolicy: (
-                  <a href="https://menoqueens.ro/policies/privacy-policy" target="_blank">
+                  <a href="https://evrbloom.ro/policies/privacy-policy" target="_blank">
                     <FormattedMessage id="privacy_policy" />
                   </a>
                 ),
