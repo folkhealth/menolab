@@ -37,7 +37,7 @@ export default function Dashboard() {
   }, []);
   return (
     <div className="dashboard">
-      {scoreJson && display && false ? (
+      {scoreJson && display ? (
         <>
           <SideBar scoreSummary={scoreSummary} />
           <div className="pageContent">
