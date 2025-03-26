@@ -54,7 +54,7 @@ export default function Menoscore({scoreJson}) {
     <div className="results">
       <div className="topic-header">
         <a href="https://score.evrbloom.ro/dashboard">
-          <img src="https://evrbloom.ro/cdn/shop/files/menoqueens_logo.svg?v=1733922052&width=600" alt="EvrBloom"
+          <img src="https://evrbloom.ro/cdn/shop/files/evrbloom_logo.svg?v=1742998418&width=100" alt="EvrBloom"
                className="logo"/>
         </a>
       </div>

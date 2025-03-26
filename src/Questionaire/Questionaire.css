@@ -9,9 +9,14 @@
   top: 0;
 }
 .topic-header .logo{
-  height: 24px;
+  height: 32px;
   width: auto;
   display: block;
+}
+@media screen and (min-width: 990px){
+  .topic-header .logo{
+    height: 40px;
+  }
 }
 .topic-header .progress-bar-container{
   padding: 24px 0 0 0;

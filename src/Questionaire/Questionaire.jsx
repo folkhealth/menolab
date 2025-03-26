@@ -19,6 +19,15 @@ export default function Questionaire() {
   const topicPageRef = useRef(null);
   const headerRef = useRef(null);
   const originalHeight = useRef(0);
+  const [extraHeight, setExtraHeight] = useState(window.innerWidth < 990 ? 56 : 64);
+  useEffect(() => {
+    const handleResize = () => {
+      setExtraHeight(window.innerWidth < 990 ? 56 : 64);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const navigate = useNavigate();
   // const [scrollPosition, setScrollPosition] = useState(0);
   // const mq = window.matchMedia("(hover:none)");
@@ -165,9 +174,10 @@ export default function Questionaire() {
   if( !questionnaire){
     return (<h1></h1>)
   }
+  const dynamicHeight = currentPage.position === 1 ? "100dvh" : `calc(100dvh + ${extraHeight}px)`;
 
   return (
-    <div className={`${currentPage.position === 1 ? 'active' : ''} no-scroll`} style={{height: `${currentPage.position === 1 ? '100dvh' : 'calc(100dvh + 48px)'}`}}>
+    <div className={`${currentPage.position === 1 ? 'active' : ''} no-scroll`} style={{height: dynamicHeight}}>
       <div className="topic-header" ref={headerRef}>
         <HeaderArea
           currentPage={currentPage}
