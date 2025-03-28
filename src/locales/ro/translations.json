@@ -10,6 +10,7 @@
   "high_impact": "Impact Ridicat",
   "low_impact": "Impact Scăzut",
   "first_name": "Prenume",
+  "birthYearError": "Anul nașterii trebuie să fie un număr din 4 cifre.",
   "get_started": "Începe acum",
   "learn_more": "Află mai multe detalii",
   "book_call": "Programează o consultație",

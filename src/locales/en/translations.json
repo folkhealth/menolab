@@ -10,6 +10,7 @@
   "high_impact": "High impact",
   "low_impact": "Low impact",
   "first_name": "First Name",
+  "birthYearError": "Birth year must be a 4-digit number.",
   "get_started": "Get started",
   "learn_more": "Learn more",
   "book_call": "Book a consultation",

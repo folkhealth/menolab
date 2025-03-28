@@ -31,7 +31,6 @@ export default function Menoscore({scoreJson}) {
   useEffect(() => {
     setTimeout(() => {
       const indexOfStage = stages.indexOf(scoreJson.menopauseStage.stage);
-      console.log(indexOfStage);
       setIndex(indexOfStage)
       setArrowPosition(27 + indexOfStage * 68)
     }, 500)

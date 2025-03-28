@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import '../styles/customForm.css'
 import ActionArea from "./ActionArea.jsx";
-import {FormattedMessage} from "react-intl";
+import { FormattedMessage } from "react-intl";
 export default function CustomForm({
   question,
   helper,
@@ -18,6 +18,8 @@ export default function CustomForm({
   const [focused, setFocused] = useState(false);
   const [value, setValue] = useState("");
   const [fullValue, setFullValue] = useState("");
+  const [birthDateError, setBirthDateError] = useState(false);
+  const [fieldType, setFieldType] = useState('other')
   const user = localStorage.getItem("userName") ?? userName;
   const inputRef = useRef(null); // Reference for first input field
   const handleFocus = () => setFocused(true);
@@ -31,9 +33,15 @@ export default function CustomForm({
       inputRef.current.focus();
     }
   }, [currentPage?.position, id]);
-  const handleKeyPress = (event) => {
+  const handleKeyPress = (event, field) => {
     if (event.key === 'Enter') {
       event.preventDefault();
+      if(field === "birthYear") {
+        if(value.length !== 4) {
+          setBirthDateError(true);
+          return;
+        }
+      }
       if(isButtonAvailable()){
         next(currentPage.jump ? currentPage.jump : currentPage.position + 1, dataPointId, dataPointName, fullValue, type)
       }
@@ -44,6 +52,9 @@ export default function CustomForm({
     if(type === 'email'){
       const emailRegex = /^[a-zA-Z0-9"][a-zA-Z0-9"%!+_.-]{0,63}@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*\.[a-zA-Z]{2,15}$/;
       return emailRegex.test(value)
+    }
+    if(fieldType === 'birthYear') {
+      return value.length === 4;
     }
     return value !== ''
   }
@@ -102,7 +113,7 @@ export default function CustomForm({
                       return (
                         <div className="custom-field" key={field?.label}>
                           {(field?.type === 'numeric' || field?.type === 'alphanumeric') ? (
-                            <div className={`input-field floating-input ${focused || value ? "focused" : ""}`}>
+                            <div className={`input-field floating-input ${focused || value ? "focused" : ""} ${birthDateError ? 'error' : ''}`}>
                               <input
                                 ref={index === 0 ? inputRef : null}
                                 type={field?.type === 'numeric' ? 'number' : 'text'}
@@ -112,18 +123,27 @@ export default function CustomForm({
                                 onFocus={handleFocus}
                                 onBlur={handleBlur}
                                 onChange={(e) => {
+                                  setFieldType(field?.measurement && (field?.measurement === 'Year' || field?.measurement === 'An') ? 'birthYear' : 'other');
+                                  setBirthDateError(false);
                                   setValue(e.target.value);
                                   setFullValue(field?.measurement && field?.measurement !== 'Year' && field?.measurement !== 'An' ? `${e.target.value}${field?.measurement}` : e.target.value)
                                 }}
                                 data-name="{{ id }}"
                                 data-q={field?.label}
                                 data-mandatory={field.mandatory}
-                                onKeyDown={handleKeyPress}
+                                onKeyDown={(e) => {
+                                  const isBirthYear = field?.measurement && (field?.measurement === 'Year' || field?.measurement === 'An')
+                                  handleKeyPress(e, isBirthYear ? 'birthYear' : 'other');
+                                }}
                                 autoFocus={true}
                                 enterKeyHint="next"
                               />
                               <label>{field?.label}</label>
-                              <div className="input-error">{field?.error_message}</div>
+                              {birthDateError && (
+                                <div className="input-error">
+                                  <FormattedMessage id="birthYearError" />
+                                </div>
+                              )}
                             </div>
                           ) : (
                             <div className="input-field">
