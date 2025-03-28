@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {FormattedMessage} from "react-intl";
 
 const ScoreCircle = ({ score, size, strokeWidth, duration = 1500 }) => {
   const radius = (size - strokeWidth) / 2;
@@ -58,13 +59,23 @@ const ScoreCircle = ({ score, size, strokeWidth, duration = 1500 }) => {
       />
       <text
         x="50%"
-        y="50%"
+        y="45%"
         dominantBaseline="middle"
         textAnchor="middle"
         fontSize="36"
         fill="#3D497A"
       >
         {animatedScore}
+      </text>
+      <text
+        x="50%"
+        y="65%"
+        dominantBaseline="middle"
+        textAnchor="middle"
+        fontSize="14"
+        fill="#3D497A"
+      >
+        <FormattedMessage id="my_score" />
       </text>
     </svg>
   );
