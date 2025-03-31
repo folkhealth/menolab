@@ -5,6 +5,8 @@ import Steps from "./Steps.jsx";
 import CustomForm from "./CustomForm.jsx";
 import Contact from "./Contact.jsx";
 import RegisterForm from "./RegisterForm.jsx";
+import Media from "./Media.jsx";
+
 export default function Page({page, next, back, currentPage, userName, language}) {
   switch (page.QuestionType) {
     case 'intro':
@@ -173,6 +175,19 @@ export default function Page({page, next, back, currentPage, userName, language}
       return (
         <Intro
           intro_text={page.settings.intro_text}
+          type={page.QuestionType}
+          next={next}
+          back={back}
+          currentPage={currentPage}
+          dataPointId={page.DataPointID}
+          dataPointName={page.DataPointName}
+        />
+      )
+    case 'media':
+      return (
+        <Media
+          intro_text={page.settings.RichText}
+          media_url={page.settings.MediaUrl}
           type={page.QuestionType}
           next={next}
           back={back}

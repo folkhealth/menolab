@@ -65,7 +65,7 @@ export default function Questionaire() {
       setProgressPages([...progressPages, pageNo])
       setCurrentPage(questionnaire.info?.find((page) => page.position === pageNo));
     }
-    if(type !== "intro") {
+    if(type !== "intro" && type !== "media") {
       const data = {
         "SubmissionID": submissionId,
         "language": language,

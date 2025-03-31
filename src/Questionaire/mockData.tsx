@@ -3,13 +3,22 @@ export const mockData = {
   "questionnaire": {
     "info": [
       {
-        "QuestionType": "intro",
+        "QuestionType": "media",
         "settings": {
-          "RichText": "<h1>Bine ai venit la EvrBloom</h1><p>Chestionarul nostru te ajută să îți identifici etapa în care te afli în călătoria menopauzei și îți oferă informații bazate pe știință pentru a-ți susține sănătatea.</p><p>Calculatorul Scorului Menopauzei îți oferă o mai bună înțelegere a impactului menopauzei asupra vieții tale și cum îți poți îmbunătăți starea de bine cu informațiile și suportul potrivit.<br><br>Răspunde sincer pentru cele mai precise rezultate.</p><p>Începem!</p>"
+          "RichText": "<h1>Peste 1000 de femei<br />au ales evrbloom</h1>",
+          "MediaUrl": "/assets/media_dummy.png"
         },
-        "DataPointName": "WelcomeMessage",
+        "DataPointName": "Media",
         "position": 1
       },
+      // {
+      //   "QuestionType": "intro",
+      //   "settings": {
+      //     "RichText": "<h1>Bine ai venit la EvrBloom</h1><p>Chestionarul nostru te ajută să îți identifici etapa în care te afli în călătoria menopauzei și îți oferă informații bazate pe știință pentru a-ți susține sănătatea.</p><p>Calculatorul Scorului Menopauzei îți oferă o mai bună înțelegere a impactului menopauzei asupra vieții tale și cum îți poți îmbunătăți starea de bine cu informațiile și suportul potrivit.<br><br>Răspunde sincer pentru cele mai precise rezultate.</p><p>Începem!</p>"
+      //   },
+      //   "DataPointName": "WelcomeMessage",
+      //   "position": 1
+      // },
       {
         "QuestionType": "first_name",
         "settings": {
