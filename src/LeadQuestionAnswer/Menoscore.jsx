@@ -208,7 +208,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
             {
               index > 0 && (
                 <a href={stageMoreLink} target="_blank" className="button button--secondary">
-                  <span>Learn more</span>
+                  <span><FormattedMessage id="learn_more" /></span>
                   <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M4.66602 9.99996H16.3327M16.3327 9.99996L10.4993 4.16663M16.3327 9.99996L10.4993 15.8333"
@@ -316,7 +316,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                               strokeLinejoin="round"/>
                       </svg>
                     )}
-                    {s.name}
+                    <FormattedMessage id={`${s.dataPointName.replaceAll(' ', '')}_name`} />
                   </div>
                   <div className="description"
                        dangerouslySetInnerHTML={{__html: getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_description`, {})}}/>
@@ -330,7 +330,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
               scoreJson.keySymptoms.moderateImpact && scoreJson.keySymptoms.moderateImpact.map(s => (
                 <div className={`symptom moderate ${currentTab === 'moderate' ? '' : 'd-none'}`} id="low_impact"
                      key={s.name}>
-                  <div className="name">{s.name}</div>
+                  <div className="name"><FormattedMessage id={`${s.dataPointName.replaceAll(' ', '')}_name`} /></div>
                   <div className="description"
                        dangerouslySetInnerHTML={{__html: getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_description`, {})}}/>
                   <a href={getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_link`, {})} target="_blank">

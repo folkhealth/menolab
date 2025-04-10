@@ -647,9 +647,6 @@
   .meno-score-container .box .info-box-dr{
     display: none;
   }
-  .meno-score-container .box .title{
-    margin: 0 0 16px 0;
-  }
   .meno-score-container .box .description{
     color: var(--main-blue);
   }
