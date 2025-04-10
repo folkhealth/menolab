@@ -8,6 +8,7 @@ const messages = {
   ro: RomanianMessages,
 };
 export default function SideBar({scoreSummary}) {
+  console.log(scoreSummary)
   return (
     <div className="sidebar">
       <div className="logo">
@@ -27,7 +28,7 @@ export default function SideBar({scoreSummary}) {
           </button>
         )}
         {scoreSummary.symptomsTitle && (
-          <button className="menuLink active"
+          <button className="menuLink"
                   onClick={() => document.getElementById('symptoms').scrollIntoView({behavior: "smooth"})}>{scoreSummary.symptomsTitle}</button>
         )}
         {scoreSummary.recommendationsTitle && (

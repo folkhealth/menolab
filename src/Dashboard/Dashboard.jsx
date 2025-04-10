@@ -27,7 +27,7 @@ export default function Dashboard() {
         setScoreSummary({
           scoreTitle: fullJson.menoScore?.scoretitle || null,
           stageTitle: fullJson.menopauseStage?.stagetitle || null,
-          symptomsTitle: fullJson.keySymptoms?.length > 0 ? fullJson.keySymptoms.symptomstitle : null,
+          symptomsTitle: fullJson.keySymptoms?.moderateImpact?.length > 0 || fullJson.keySymptoms?.mostImpactful?.length > 0 ? fullJson.keySymptoms.symptomstitle : null,
           recommendationsTitle: (fullJson.anxietyRecommendation || fullJson.depressionRecommendation) ? "Recommendations" : null
         })
         setScoreJson(fullJson)
@@ -41,7 +41,7 @@ export default function Dashboard() {
         <>
           <SideBar scoreSummary={scoreSummary} />
           <div className="pageContent">
-            <Menoscore scoreJson={scoreJson} />
+            <Menoscore scoreJson={scoreJson} scoreSummary={scoreSummary} />
           </div>
         </>
       ) : (

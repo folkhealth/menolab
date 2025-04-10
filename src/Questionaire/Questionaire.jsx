@@ -61,6 +61,9 @@ export default function Questionaire() {
       setUserName(a)
       localStorage.setItem('userName', a)
     }
+    if (type === "email") {
+      localStorage.setItem('bloomEmail', a)
+    }
     if(type !== "email"){
       setProgressPages([...progressPages, pageNo])
       setCurrentPage(questionnaire.info?.find((page) => page.position === pageNo));
