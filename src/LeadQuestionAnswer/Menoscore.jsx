@@ -158,36 +158,40 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                    dangerouslySetInnerHTML={{__html: htmlDescription}}/>
             </div>
           </div>
-          <div className="meno-stage-stats">
-            <div className="percent">
-              {index === 0 && (
-                <FormattedMessage id="premenopause_percentage" />
-              )}
-              {index === 1 && (
-                <FormattedMessage id="perimenopause_percentage" />
-              )}
-              {index === 2 && (
-                <FormattedMessage id="menopause_percentage" />
-              )}
-              {index === 3 && (
-                <FormattedMessage id="postmenopause_percentage" />
-              )}
-            </div>
-            <div className="text">
-              {index === 0 && (
-                <FormattedMessage id="premenopause_insights" />
-              )}
-              {index === 1 && (
-                <FormattedMessage id="perimenopause_insights" />
-              )}
-              {index === 2 && (
-                <FormattedMessage id="menopause_insights" />
-              )}
-              {index === 3 && (
-                <FormattedMessage id="postmenopauseinsights" />
-              )}
-            </div>
-          </div>
+          {
+            index > -1 && (
+              <div className="meno-stage-stats">
+                <div className="percent">
+                  {index === 0 && (
+                    <FormattedMessage id="premenopause_percentage"/>
+                  )}
+                  {index === 1 && (
+                    <FormattedMessage id="perimenopause_percentage"/>
+                  )}
+                  {index === 2 && (
+                    <FormattedMessage id="menopause_percentage"/>
+                  )}
+                  {index === 3 && (
+                    <FormattedMessage id="postmenopause_percentage"/>
+                  )}
+                </div>
+                <div className="text">
+                  {index === 0 && (
+                    <FormattedMessage id="premenopause_insights"/>
+                  )}
+                  {index === 1 && (
+                    <FormattedMessage id="perimenopause_insights"/>
+                  )}
+                  {index === 2 && (
+                    <FormattedMessage id="menopause_insights"/>
+                  )}
+                  {index === 3 && (
+                    <FormattedMessage id="postmenopauseinsights"/>
+                  )}
+                </div>
+              </div>
+            )
+          }
           <div className="meno-stage-action-buttons">
             {/*<a href={getTranslatedMessage( "become_member_link", {})} target="_blank" className="button button--primary">*/}
             {/*  <span><FormattedMessage id="become_member" /></span>*/}
