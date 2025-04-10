@@ -343,12 +343,12 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                  dangerouslySetInnerHTML={{__html: getTranslatedMessage("membership_title", {})}}/>
             <div className="description"
                  dangerouslySetInnerHTML={{__html: getTranslatedMessage("membership_bullets", {})}}/>
-            <div className="actions">
-              <a href={getTranslatedMessage('membership_ctalink', {})} target="_blank"
-                 className="button button--secondary">
-                <span><FormattedMessage id="membership_cta"/></span>
-              </a>
-            </div>
+            {/*<div className="actions">*/}
+            {/*  <a href={getTranslatedMessage('membership_ctalink', {})} target="_blank"*/}
+            {/*     className="button button--secondary">*/}
+            {/*    <span><FormattedMessage id="membership_cta"/></span>*/}
+            {/*  </a>*/}
+            {/*</div>*/}
           </div>
           <div className="info-box">
             <div className="stats"><FormattedMessage id='membership_percentage'/></div>
