@@ -630,7 +630,8 @@
     flex-direction: column;
     row-gap: 32px;
   }
-  .meno-score-container .box{
+  .meno-score-container .box#book_call{
+    margin-bottom: 64px !important;
   }
   .meno-stage{
     border: 0;
@@ -645,7 +646,7 @@
     display: none;
   }
   .meno-score-container .box .info-box-dr{
-
+    width: 100%;
   }
   .meno-score-container .box .description{
     color: var(--main-blue);
