@@ -64,7 +64,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
     return () => window.removeEventListener("resize", adjustMargin);
   }, []);
   const rawDescriptionStage = scoreJson.menopauseStage.description;
-  const rawDescriptionScore = scoreJson.menoScore.description
+  const rawDescriptionScore = scoreJson.menoScore.description;
   const htmlDescriptionStage = rawDescriptionStage.replace(
     /\[([^\]]+)\]\(([^)]+)\)/g,
     '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
