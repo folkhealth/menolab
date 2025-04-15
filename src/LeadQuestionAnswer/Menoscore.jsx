@@ -63,8 +63,13 @@ export default function Menoscore({scoreJson, scoreSummary}) {
     window.addEventListener("resize", adjustMargin);
     return () => window.removeEventListener("resize", adjustMargin);
   }, []);
-  const rawDescription = scoreJson.menopauseStage.description;
-  const htmlDescription = rawDescription.replace(
+  const rawDescriptionStage = scoreJson.menopauseStage.description;
+  const rawDescriptionScore = scoreJson.menoScore.description
+  const htmlDescriptionStage = rawDescriptionStage.replace(
+    /\[([^\]]+)\]\(([^)]+)\)/g,
+    '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+  );
+  const htmlDescriptionScore = rawDescriptionScore.replace(
     /\[([^\]]+)\]\(([^)]+)\)/g,
     '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
   );
@@ -155,7 +160,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                 {scoreJson.menopauseStage.stage}
               </div>
               <div className="meno-stage-description"
-                   dangerouslySetInnerHTML={{__html: htmlDescription}}/>
+                   dangerouslySetInnerHTML={{__html: htmlDescriptionStage}}/>
             </div>
           </div>
           {
@@ -242,7 +247,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                   {scoreJson.menoScore.scorename}
                 </div>
                 <div className="meno-stage-description"
-                     dangerouslySetInnerHTML={{__html: scoreJson.menoScore.description}}/>
+                     dangerouslySetInnerHTML={{__html: htmlDescriptionScore}}/>
               </div>
             </div>
             <div className="meno-stage-action-buttons meno-score-action-buttons">
@@ -318,22 +323,39 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                   </div>
                   <div className="description"
                        dangerouslySetInnerHTML={{__html: getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_description`, {})}}/>
-                  <a href={getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_link`, {})} target="_blank">
-                    <FormattedMessage id="symptom_link_text"/>
-                  </a>
+                  <div style={{display: "flex", gap: '24px', flexWrap: 'wrap'}}>
+                    <a href={getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_link`, {})} target="_blank">
+                      <FormattedMessage id="symptom_link_text"/>
+                    </a>
+                    <a href={getTranslatedMessage('become_member_link', {})} target="_blank">
+                      <FormattedMessage id="discover_membership_textlink"/>
+                    </a>
+                  </div>
+
                 </div>
               ))
             }
             {
               scoreJson.keySymptoms.moderateImpact && scoreJson.keySymptoms.moderateImpact.map(s => (
-                <div className={`symptom moderate ${currentTab === 'moderate' ? '' : 'd-none'}`} id="low_impact"
+                <div className={`symptom symptom0 moderate ${currentTab === 'moderate' ? '' : 'd-none'}`} id="low_impact"
                      key={s.name}>
-                  <div className="name"><FormattedMessage id={`${s.dataPointName.replaceAll(' ', '')}_name`} /></div>
+                  <div className="name">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M22 12H18L15 21L9 3L6 12H2" stroke="#3D497A" strokeWidth="2" strokeLinecap="round"
+                            strokeLinejoin="round"/>
+                    </svg>
+                    <FormattedMessage id={`${s.dataPointName.replaceAll(' ', '')}_name`}/>
+                  </div>
                   <div className="description"
                        dangerouslySetInnerHTML={{__html: getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_description`, {})}}/>
-                  <a href={getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_link`, {})} target="_blank">
-                    <FormattedMessage id="symptom_link_text"/>
-                  </a>
+                  <div style={{display: "flex", gap: '24px', flexWrap: 'wrap'}}>
+                    <a href={getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_link`, {})} target="_blank">
+                      <FormattedMessage id="symptom_link_text"/>
+                    </a>
+                    <a href={getTranslatedMessage('become_member_link', {})} target="_blank">
+                      <FormattedMessage id="discover_membership_textlink"/>
+                    </a>
+                  </div>
                 </div>
               ))
             }
@@ -341,7 +363,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
         )}
         <div className="box" id="whats_next">
           <div className="content">
-          <div className="title"
+            <div className="title"
                  dangerouslySetInnerHTML={{__html: getTranslatedMessage("membership_title", {})}}/>
             <div className="description"
                  dangerouslySetInnerHTML={{__html: getTranslatedMessage("membership_bullets", {})}}/>
