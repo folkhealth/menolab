@@ -193,18 +193,18 @@ export default function Menoscore({scoreJson, scoreSummary}) {
             )
           }
           <div className="meno-stage-action-buttons">
-            {/*<a href={getTranslatedMessage( "become_member_link", {})} target="_blank" className="button button--primary">*/}
-            {/*  <span><FormattedMessage id="become_member" /></span>*/}
-            {/*  <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">*/}
-            {/*    <path*/}
-            {/*      d="M4.66602 9.99996H16.3327M16.3327 9.99996L10.4993 4.16663M16.3327 9.99996L10.4993 15.8333"*/}
-            {/*      stroke="white"*/}
-            {/*      strokeWidth="1.66667"*/}
-            {/*      strokeLinecap="round"*/}
-            {/*      strokeLinejoin="round"*/}
-            {/*    />*/}
-            {/*  </svg>*/}
-            {/*</a>*/}
+            <a href={getTranslatedMessage( "become_member_link", {})} target="_blank" className="button button--primary">
+              <span><FormattedMessage id="become_member" /></span>
+              <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4.66602 9.99996H16.3327M16.3327 9.99996L10.4993 4.16663M16.3327 9.99996L10.4993 15.8333"
+                  stroke="white"
+                  strokeWidth="1.66667"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </a>
             {
               index > 0 && (
                 <a href={stageMoreLink} target="_blank" className="button button--secondary">
@@ -245,20 +245,20 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                      dangerouslySetInnerHTML={{__html: scoreJson.menoScore.description}}/>
               </div>
             </div>
-            {/*<div className="meno-stage-action-buttons meno-score-action-buttons">*/}
-            {/*  <a href={getTranslatedMessage( "become_member_link", {})} target="_blank" className="button button--primary">*/}
-            {/*    <span>Become a member</span>*/}
-            {/*    <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">*/}
-            {/*      <path*/}
-            {/*        d="M4.66602 9.99996H16.3327M16.3327 9.99996L10.4993 4.16663M16.3327 9.99996L10.4993 15.8333"*/}
-            {/*        stroke="white"*/}
-            {/*        strokeWidth="1.66667"*/}
-            {/*        strokeLinecap="round"*/}
-            {/*        strokeLinejoin="round"*/}
-            {/*      />*/}
-            {/*    </svg>*/}
-            {/*  </a>*/}
-            {/*</div>*/}
+            <div className="meno-stage-action-buttons meno-score-action-buttons">
+              <a href={getTranslatedMessage( "become_member_link", {})} target="_blank" className="button button--primary">
+                <span><FormattedMessage id="become_member" /></span>
+                <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M4.66602 9.99996H16.3327M16.3327 9.99996L10.4993 4.16663M16.3327 9.99996L10.4993 15.8333"
+                    stroke="white"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
             <div className="meno-stage-explanation"
                  dangerouslySetInnerHTML={{__html: getTranslatedMessage("score_explanation", {})}}/>
           </div>
@@ -345,12 +345,12 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                  dangerouslySetInnerHTML={{__html: getTranslatedMessage("membership_title", {})}}/>
             <div className="description"
                  dangerouslySetInnerHTML={{__html: getTranslatedMessage("membership_bullets", {})}}/>
-            {/*<div className="actions">*/}
-            {/*  <a href={getTranslatedMessage('membership_ctalink', {})} target="_blank"*/}
-            {/*     className="button button--secondary">*/}
-            {/*    <span><FormattedMessage id="membership_cta"/></span>*/}
-            {/*  </a>*/}
-            {/*</div>*/}
+            <div className="actions">
+              <a href={getTranslatedMessage('membership_ctalink', {})} target="_blank"
+                 className="button button--secondary">
+                <span><FormattedMessage id="membership_cta"/></span>
+              </a>
+            </div>
           </div>
           <div className="info-box">
             <div className="stats"><FormattedMessage id='membership_percentage'/></div>
