@@ -386,7 +386,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
             <div className="description"
                  dangerouslySetInnerHTML={{__html: getTranslatedMessage("book_call_content_description", {})}}/>
             <div className="actions">
-              <a href="https://www.drvirginialazar.life/appointment" target="_blank"
+              <a href="https://evrbloom.ro/pages/dr-virginia-lazar" target="_blank"
                  className="button button--primary"><FormattedMessage id="book_call"/></a>
             </div>
           </div>
