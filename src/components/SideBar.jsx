@@ -1,12 +1,7 @@
 import "./styles/sidebar.css"
 import { FormattedMessage } from "react-intl";
-import EnglishMessages from "../locales/en/translations.json"
-import RomanianMessages from "../locales/ro/translations.json";
+import mixpanel from "mixpanel-browser";
 
-const messages = {
-  en: EnglishMessages,
-  ro: RomanianMessages,
-};
 export default function SideBar({scoreSummary}) {
   console.log(scoreSummary)
   return (
@@ -17,32 +12,58 @@ export default function SideBar({scoreSummary}) {
       <div className="dashboardMenu">
         {scoreSummary.stageTitle && (
           <button className="menuLink"
-                  onClick={() => document.getElementById(scoreSummary.stageTitle).scrollIntoView({behavior: "smooth"})}>
+                  onClick={() => {
+                    mixpanel.track(`Click on "${scoreSummary.stageTitle}"`, {source: 'SideBar'})
+                    document.getElementById(scoreSummary.stageTitle).scrollIntoView({behavior: "smooth"})}
+                  }
+          >
             {scoreSummary.stageTitle}
           </button>
         )}
         {scoreSummary.scoreTitle && (
           <button className="menuLink"
-                  onClick={() => document.getElementById(scoreSummary.scoreTitle).scrollIntoView({behavior: "smooth"})}>
+                  onClick={() => {
+                    mixpanel.track(`Click on "${scoreSummary.scoreTitle}"`, {source: 'SideBar'})
+                    document.getElementById(scoreSummary.scoreTitle).scrollIntoView({behavior: "smooth"})
+                  }}
+          >
             {scoreSummary.scoreTitle}
           </button>
         )}
         {scoreSummary.symptomsTitle && (
           <button className="menuLink"
-                  onClick={() => document.getElementById('symptoms').scrollIntoView({behavior: "smooth"})}>{scoreSummary.symptomsTitle}</button>
+                  onClick={() => {
+                    mixpanel.track(`Click on "${scoreSummary.symptomsTitle}"`, {source: 'SideBar'})
+                    document.getElementById('symptoms').scrollIntoView({behavior: "smooth"})
+                  }}
+          >
+            {scoreSummary.symptomsTitle}
+          </button>
         )}
         {scoreSummary.recommendationsTitle && (
           <button className="menuLink"
-                  onClick={() => document.getElementById('recommendations').scrollIntoView({behavior: "smooth"})}>
+                  onClick={() => {
+                    mixpanel.track(`Click on "${scoreSummary.recommendationsTitle}"`, {source: 'SideBar'})
+                    document.getElementById('recommendations').scrollIntoView({behavior: "smooth"})
+                  }}
+          >
             {scoreSummary.recommendationsTitle}
           </button>
         )}
         <button className="menuLink"
-                onClick={() => document.getElementById('whats_next').scrollIntoView({behavior: "smooth"})}>
+                onClick={() => {
+                  mixpanel.track(`Click on "What's next"`, {source: 'SideBar'})
+                  document.getElementById('whats_next').scrollIntoView({behavior: "smooth"})
+                }}
+        >
           <FormattedMessage id="whats_next_sidebar_title"/>
         </button>
         <button className="menuLink"
-                onClick={() => document.getElementById('book_call').scrollIntoView({behavior: "smooth"})}>
+                onClick={() => {
+                  mixpanel.track(`Click on "Book a call"`, {source: 'SideBar'})
+                  document.getElementById('book_call').scrollIntoView({behavior: "smooth"})
+                }}
+        >
           <FormattedMessage id="book_call_sidebar_title"/>
         </button>
       </div>

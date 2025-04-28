@@ -6,6 +6,7 @@ import { FormattedMessage, createIntl } from "react-intl";
 import virginiaImage from '../assets/virginia-lazar.png';
 import EnglishMessages from "../locales/en/translations.json"
 import RomanianMessages from "../locales/ro/translations.json";
+import mixpanel from "mixpanel-browser";
 
 const messages = {
   en: EnglishMessages,
@@ -45,6 +46,9 @@ export default function Menoscore({scoreJson, scoreSummary}) {
       setArrowPosition(64 + indexOfStage * lineWidth + 20*indexOfStage)
     }, 500)
   }, [lineWidth])
+  const trackEvent = (event, source) => {
+    mixpanel.track(event, {source: source})
+  }
   const adjustMargin = () => {
     const bookCallSection = document.getElementById("book_call");
     const scaleContainer = document.getElementById("scale_container");
@@ -81,6 +85,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
   } else if(index === 3){
     stageMoreLink = getTranslatedMessage('postmenopause_link', {})
   }
+
   return (
     <div className="results">
       <div className="topic-header">
@@ -198,7 +203,12 @@ export default function Menoscore({scoreJson, scoreSummary}) {
             )
           }
           <div className="meno-stage-action-buttons">
-            <a href={getTranslatedMessage( "become_member_link", {})} target="_blank" className="button button--primary">
+            <a
+              href={getTranslatedMessage( "become_member_link", {})}
+              target="_blank"
+              className="button button--primary"
+              onClick={() => trackEvent('Click Become Member button', 'Monepause stage section')}
+            >
               <span><FormattedMessage id="become_member" /></span>
               <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -212,7 +222,12 @@ export default function Menoscore({scoreJson, scoreSummary}) {
             </a>
             {
               index > 0 && (
-                <a href={stageMoreLink} target="_blank" className="button button--secondary">
+                <a
+                  href={stageMoreLink}
+                  target="_blank"
+                  className="button button--secondary"
+                  onClick={() => trackEvent('Click Learn more about button', 'Monepause stage section')}
+                >
                   <span><FormattedMessage id="learn_more" /></span>
                   <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -251,7 +266,12 @@ export default function Menoscore({scoreJson, scoreSummary}) {
               </div>
             </div>
             <div className="meno-stage-action-buttons meno-score-action-buttons">
-              <a href={getTranslatedMessage( "become_member_link", {})} target="_blank" className="button button--primary">
+              <a
+                href={getTranslatedMessage( "become_member_link", {})}
+                target="_blank"
+                className="button button--primary"
+                onClick={() => trackEvent('Click Become a member button', 'Monepause Score section')}
+              >
                 <span><FormattedMessage id="become_member" /></span>
                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -284,6 +304,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                 <button
                   className={`button ${currentTab === 'high' ? 'button--primary' : 'button--secondary'}`}
                   onClick={() => {
+                    trackEvent('Click High impact Symptoms button (tab)', 'Symptoms Section')
                     setCurrentTab('high')
                   }}
                 >
@@ -292,6 +313,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                 <button
                   className={`button ${currentTab === 'moderate' ? 'button--primary' : 'button--secondary'}`}
                   onClick={() => {
+                    trackEvent('Click Moderate Symptoms button (tab)', 'Symptoms Section')
                     setCurrentTab('moderate')
                   }}
                 >
@@ -324,10 +346,18 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                   <div className="description"
                        dangerouslySetInnerHTML={{__html: getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_description`, {})}}/>
                   <div style={{display: "flex", gap: '24px', flexWrap: 'wrap'}}>
-                    <a href={getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_link`, {})} target="_blank">
+                    <a
+                      href={getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_link`, {})}
+                      target="_blank"
+                      onClick={() => trackEvent('Click Symptom blog link', 'Moderate Symptom')}
+                    >
                       <FormattedMessage id="symptom_link_text"/>
                     </a>
-                    <a href={getTranslatedMessage('become_member_link', {})} target="_blank">
+                    <a
+                      href={getTranslatedMessage('become_member_link', {})}
+                      target="_blank"
+                      onClick={() => trackEvent('Click Discover membership link', 'Impactful Symptom')}
+                    >
                       <FormattedMessage id="discover_membership_textlink"/>
                     </a>
                   </div>
@@ -349,10 +379,18 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                   <div className="description"
                        dangerouslySetInnerHTML={{__html: getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_description`, {})}}/>
                   <div style={{display: "flex", gap: '24px', flexWrap: 'wrap'}}>
-                    <a href={getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_link`, {})} target="_blank">
+                    <a
+                      href={getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_link`, {})}
+                      target="_blank"
+                      onClick={() => trackEvent('Click Symptom blog link', 'Moderate Symptom')}
+                    >
                       <FormattedMessage id="symptom_link_text"/>
                     </a>
-                    <a href={getTranslatedMessage('become_member_link', {})} target="_blank">
+                    <a
+                      href={getTranslatedMessage('become_member_link', {})}
+                      target="_blank"
+                      onClick={() => trackEvent('Click Discover membership link', 'Moderate Symptom')}
+                    >
                       <FormattedMessage id="discover_membership_textlink"/>
                     </a>
                   </div>
@@ -368,8 +406,12 @@ export default function Menoscore({scoreJson, scoreSummary}) {
             <div className="description"
                  dangerouslySetInnerHTML={{__html: getTranslatedMessage("membership_bullets", {})}}/>
             <div className="actions">
-              <a href={getTranslatedMessage('membership_ctalink', {})} target="_blank"
-                 className="button button--secondary">
+              <a
+                href={getTranslatedMessage('membership_ctalink', {})}
+                target="_blank"
+                className="button button--secondary"
+                onClick={() => trackEvent('Click Discover our membership button', 'Next steps section')}
+              >
                 <span><FormattedMessage id="membership_cta"/></span>
               </a>
             </div>
@@ -386,8 +428,14 @@ export default function Menoscore({scoreJson, scoreSummary}) {
             <div className="description"
                  dangerouslySetInnerHTML={{__html: getTranslatedMessage("book_call_content_description", {})}}/>
             <div className="actions">
-              <a href="https://evrbloom.ro/pages/dr-virginia-lazar" target="_blank"
-                 className="button button--primary"><FormattedMessage id="book_call"/></a>
+              <a
+                href="https://evrbloom.ro/pages/dr-virginia-lazar"
+                target="_blank"
+                className="button button--primary"
+                onClick={() => trackEvent('Click Book a call button', 'Book a call section')}
+              >
+                <FormattedMessage id="book_call"/>
+              </a>
             </div>
           </div>
           <div className="info-box-dr">
