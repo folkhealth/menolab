@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Dashboard from "./Dashboard/Dashboard.jsx"
+import mixpanel from 'mixpanel-browser';
 import Questionaire from "./Questionaire/Questionaire.jsx"
 import './assets/base.css'
 // function ProtectedRoute({ element: Component }) {
@@ -8,6 +9,7 @@ import './assets/base.css'
 //   return isAuthenticated ? <Component /> : <Navigate to="/login" />;
 // }
 function App() {
+  mixpanel.init('0e17fc0146b24ead1c281493c0fa07bd', { debug: true });
   return (
     <Router>
       <Routes>

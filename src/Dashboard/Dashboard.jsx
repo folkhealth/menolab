@@ -1,4 +1,5 @@
 import SideBar from "../components/SideBar.jsx";
+import mixpanel from "mixpanel-browser";
 import Menoscore from "../LeadQuestionAnswer/Menoscore.jsx";
 import Loader from "../LeadQuestionAnswer/Loader.jsx";
 import './dashboard.css'
@@ -10,6 +11,10 @@ export default function Dashboard() {
   const [scoreSummary, setScoreSummary] = useState({});
   const language = localStorage.getItem('language')
   useEffect(() => {
+    mixpanel.identify(localStorage.getItem('SubmissionID'))
+    mixpanel.people.set({ '$name': localStorage.getItem('userName'),
+                          '$email': localStorage.getItem('bloomEmail'),
+    });
     const myHeaders = new Headers();
     myHeaders.append("X-Api-Key", `${import.meta.env.VITE_API_KEY}`);
     myHeaders.append("Content-Type", "application/json");
