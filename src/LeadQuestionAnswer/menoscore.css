@@ -210,6 +210,7 @@
   letter-spacing: -0.16px;
   text-decoration: underline;
 }
+.meno-score .meno-stage-stats,
 .meno-stage .meno-stage-stats{
   border-radius: 16px;
   background-color: #F5F6F8;
@@ -221,6 +222,7 @@
   gap: 8px;
   margin-bottom: 32px;
 }
+.meno-score .meno-stage-stats .percent,
 .meno-stage .meno-stage-stats .percent{
   color: var(--main-blue);
   font-family: "SofiaPro-Medium";
@@ -230,6 +232,8 @@
   line-height: 36px; /* 128.571% */
   letter-spacing: -0.84px;
 }
+.meno-score .meno-stage-stats .text,
+.meno-score .meno-stage-stats .text a,
 .meno-stage .meno-stage-stats .text,
 .meno-stage .meno-stage-stats .text a{
   color: var(--main-blue);
@@ -240,6 +244,7 @@
   line-height: 20px;
   letter-spacing: -0.42px;
 }
+.meno-score .meno-stage-stats .text a,
 .meno-stage .meno-stage-stats .text a{
   text-decoration-line: underline;
   text-decoration-style: solid;
@@ -278,12 +283,14 @@
   line-height: 36px;
 }
 @media screen and (min-width: 990px){
+  .meno-score .meno-stage-stats,
   .meno-stage .meno-stage-stats{
     flex-direction: row;
     gap: 16px;
     justify-content: flex-start;
     align-items: center;
   }
+  .meno-score .meno-stage-stats .percent,
   .meno-stage .meno-stage-stats .percent{
     font-size: 28px;
     font-style: normal;
@@ -291,6 +298,8 @@
     line-height: 36px; /* 128.571% */
     letter-spacing: -0.84px;
   }
+  .meno-score .meno-stage-stats .text,
+  .meno-score .meno-stage-stats .text a,
   .meno-stage .meno-stage-stats .text,
   .meno-stage .meno-stage-stats .text a{
     font-size: 14px;
