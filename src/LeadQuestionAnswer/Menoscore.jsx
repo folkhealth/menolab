@@ -195,9 +195,9 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                   href={stageMoreLink}
                   target="_blank"
                   className="button button--secondary"
-                  onClick={() => trackEvent(`Dashboard-Stage Click on ${getTranslatedMessage('learn_more')} button`, 'Monepause stage section')}
+                  onClick={() => trackEvent(`Dashboard-Stage Click on ${getTranslatedMessage('learn_about_stage')} button`, 'Monepause stage section')}
                 >
-                  <span><FormattedMessage id="learn_more"/></span>
+                  <span><FormattedMessage id="learn_about_stage"/></span>
                   <svg width="16" height="16" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M4.66602 9.99996H16.3327M16.3327 9.99996L10.4993 4.16663M16.3327 9.99996L10.4993 15.8333"
