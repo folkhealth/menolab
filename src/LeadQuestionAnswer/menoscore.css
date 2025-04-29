@@ -280,7 +280,7 @@
 .meno-stage .meno-stage-action-buttons .button,
 .meno-score .meno-stage-action-buttons .button{
   font-size: 14px;
-  line-height: 36px;
+  line-height: 20px;
 }
 @media screen and (min-width: 990px){
   .meno-score .meno-stage-stats,
@@ -540,6 +540,18 @@
   background-image: url('../assets/check.svg');
   background-repeat: no-repeat;
   background-position: top 3px left;
+}
+a.button.whatsapp{
+  background-color: #25D366;
+  color: #FFF;
+  border-color: #25D366;
+  padding: 8px 16px;
+  font-family: 'SofiaPro-Medium';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  gap: 8px;
 }
 @media screen and (min-width: 990px){
   .meno-score-container .box#whats_next{
