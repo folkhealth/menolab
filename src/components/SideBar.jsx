@@ -13,7 +13,7 @@ export default function SideBar({scoreSummary}) {
         {scoreSummary.stageTitle && (
           <button className="menuLink"
                   onClick={() => {
-                    mixpanel.track(`Click on "${scoreSummary.stageTitle}"`, {source: 'SideBar'})
+                    mixpanel.track(`Dashboard-Sidebar Select Stage`, {source: 'SideBar'})
                     document.getElementById(scoreSummary.stageTitle).scrollIntoView({behavior: "smooth"})}
                   }
           >
@@ -23,7 +23,7 @@ export default function SideBar({scoreSummary}) {
         {scoreSummary.scoreTitle && (
           <button className="menuLink"
                   onClick={() => {
-                    mixpanel.track(`Click on "${scoreSummary.scoreTitle}"`, {source: 'SideBar'})
+                    mixpanel.track(`Dashboard-Sidebar Select Score"`, {source: 'SideBar'})
                     document.getElementById(scoreSummary.scoreTitle).scrollIntoView({behavior: "smooth"})
                   }}
           >
@@ -33,7 +33,7 @@ export default function SideBar({scoreSummary}) {
         {scoreSummary.symptomsTitle && (
           <button className="menuLink"
                   onClick={() => {
-                    mixpanel.track(`Click on "${scoreSummary.symptomsTitle}"`, {source: 'SideBar'})
+                    mixpanel.track(`Dashboard-Sidebar Select Symptoms"`, {source: 'SideBar'})
                     document.getElementById('symptoms').scrollIntoView({behavior: "smooth"})
                   }}
           >
@@ -43,7 +43,7 @@ export default function SideBar({scoreSummary}) {
         {scoreSummary.recommendationsTitle && (
           <button className="menuLink"
                   onClick={() => {
-                    mixpanel.track(`Click on "${scoreSummary.recommendationsTitle}"`, {source: 'SideBar'})
+                    mixpanel.track(`Dashboard-Sidebar Select Recommendations"`, {source: 'SideBar'})
                     document.getElementById('recommendations').scrollIntoView({behavior: "smooth"})
                   }}
           >
@@ -52,7 +52,7 @@ export default function SideBar({scoreSummary}) {
         )}
         <button className="menuLink"
                 onClick={() => {
-                  mixpanel.track(`Click on "What's next"`, {source: 'SideBar'})
+                  mixpanel.track(`Dashboard-Sidebar Select What's next`, {source: 'SideBar'})
                   document.getElementById('whats_next').scrollIntoView({behavior: "smooth"})
                 }}
         >
@@ -60,7 +60,7 @@ export default function SideBar({scoreSummary}) {
         </button>
         <button className="menuLink"
                 onClick={() => {
-                  mixpanel.track(`Click on "Book a call"`, {source: 'SideBar'})
+                  mixpanel.track(`Dashboard-Sidebar Select Book a call`, {source: 'SideBar'})
                   document.getElementById('book_call').scrollIntoView({behavior: "smooth"})
                 }}
         >

@@ -436,9 +436,9 @@
   font-weight: 400;
   line-height: 24px; /* 150% */
   letter-spacing: -0.16px;
-  margin: 0 0 24px 0;
+  margin: 0 0 32px 0;
 }
-.simptoms-recommendations .symptom a{
+.simptoms-recommendations .symptom a:not(.button){
   color: var(--main-blue);
   font-family: "SofiaPro-Regular";
   font-size: 16px;
@@ -452,6 +452,29 @@
   text-decoration-thickness: auto;
   text-underline-offset: auto;
   text-underline-position: left;
+}
+.simptoms-recommendations .symptom a.button{
+  color: var(--main-blue);
+  font-family: "SofiaPro-Medium";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 8px 16px 8px 24px;
+}
+.simptoms-recommendations .symptom a.button.whatsapp{
+  background-color: #25D366;
+  color: #FFF;
+  border-color: #25D366;
+  padding: 8px 16px;
+}
+.simptoms-recommendations .symptom a.button svg{
+  width: 16px;
+  height: 16px;
+}
+.simptoms-recommendations .symptom a.button span{
+  position: relative;
+  top: -1px;
 }
 .meno-score-container .box#whats_next{
   background-color: var(--main-blue);
