@@ -24,7 +24,7 @@ export default function SideBar({scoreSummary}) {
         {scoreSummary.scoreTitle && (
           <button className="menuLink"
                   onClick={() => {
-                    mixpanel.track(`Dashboard-Sidebar Select Score"`, {source: 'SideBar'})
+                    mixpanel.track(`Dashboard-Sidebar Select Score`, {source: 'SideBar'})
                     document.getElementById(scoreSummary.scoreTitle).scrollIntoView({behavior: "smooth"})
                   }}
           >
@@ -57,8 +57,8 @@ export default function SideBar({scoreSummary}) {
                   document.getElementById('whats_next').scrollIntoView({behavior: "smooth"})
                 }}
         >
-          {t("whats_next_sidebar_title")}
-          {/*<FormattedMessage id="whats_next_sidebar_title"/>*/}
+          {/*{t("whats_next_sidebar_title")}*/}
+          <FormattedMessage id="whats_next_sidebar_title"/>
         </button>
         <button className="menuLink"
                 onClick={() => {
@@ -66,8 +66,8 @@ export default function SideBar({scoreSummary}) {
                   document.getElementById('book_call').scrollIntoView({behavior: "smooth"})
                 }}
         >
-          {t("book_call_sidebar_title")}
-          {/*<FormattedMessage id="book_call_sidebar_title"/>*/}
+          {/*{t("book_call_sidebar_title")}*/}
+          <FormattedMessage id="book_call_sidebar_title"/>
         </button>
       </div>
     </div>
