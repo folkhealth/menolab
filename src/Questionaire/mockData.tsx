@@ -3,7 +3,7 @@ export const mockData = {
   "questionnaire": {
     "info": [
       {
-        "QuestionType": "media",
+        "QuestionType": "intro",
         "settings": {
           "RichText": "<h1>Peste 1000 de femei<br />au ales evrbloom</h1>",
           "MediaUrl": "/assets/media_dummy.png"

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from "./Dashboard/Dashboard.jsx"
 import mixpanel from 'mixpanel-browser';
 import Questionaire from "./Questionaire/Questionaire.jsx"
