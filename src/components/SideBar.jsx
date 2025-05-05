@@ -69,7 +69,7 @@ export default function SideBar({scoreSummary}) {
           {/*{t("book_call_sidebar_title")}*/}
           <FormattedMessage id="book_call_sidebar_title"/>
         </button>
-        <div style="display: none">{/*{t("book_call_sidebar_title")}*/}</div>
+        <div style={{display: 'none'}}>{/*{t("book_call_sidebar_title")}*/}</div>
       </div>
     </div>
   );
