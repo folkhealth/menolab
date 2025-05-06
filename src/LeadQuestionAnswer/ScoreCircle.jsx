@@ -77,7 +77,7 @@ const ScoreCircle = ({ score, size, strokeWidth, duration = 1500 }) => {
         fontSize="14"
         fill="#3D497A"
       >
-        {t('my_score')}
+        <FormattedMessage id="my_score" />
       </text>
     </svg>
   );

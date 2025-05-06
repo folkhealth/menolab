@@ -125,25 +125,25 @@ export default function Menoscore({scoreJson, scoreSummary}) {
               <span className={index >= 0 ? 'active' : ''}></span>
             </div>
             <div className={`item item1 ${index >= 0 ? 'active' : ''}`} style={{left: '64px', textIndent: -(premenopauseWidth)}}>
-              <span id="premenopause">{t('premenopause')}</span>
+              <span id="premenopause"><FormattedMessage id='premenopause' /></span>
             </div>
             <div className="line-big" style={{left: '20px', width: `${lineWidth}px`}}>
               <span className={index > 0 ? 'active' : ''} style={{transitionDelay: "250ms"}}></span>
             </div>
             <div className={`item item2 ${index > 0 ? 'active' : ''}`}  style={{left: `${lineWidth + 84}px`, textIndent: -(perimenopauseWidth)}}>
-              <span id="perimenopause">{t('perimenopause')}</span>
+              <span id="perimenopause"><FormattedMessage id='perimenopause' /></span>
             </div>
             <div className="line-big" style={{left: `40px`, width: `${lineWidth}px`}}>
               <span className={index > 1 ? 'active' : ''} style={{transitionDelay: "750ms"}}></span>
             </div>
             <div className={`item item3 ${index > 1 ? 'active' : ''}`}  style={{left: `${lineWidth*2 + 104}px`, textIndent: -(menopauseWidth)}}>
-              <span id="menopause">{t('menopause')}</span>
+              <span id="menopause"><FormattedMessage id='menopause' /></span>
             </div>
             <div className="line-big" style={{left: `60px`, width: `${lineWidth}px`}}>
               <span className={index > 2 ? 'active' : ''} style={{transitionDelay: "1250ms"}}></span>
             </div>
             <div className={`item item4 ${index > 2 ? 'active' : ''}`}  style={{left: `${lineWidth*3 + 124}px`, textIndent: -(postmenopauseWidth)}}>
-              <span id="postmenopause">{t('postmenopause')}</span>
+              <span id="postmenopause"><FormattedMessage id='postmenopause' /></span>
             </div>
             <div className="top-arrow">
               <svg width="60" height="12" viewBox="0 0 60 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -189,7 +189,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                   </clipPath>
                 </defs>
               </svg>
-              <span>{t('become_member')}</span>
+              <span><FormattedMessage id='become_member' /></span>
             </a>
             {
               index > 0 && (
@@ -199,7 +199,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                   className="button button--secondary"
                   onClick={() => trackEvent(`Dashboard-Stage Click on ${getTranslatedMessage('learn_about_stage')} button`, 'Monepause stage section')}
                 >
-                  <span>{t('learn_about_stage')}</span>
+                  <span><FormattedMessage id='learn_about_stage' /></span>
                   <svg width="16" height="16" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M4.66602 9.99996H16.3327M16.3327 9.99996L10.4993 4.16663M16.3327 9.99996L10.4993 15.8333"
@@ -273,7 +273,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                     </clipPath>
                   </defs>
                 </svg>
-                <span>{t('become_member')}</span>
+                <span><FormattedMessage id='become_member' /></span>
               </a>
               <a
                 href={getTranslatedMessage("become_member_link", {})}
@@ -281,7 +281,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                 className="button button--secondary"
                 onClick={() => trackEvent(`Dashboard-Score Click on ${getTranslatedMessage('discover_membership_textlink')} button`, 'Monepause Score section')}
               >
-                <span>{t('discover_membership_textlink')}</span>
+                <span><FormattedMessage id='discover_membership_textlink' /></span>
                 <svg width="16" height="16" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M4.66602 9.99996H16.3327M16.3327 9.99996L10.4993 4.16663M16.3327 9.99996L10.4993 15.8333"
@@ -303,8 +303,8 @@ export default function Menoscore({scoreJson, scoreSummary}) {
               {scoreJson.keySymptoms.symptomstitle}
             </div>
             <div className="intro">
-              <h2>{t('symptomsTitle')}</h2>
-              <div className="intro-text">{t('symptomsDescription')}</div>
+              <h2><FormattedMessage id='symptomsTitle' /></h2>
+              <div className="intro-text"><FormattedMessage id='symptomsDescription' /></div>
             </div>
             {(scoreJson.keySymptoms.mostImpactful.length > 0 || scoreJson.keySymptoms.moderateImpact.length > 0) && (
               <div className="action-buttons">
@@ -316,7 +316,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                       setCurrentTab('high')
                     }}
                   >
-                    {t('high_impact')}
+                    <span><FormattedMessage id='high_impact' /></span>
                   </button>
                 )}
                 {scoreJson.keySymptoms.moderateImpact.length > 0 && (
