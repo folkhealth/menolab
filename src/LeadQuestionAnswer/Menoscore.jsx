@@ -240,16 +240,16 @@ export default function Menoscore({scoreJson, scoreSummary}) {
               index > -1 && (
                 <div className="meno-stage-stats">
                   <div className="percent">
-                    {index === 0 && t('premenopause_percentage')}
-                    {index === 1 && t('perimenopause_percentage')}
-                    {index === 2 && t('menopause_percentage')}
-                    {index === 3 && t('postmenopause_percentage')}
+                    {index === 0 && <FormattedMessage id="premenopause_percentage" />}
+                    {index === 1 && <FormattedMessage id="perimenopause_percentage" />}
+                    {index === 2 && <FormattedMessage id="menopause_percentage" />}
+                    {index === 3 && <FormattedMessage id="postmenopause_percentage" />}
                   </div>
                   <div className="text">
-                    {index === 0 && t('premenopause_insights')}
-                    {index === 1 && t('perimenopause_insights')}
-                    {index === 2 && t('menopause_insights')}
-                    {index === 3 && t('postmenopauseinsights')}
+                    {index === 0 && <FormattedMessage id="premenopause_insights" />}
+                    {index === 1 && <FormattedMessage id="perimenopause_insights" />}
+                    {index === 2 && <FormattedMessage id="menopause_insights" />}
+                    {index === 3 && <FormattedMessage id="postmenopauseinsights" />}
                   </div>
                 </div>
               )
