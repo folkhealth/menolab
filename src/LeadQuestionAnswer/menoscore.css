@@ -377,6 +377,7 @@
   padding: 32px 0 24px 0;
   position: sticky;
   top: 0;
+  z-index: 1;
 }
 #symptoms  .action-buttons .button{
   font-family: "SofiaPro-Medium";

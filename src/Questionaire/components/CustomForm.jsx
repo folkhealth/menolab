@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import '../styles/customForm.css'
 import ActionArea from "./ActionArea.jsx";
-import { FormattedMessage } from "react-intl";
+import { useTranslate } from "@tolgee/react";
+
 export default function CustomForm({
   question,
   helper,
@@ -15,6 +16,7 @@ export default function CustomForm({
   dataPointName,
   userName,
 }){
+  const { t } = useTranslate();
   const [focused, setFocused] = useState(false);
   const [value, setValue] = useState("");
   const [fullValue, setFullValue] = useState("");
@@ -84,7 +86,7 @@ export default function CustomForm({
                       onKeyDown={handleKeyPress}
                       enterKeyHint="next"
                     />
-                    <label><FormattedMessage id="first_name" /></label>
+                    <label>{t('first_name')}</label>
                   </div>
                 </div>
               ) : (type === "email" ? (
@@ -141,7 +143,7 @@ export default function CustomForm({
                               <label>{field?.label}</label>
                               {birthDateError && (
                                 <div className="input-error">
-                                  <FormattedMessage id="birthYearError" />
+                                  {t('birthYearError')}
                                 </div>
                               )}
                             </div>

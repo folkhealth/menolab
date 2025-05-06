@@ -1,5 +1,4 @@
 import "./styles/sidebar.css"
-import { FormattedMessage } from "react-intl";
 import mixpanel from "mixpanel-browser";
 import { useTranslate } from "@tolgee/react";
 
@@ -57,8 +56,7 @@ export default function SideBar({scoreSummary}) {
                   document.getElementById('whats_next').scrollIntoView({behavior: "smooth"})
                 }}
         >
-          {/*{t("whats_next_sidebar_title")}*/}
-          <FormattedMessage id="whats_next_sidebar_title"/>
+          {t("whats_next_sidebar_title")}
         </button>
         <button className="menuLink"
                 onClick={() => {
@@ -66,10 +64,8 @@ export default function SideBar({scoreSummary}) {
                   document.getElementById('book_call').scrollIntoView({behavior: "smooth"})
                 }}
         >
-          {/*{t("book_call_sidebar_title")}*/}
-          <FormattedMessage id="book_call_sidebar_title"/>
+          {t("book_call_sidebar_title")}
         </button>
-        <div style={{display: 'none'}}>{t("book_call_sidebar_title")}</div>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { mockData } from './mockData';
+import mixpanel from "mixpanel-browser";
 import Page from "./components/Page.jsx";
 import './Questionaire.css'
 import HeaderArea from "./components/HeaderArea.jsx";
@@ -20,6 +21,7 @@ export default function Questionaire() {
   const originalHeight = useRef(0);
   const [extraHeight, setExtraHeight] = useState(window.innerWidth < 990 ? 56 : 64);
   useEffect(() => {
+    mixpanel.track('[Page View] Questionnaire', {source: 'Questionnaire'})
     const handleResize = () => {
       setExtraHeight(window.innerWidth < 990 ? 56 : 64);
     };
@@ -68,6 +70,7 @@ export default function Questionaire() {
       setProgressPages([...progressPages, pageNo])
       setCurrentPage(questionnaire.info?.find((page) => page.position === pageNo));
     }
+    mixpanel.track(`[Page ${pageNo} View] Questionnaire`, {source: 'Questionnaire'})
     if(type !== "intro" && type !== "media") {
       const data = {
         "SubmissionID": submissionId,
@@ -102,8 +105,10 @@ export default function Questionaire() {
   }
 
   const back = () => {
+    const pageNo = questionnaire.info.find(page => page.position === progressPages[progressPages.length - 2]);
     setCurrentPage(questionnaire.info.find(page => page.position === progressPages[progressPages.length - 2]));
     setProgressPages(prevItems => prevItems.slice(0, -1));
+    mixpanel.track(`[Page ${pageNo} View] Questionnaire`, {source: 'Questionnaire'})
   }
   if( !questionnaire){
     return (<h1></h1>)

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import {FormattedMessage} from "react-intl";
+import { useTranslate } from "@tolgee/react";
 
 const ScoreCircle = ({ score, size, strokeWidth, duration = 1500 }) => {
+  const { t } = useTranslate();
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
   const [progress, setProgress] = useState(circumference);
@@ -75,7 +77,7 @@ const ScoreCircle = ({ score, size, strokeWidth, duration = 1500 }) => {
         fontSize="14"
         fill="#3D497A"
       >
-        <FormattedMessage id="my_score" />
+        {t('my_score')}
       </text>
     </svg>
   );
