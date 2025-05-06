@@ -36,7 +36,6 @@ export default function Menoscore({scoreJson, scoreSummary}) {
   }
   const stages = [getTranslatedMessage("premenopause", {}), getTranslatedMessage("perimenopause", {}),  getTranslatedMessage("menopause", {}), getTranslatedMessage("postmenopause", {})];
   useEffect(() => {
-    mixpanel.track('[Page View] Dashboard', {source: 'Dashboard'})
     setPremenopauseWidth(-6 + document.getElementById('premenopause').offsetWidth / 2);
     setPerimenopauseWidth(-6 + document.getElementById('perimenopause').offsetWidth / 2);
     setMenopauseWidth(-6 + document.getElementById('menopause').offsetWidth / 2);
@@ -88,7 +87,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
   } else if(index === 3){
     stageMoreLink = getTranslatedMessage('postmenopause_link', {})
   }
-
+console.log(index)
   return (
     <div className="results">
       <div className="topic-header">
@@ -173,7 +172,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
           </div>
           <div className="meno-stage-action-buttons">
             <a
-              href={t("become_member_link")}
+              href={getTranslatedMessage("become_member_link", {})}
               target="_blank"
               className="button whatsapp"
               onClick={() => trackEvent(`Dashboard-Stage Click on ${getTranslatedMessage('become_member')} button`, 'Monepause stage section')}
@@ -257,7 +256,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
             }
             <div className="meno-stage-action-buttons meno-score-action-buttons">
               <a
-                href={t("become_member_link")}
+                href={getTranslatedMessage("become_member_link", {})}
                 target="_blank"
                 className="button whatsapp"
                 onClick={() => trackEvent(`Dashboard-Score Click on ${getTranslatedMessage('become_member')} button`, 'Monepause Score section')}
@@ -277,7 +276,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                 <span>{t('become_member')}</span>
               </a>
               <a
-                href={t("become_member_link")}
+                href={getTranslatedMessage("become_member_link", {})}
                 target="_blank"
                 className="button button--secondary"
                 onClick={() => trackEvent(`Dashboard-Score Click on ${getTranslatedMessage('discover_membership_textlink')} button`, 'Monepause Score section')}
@@ -328,7 +327,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                       setCurrentTab('moderate')
                     }}
                   >
-                    {t('low_impact')}
+                    <FormattedMessage id="low_impact"/>
                   </button>
                 )}
               </div>
@@ -353,13 +352,13 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                               strokeLinejoin="round"/>
                       </svg>
                     )}
-                    {t(`${s.dataPointName.replaceAll(' ', '')}_name`)}
+                    <FormattedMessage id={`${s.dataPointName.replaceAll(' ', '')}_name`} />
                   </div>
                   <div className="description"
                        dangerouslySetInnerHTML={{__html: getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_description`, {})}}/>
                   <div style={{display: "flex", gap: '16px', flexWrap: 'wrap'}}>
                     <a
-                      href={t("become_member_link")}
+                      href={getTranslatedMessage('become_member_link', {})}
                       target="_blank"
                       className="button whatsapp"
                       onClick={() => trackEvent(`Dashboard Impactful Symptom Click on ${getTranslatedMessage('talk_to_doctor')} button`, 'Impactful Symptom')}
@@ -376,7 +375,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                           </clipPath>
                         </defs>
                       </svg>
-                      <span>{t('talk_to_doctor')}</span>
+                      <span><FormattedMessage id="talk_to_doctor"/></span>
                     </a>
                     <a
                       href={getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_link`, {})}
@@ -384,7 +383,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                       className="button button--secondary"
                       onClick={() => trackEvent(`Dashboard Impactful Symptom Click on ${getTranslatedMessage('symptom_link_text')} button`, 'Impactful Symptom')}
                     >
-                      <span>{t('symptom_link_text')}</span>
+                      <span><FormattedMessage id="symptom_link_text"/></span>
                       <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M4.66602 9.99996H16.3327M16.3327 9.99996L10.4993 4.16663M16.3327 9.99996L10.4993 15.8333"
@@ -409,7 +408,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                       <path d="M22 12H18L15 21L9 3L6 12H2" stroke="#3D497A" strokeWidth="2" strokeLinecap="round"
                             strokeLinejoin="round"/>
                     </svg>
-                    {t(`${s.dataPointName.replaceAll(' ', '')}_name`)}
+                    <FormattedMessage id={`${s.dataPointName.replaceAll(' ', '')}_name`}/>
                   </div>
                   <div className="description"
                        dangerouslySetInnerHTML={{__html: getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_description`, {})}}/>
@@ -433,7 +432,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                         </defs>
                       </svg>
 
-                      <span>{t('talk_to_doctor')}</span>
+                      <span><FormattedMessage id="talk_to_doctor"/></span>
                     </a>
                     <a
                       href={getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_link`, {})}
@@ -441,7 +440,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                       className="button button--secondary"
                       onClick={() => trackEvent(`Dashboard Moderate Symptom Click on ${getTranslatedMessage('symptom_link_text')} button`, 'Moderate Symptom')}
                     >
-                      <span>{t('symptom_link_text')}</span>
+                      <span><FormattedMessage id="symptom_link_text"/></span>
                       <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M4.66602 9.99996H16.3327M16.3327 9.99996L10.4993 4.16663M16.3327 9.99996L10.4993 15.8333"
@@ -461,23 +460,23 @@ export default function Menoscore({scoreJson, scoreSummary}) {
         <div className="box" id="whats_next">
           <div className="content">
             <div className="title"
-                 dangerouslySetInnerHTML={{__html: t('membership_title')}}/>
+                 dangerouslySetInnerHTML={{__html: getTranslatedMessage("membership_title", {})}}/>
             <div className="description"
-                 dangerouslySetInnerHTML={{__html: t('membership_bullets')}}/>
+                 dangerouslySetInnerHTML={{__html: getTranslatedMessage("membership_bullets", {})}}/>
             <div className="actions">
               <a
-                href={t('membership_ctalink')}
+                href={getTranslatedMessage('membership_ctalink', {})}
                 target="_blank"
                 className="button button--secondary"
-                onClick={() => trackEvent(`Dashboard What's Next Click on ${t('membership_cta')} button`, 'Next steps section')}
+                onClick={() => trackEvent(`Dashboard What's Next Click on ${getTranslatedMessage('membership_cta')} button`, 'Next steps section')}
               >
-                <span>{t('membership_cta')}</span>
+                <span><FormattedMessage id="membership_cta"/></span>
               </a>
             </div>
           </div>
           <div className="info-box">
-            <div className="stats">{t('membership_percentage')}</div>
-            <div className="stats-desc">{t('membership_insights')}</div>
+            <div className="stats"><FormattedMessage id='membership_percentage'/></div>
+            <div className="stats-desc"><FormattedMessage id="membership_insights"/></div>
           </div>
         </div>
         <div className="box" id="book_call">
@@ -493,7 +492,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                 className="button button--primary"
                 onClick={() => trackEvent(`Dashboard Book a call Click on ${getTranslatedMessage('book_call')} button`, 'Book a call section')}
               >
-                <span>{t('book_call')}</span>
+                <span><FormattedMessage id="book_call"/></span>
               </a>
             </div>
           </div>
@@ -501,7 +500,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
             <img src={virginiaImage}/>
             <div className="dr-info">
               <div className="dr-name">Dr. Virginia Lazar</div>
-              <div className="dr-desc">{t('book_call_dr_info')}</div>
+              <div className="dr-desc"><FormattedMessage id="book_call_dr_info"/></div>
             </div>
 
           </div>

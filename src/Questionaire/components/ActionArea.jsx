@@ -33,8 +33,8 @@ export default function ActionArea({currentPage, next, back, dataPointId, dataPo
               <path d="M15.8327 10.0001H4.16602M4.16602 10.0001L9.99935 15.8334M4.16602 10.0001L9.99935 4.16675"
                     stroke="#3D497A" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            <span>{t('back')}</span>
-            {/*<FormattedMessage id="back" />*/}
+            {/*<span>{t('back')}</span>*/}
+            <FormattedMessage id="back" />
           </button>
         )
       }
@@ -45,8 +45,8 @@ export default function ActionArea({currentPage, next, back, dataPointId, dataPo
             disabled={!isAvailable}
             onClick={() => next(currentPage.jump ? currentPage.jump : currentPage.position + 1, dataPointId, dataPointName, a, type)}
           >
-            <span>{t('continue')}</span>
-            {/*<FormattedMessage id="continue" />*/}
+            {/*<span>{t('continue')}</span>*/}
+            <FormattedMessage id="continue" />
             <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M4.66602 9.99996H16.3327M16.3327 9.99996L10.4993 4.16663M16.3327 9.99996L10.4993 15.8333"
