@@ -389,6 +389,9 @@
   letter-spacing: -0.24px;
   outline: 0;
 }
+.more-link.button.button--secondary{
+  padding: 8px 16px 8px 24px;
+}
 #symptoms  .action-buttons .button.button--secondary{
   border: 1px solid var(--main-blue);
   color: var(--main-blue);

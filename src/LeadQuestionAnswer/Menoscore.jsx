@@ -196,7 +196,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                 <a
                   href={stageMoreLink}
                   target="_blank"
-                  className="button button--secondary"
+                  className="button button--secondary more-link"
                   onClick={() => trackEvent(`Dashboard-Stage Click on ${getTranslatedMessage('learn_about_stage')} button`, 'Monepause stage section')}
                 >
                   <span><FormattedMessage id='learn_about_stage' /></span>
@@ -278,7 +278,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
               <a
                 href={getTranslatedMessage("become_member_link", {})}
                 target="_blank"
-                className="button button--secondary"
+                className="button button--secondary more-link"
                 onClick={() => trackEvent(`Dashboard-Score Click on ${getTranslatedMessage('discover_membership_textlink')} button`, 'Monepause Score section')}
               >
                 <span><FormattedMessage id='discover_membership_textlink' /></span>
