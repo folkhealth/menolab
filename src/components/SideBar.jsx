@@ -57,7 +57,7 @@ export default function SideBar({scoreSummary}) {
                   document.getElementById('whats_next').scrollIntoView({behavior: "smooth"})
                 }}
         >
-          {/*{t("whats_next_sidebar_title")}*/}
+          <span style={{display: 'none'}}>{t("whats_next_sidebar_title")}</span>
           <FormattedMessage id="whats_next_sidebar_title"/>
         </button>
         <button className="menuLink"
@@ -66,7 +66,7 @@ export default function SideBar({scoreSummary}) {
                   document.getElementById('book_call').scrollIntoView({behavior: "smooth"})
                 }}
         >
-          {/*{t("book_call_sidebar_title")}*/}
+          <span style={{display: 'none'}}>{t("book_call_sidebar_title")}</span>
           <FormattedMessage id="book_call_sidebar_title"/>
         </button>
       </div>
