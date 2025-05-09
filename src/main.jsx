@@ -7,7 +7,7 @@ import { Amplify } from "aws-amplify";
 import outputs from "../amplify_outputs.json";
 import EnglishMessages from "./locales/en/translations.json";
 import RomanianMessages from "./locales/ro/translations.json";
-import { Tolgee, DevTools, TolgeeProvider, FormatSimple } from "@tolgee/react";
+import { Tolgee, DevTools, TolgeeProvider, FormatSimple, BackendFetch } from "@tolgee/react";
 
 const messages = {
   en: EnglishMessages,
@@ -51,6 +51,8 @@ const Root = () => {
     };
   }, [language]);
   const tolgee = Tolgee()
+    .use(BackendFetch({ prefix: 'https://cdn.tolg.ee/de83316f2e94ecb765e9e825d8435a0f' }))
+    .use(DevTools())
     .use(FormatSimple())
     .init({
       language: language ?? 'ro',
