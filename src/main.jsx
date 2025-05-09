@@ -51,7 +51,6 @@ const Root = () => {
     };
   }, [language]);
   const tolgee = Tolgee()
-    .use(DevTools())
     .use(FormatSimple())
     .init({
       language: language ?? 'ro',
@@ -61,7 +60,6 @@ const Root = () => {
 
       staticData: {}
     });
-  console.log('Tolgee instance:', tolgee);
   return (
     <IntlProvider locale={language} messages={messages[language]}>
       <React.StrictMode>
