@@ -88,8 +88,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
   } else if(index === 3){
     stageMoreLink = getTranslatedMessage('postmenopause_link', {})
   }
-  console.log(import.meta.env.VITE_APP_TOLGEE_API_URL);
-  console.log(import.meta.env.VITE_APP_TOLGEE_API_KEY);
+
   return (
     <div className="results">
       <div className="topic-header">

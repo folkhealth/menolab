@@ -51,7 +51,6 @@ const Root = () => {
     };
   }, [language]);
   const tolgee = Tolgee()
-    .use(DevTools())
     .use(FormatSimple())
     .init({
       language: language ?? 'ro',
