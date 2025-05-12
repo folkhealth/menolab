@@ -274,7 +274,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                     </clipPath>
                   </defs>
                 </svg>
-                <span><FormattedMessage id='become_member' /></span>
+                <span>{t('become_member')}</span>
               </a>
               <a
                 href={getTranslatedMessage("become_member_link", {})}
@@ -282,7 +282,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                 className="button button--secondary more-link"
                 onClick={() => trackEvent(`Dashboard-Score Click on ${getTranslatedMessage('discover_membership_textlink')} button`, 'Monepause Score section')}
               >
-                <span><FormattedMessage id='discover_membership_textlink' /></span>
+                <span>{t('discover_membership_textlink')}</span>
                 <svg width="16" height="16" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M4.66602 9.99996H16.3327M16.3327 9.99996L10.4993 4.16663M16.3327 9.99996L10.4993 15.8333"
@@ -304,8 +304,8 @@ export default function Menoscore({scoreJson, scoreSummary}) {
               {scoreJson.keySymptoms.symptomstitle}
             </div>
             <div className="intro">
-              <h2><FormattedMessage id='symptomsTitle' /></h2>
-              <div className="intro-text"><FormattedMessage id='symptomsDescription' /></div>
+              <h2>{t('symptomsTitle')}</h2>
+              <div className="intro-text">{t('symptomsDescription')}</div>
             </div>
             {(scoreJson.keySymptoms.mostImpactful.length > 0 || scoreJson.keySymptoms.moderateImpact.length > 0) && (
               <div className="action-buttons">
@@ -317,7 +317,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                       setCurrentTab('high')
                     }}
                   >
-                    <span><FormattedMessage id='high_impact' /></span>
+                    <span>{t('high_impact')}</span>
                   </button>
                 )}
                 {scoreJson.keySymptoms.moderateImpact.length > 0 && (
@@ -328,7 +328,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                       setCurrentTab('moderate')
                     }}
                   >
-                    <FormattedMessage id="low_impact"/>
+                    <span>{t('low_impact')}</span>
                   </button>
                 )}
               </div>
@@ -353,7 +353,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                               strokeLinejoin="round"/>
                       </svg>
                     )}
-                    <FormattedMessage id={`${s.dataPointName.replaceAll(' ', '')}_name`} />
+                    {t(`${s.dataPointName.replaceAll(' ', '')}_name`)}
                   </div>
                   <div className="description"
                        dangerouslySetInnerHTML={{__html: getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_description`, {})}}/>
@@ -376,7 +376,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                           </clipPath>
                         </defs>
                       </svg>
-                      <span><FormattedMessage id="talk_to_doctor"/></span>
+                      <span>{t('talk_to_doctor')}</span>
                     </a>
                     <a
                       href={getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_link`, {})}
@@ -384,7 +384,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                       className="button button--secondary"
                       onClick={() => trackEvent(`Dashboard Impactful Symptom Click on ${getTranslatedMessage('symptom_link_text')} button`, 'Impactful Symptom')}
                     >
-                      <span><FormattedMessage id="symptom_link_text"/></span>
+                      <span>{t('symptom_link_text')}</span>
                       <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M4.66602 9.99996H16.3327M16.3327 9.99996L10.4993 4.16663M16.3327 9.99996L10.4993 15.8333"
@@ -409,7 +409,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                       <path d="M22 12H18L15 21L9 3L6 12H2" stroke="#3D497A" strokeWidth="2" strokeLinecap="round"
                             strokeLinejoin="round"/>
                     </svg>
-                    <FormattedMessage id={`${s.dataPointName.replaceAll(' ', '')}_name`}/>
+                    {t(`${s.dataPointName.replaceAll(' ', '')}_name`)}/>
                   </div>
                   <div className="description"
                        dangerouslySetInnerHTML={{__html: getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_description`, {})}}/>
@@ -433,7 +433,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                         </defs>
                       </svg>
 
-                      <span><FormattedMessage id="talk_to_doctor"/></span>
+                      <span>{t('talk_to_doctor')}</span>
                     </a>
                     <a
                       href={getTranslatedMessage(`${s.dataPointName?.replaceAll(" ", "")}_link`, {})}
@@ -441,7 +441,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                       className="button button--secondary"
                       onClick={() => trackEvent(`Dashboard Moderate Symptom Click on ${getTranslatedMessage('symptom_link_text')} button`, 'Moderate Symptom')}
                     >
-                      <span><FormattedMessage id="symptom_link_text"/></span>
+                      <span>{t('symptom_link_text')}</span>
                       <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M4.66602 9.99996H16.3327M16.3327 9.99996L10.4993 4.16663M16.3327 9.99996L10.4993 15.8333"
@@ -471,13 +471,13 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                 className="button button--secondary"
                 onClick={() => trackEvent(`Dashboard What's Next Click on ${getTranslatedMessage('membership_cta')} button`, 'Next steps section')}
               >
-                <span><FormattedMessage id="membership_cta"/></span>
+                <span>{t('membership_cta')}</span>
               </a>
             </div>
           </div>
           <div className="info-box">
-            <div className="stats"><FormattedMessage id='membership_percentage'/></div>
-            <div className="stats-desc"><FormattedMessage id="membership_insights"/></div>
+            <div className="stats">{t('membership_percentage')}</div>
+            <div className="stats-desc">{t('membership_insights')}</div>
           </div>
         </div>
         <div className="box" id="book_call">
@@ -493,7 +493,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                 className="button button--primary"
                 onClick={() => trackEvent(`Dashboard Book a call Click on ${getTranslatedMessage('book_call')} button`, 'Book a call section')}
               >
-                <span><FormattedMessage id="book_call"/></span>
+                <span>{t('book_call')}</span>
               </a>
             </div>
           </div>
@@ -501,7 +501,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
             <img src={virginiaImage}/>
             <div className="dr-info">
               <div className="dr-name">Dr. Virginia Lazar</div>
-              <div className="dr-desc"><FormattedMessage id="book_call_dr_info"/></div>
+              <div className="dr-desc">{t('book_call_dr_info')}</div>
             </div>
 
           </div>
