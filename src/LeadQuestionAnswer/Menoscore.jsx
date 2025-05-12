@@ -126,25 +126,25 @@ export default function Menoscore({scoreJson, scoreSummary}) {
               <span className={index >= 0 ? 'active' : ''}></span>
             </div>
             <div className={`item item1 ${index >= 0 ? 'active' : ''}`} style={{left: '64px', textIndent: -(premenopauseWidth)}}>
-              <span id="premenopause"><FormattedMessage id='premenopause' /></span>
+              <span id="premenopause">{t('premenopause')}</span>
             </div>
             <div className="line-big" style={{left: '20px', width: `${lineWidth}px`}}>
               <span className={index > 0 ? 'active' : ''} style={{transitionDelay: "250ms"}}></span>
             </div>
             <div className={`item item2 ${index > 0 ? 'active' : ''}`}  style={{left: `${lineWidth + 84}px`, textIndent: -(perimenopauseWidth)}}>
-              <span id="perimenopause"><FormattedMessage id='perimenopause' /></span>
+              <span id="perimenopause">{t('perimenopause')}</span>
             </div>
             <div className="line-big" style={{left: `40px`, width: `${lineWidth}px`}}>
               <span className={index > 1 ? 'active' : ''} style={{transitionDelay: "750ms"}}></span>
             </div>
             <div className={`item item3 ${index > 1 ? 'active' : ''}`}  style={{left: `${lineWidth*2 + 104}px`, textIndent: -(menopauseWidth)}}>
-              <span id="menopause"><FormattedMessage id='menopause' /></span>
+              <span id="menopause">{t('menopause')}</span>
             </div>
             <div className="line-big" style={{left: `60px`, width: `${lineWidth}px`}}>
               <span className={index > 2 ? 'active' : ''} style={{transitionDelay: "1250ms"}}></span>
             </div>
             <div className={`item item4 ${index > 2 ? 'active' : ''}`}  style={{left: `${lineWidth*3 + 124}px`, textIndent: -(postmenopauseWidth)}}>
-              <span id="postmenopause"><FormattedMessage id='postmenopause' /></span>
+              <span id="postmenopause">{t('postmenopause')}</span>
             </div>
             <div className="top-arrow">
               <svg width="60" height="12" viewBox="0 0 60 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -190,7 +190,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                   </clipPath>
                 </defs>
               </svg>
-              <span><FormattedMessage id='become_member' /></span>
+              <span>{t('become_member')}</span>
             </a>
             {
               index > 0 && (
@@ -200,7 +200,7 @@ export default function Menoscore({scoreJson, scoreSummary}) {
                   className="button button--secondary more-link"
                   onClick={() => trackEvent(`Dashboard-Stage Click on ${getTranslatedMessage('learn_about_stage')} button`, 'Monepause stage section')}
                 >
-                  <span><FormattedMessage id='learn_about_stage' /></span>
+                  <span>{t('learn_about_stage')}</span>
                   <svg width="16" height="16" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M4.66602 9.99996H16.3327M16.3327 9.99996L10.4993 4.16663M16.3327 9.99996L10.4993 15.8333"
@@ -241,16 +241,16 @@ export default function Menoscore({scoreJson, scoreSummary}) {
               index > -1 && (
                 <div className="meno-stage-stats">
                   <div className="percent">
-                    {index === 0 && <FormattedMessage id="premenopause_percentage" />}
-                    {index === 1 && <FormattedMessage id="perimenopause_percentage" />}
-                    {index === 2 && <FormattedMessage id="menopause_percentage" />}
-                    {index === 3 && <FormattedMessage id="postmenopause_percentage" />}
+                    {index === 0 && t('premenopause_percentage')}
+                    {index === 1 && t('perimenopause_percentage')}
+                    {index === 2 && t('menopause_percentage')}
+                    {index === 3 && t('postmenopause_percentage')}
                   </div>
                   <div className="text">
-                    {index === 0 && <FormattedMessage id="premenopause_insights" />}
-                    {index === 1 && <FormattedMessage id="perimenopause_insights" />}
-                    {index === 2 && <FormattedMessage id="menopause_insights" />}
-                    {index === 3 && <FormattedMessage id="postmenopauseinsights" />}
+                    {index === 0 && t('premenopause_insights')}
+                    {index === 1 && t('perimenopause_insights')}
+                    {index === 2 && t('menopause_insights')}
+                    {index === 3 && t('postmenopauseinsights')}
                   </div>
                 </div>
               )
